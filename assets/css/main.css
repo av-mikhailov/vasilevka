@@ -51,28 +51,28 @@ main a:hover {
 
 @font-face {
   font-family: "Philosopher";
-  src: url("../../fonts/philosopher/Philosopher-Regular.ttf") format("truetype");
+  src: url("../fonts/philosopher/Philosopher-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Philosopher";
-  src: url("../../fonts/philosopher/Philosopher-Bold.ttf") format("truetype");
+  src: url("../fonts/philosopher/Philosopher-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Philosopher";
-  src: url("../../fonts/philosopher/Philosopher-Italic.ttf") format("truetype");
+  src: url("../fonts/philosopher/Philosopher-Italic.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Philosopher";
-  src: url("../../fonts/philosopher/Philosopher-BoldItalic.ttf") format("truetype");
+  src: url("../fonts/philosopher/Philosopher-BoldItalic.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
   font-display: swap;

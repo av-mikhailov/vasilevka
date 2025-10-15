@@ -37,28 +37,28 @@ main {
 
 @font-face {
     font-family: 'Philosopher'; // Единое имя для всех начертаний
-    src: url('../../fonts/philosopher/Philosopher-Regular.ttf') format('truetype');
+    src: url('../fonts/philosopher/Philosopher-Regular.ttf') format('truetype');
     font-weight: 400; // Regular
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Philosopher';
-    src: url('../../fonts/philosopher/Philosopher-Bold.ttf') format('truetype');
+    src: url('../fonts/philosopher/Philosopher-Bold.ttf') format('truetype');
     font-weight: 700; // Bold
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Philosopher';
-    src: url('../../fonts/philosopher/Philosopher-Italic.ttf') format('truetype');
+    src: url('../fonts/philosopher/Philosopher-Italic.ttf') format('truetype');
     font-weight: 400; // Italic (Regular)
     font-style: italic;
     font-display: swap;
 }
 @font-face {
     font-family: 'Philosopher';
-    src: url('../../fonts/philosopher/Philosopher-BoldItalic.ttf') format('truetype');
+    src: url('../fonts/philosopher/Philosopher-BoldItalic.ttf') format('truetype');
     font-weight: 700; // Bold Italic
     font-style: italic;
     font-display: swap;
