@@ -34,14 +34,13 @@ $nav-mobile-bg: vars.$color-white;          // Цвет фона мобильн�
             list-style: none;
             margin: 0;
             padding: 0;
-            display: flex;
+            display: flex; /* По умолчанию для десктопа */
         }
 
         .nav-link {
             padding: 10px 15px;
             font-size: 16px;
             font-weight: 400;
-            // Цвет задается в медиазапросах
             transition: 0.3s;
             
             &:hover, &.active {
@@ -71,7 +70,7 @@ $nav-mobile-bg: vars.$color-white;          // Цвет фона мобильн�
     
     // ========== Стили Кнопки-бургера ==========
     .mobile-nav-toggle {
-        color: $nav-color-default; // Белая иконка по умолчанию
+        color: $nav-color-default; 
         font-size: 28px;
         line-height: 0;
         cursor: pointer;
@@ -85,7 +84,6 @@ $nav-mobile-bg: vars.$color-white;          // Цвет фона мобильн�
 }
 
 // ========== Стили при скролле (Класс на <body>) ==========
-// ИНВЕРСИЯ ЦВЕТОВ: Хедер темный, ссылки белые
 body.scrolled {
     .header {
         background-color: rgba(40, 37, 32, 0.94);
@@ -93,27 +91,32 @@ body.scrolled {
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
     }
     
-    // Ссылки и иконка бургера становятся белыми
     .navmenu a, .header .mobile-nav-toggle {
         color: $nav-color-scrolled; 
     }
     .header .logo img {
-        color: $nav-color-scrolled; // Иконка SVG белая
+        color: $nav-color-scrolled; 
     }
     
     .navmenu a:hover, .navmenu a.active {
-        color: vars.$color-primary; // Акцентный цвет
+        color: vars.$color-primary; 
     }
 }
 
+// =================================================================
 // ========== Стили Навигационного Меню (Десктоп >= 1200px) ==========
+// =================================================================
 @media (min-width: 1200px) {
+    
+    .navmenu ul .mobile-contact-wrapper {
+        display: none !important; 
+    }
+    
     .navmenu {
         flex-grow: 1; 
         display: flex; 
         justify-content: center;
         
-        // УСТАНОВКА ЦВЕТА ССЫЛОК НА ДЕСКТОПЕ (БЕЛЫЙ)
         .nav-link {
             color: $nav-color-default; 
         }
@@ -131,35 +134,78 @@ body.scrolled {
     }
 }
 
-// ========== Стили Мобильного Меню (< 1200px) ==========
+// =================================================================
+// ========== Стили Мобильного Меню (< 1200px) - ВСЕ ИЗМЕНЕНИЯ ЗДЕСЬ ==========
+// =================================================================
 @media (max-width: 1199px) {
     
+    /* Стили для контейнера белого окна (UL) */
     .navmenu ul {
-        display: none; 
+        display: none; /* Скрывается по умолчанию */
         position: absolute;
         inset: 60px 20px 20px 20px; 
-        padding: 10px 0;
+        padding: 0; 
         margin: 0;
         border-radius: 6px;
-        background-color: $nav-mobile-bg; // Белый фон меню
+        background-color: $nav-mobile-bg; 
         box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
         overflow-y: auto;
         transition: 0.3s;
         z-index: 9998;
+        display: flex;             
+        flex-direction: column;    
+    }
+    
+    /* Делаем все LI блочными и добавляем разделитель */
+    .navmenu ul li {
+        display: block; 
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+    }
+    
+    .navmenu ul li:last-child {
+        border-bottom: none; 
     }
 
-    // УСТАНОВКА ЦВЕТА ССЫЛОК НА МОБИЛЬНЫХ (ТЕМНЫЙ)
+    // УСТАНОВКА ЦВЕТА И ПАДДИНГА ССЫЛОК
     .navmenu a {
-        color: $nav-dropdown-color; // Темный цвет ссылок
-        padding: 10px 20px;
+        color: $nav-dropdown-color; 
+        padding: 15px 20px; 
         font-size: 17px;
         font-weight: 500;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        display: block; 
         
         &:hover, &.active {
             color: vars.$color-primary;
+        }
+    }
+    
+    /* Стили для контейнера контактов в меню */
+    .navmenu ul .mobile-contact-wrapper {
+        border-bottom: none !important; 
+        background-color: vars.$color-light; 
+        margin-top: auto; 
+        
+        .contact-item {
+            padding: 0;
+        }
+        
+        h5 { 
+            font-size: 1rem; 
+            font-weight: 600; 
+            color: vars.$color-primary; 
+        }
+        
+        .bx { 
+            color: vars.$color-primary;
+            font-size: 15px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: $nav-dropdown-color; 
+            padding: 0; 
+            display: inline; 
+            font-size: 14px;
         }
     }
 
@@ -177,7 +223,7 @@ body.scrolled {
         }
         
         &.mobile-nav-active .navmenu a {
-            color: $nav-dropdown-color; /* ТЕМНЫЙ цвет ссылок */
+            color: $nav-dropdown-color; 
         }
     }
 
@@ -191,6 +237,6 @@ body.scrolled {
     }
 
     .mobile-nav-active .navmenu>ul {
-        display: block;
+        display: flex; /* Снова используем flex, потому что это корневой элемент меню */
     }
 }
