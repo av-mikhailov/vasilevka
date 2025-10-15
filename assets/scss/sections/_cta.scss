@@ -1,0 +1,138 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as *; 
+
+.cta {
+    padding: 60px 0;
+    background-color: vars.$color-light;
+
+    /* ---------------------------------------------------- */
+    /* Контейнер CTA (Белая плашка) */
+    /* ---------------------------------------------------- */
+    .cta-wrapper {
+        background-color: vars.$color-light-alt;
+        color: vars.$color-text;
+        
+        padding: 48px 64px; 
+        border-radius: 24px; 
+        box-shadow: inset 2px 2px 25px rgba(145, 122, 90, 0.1);
+        
+        position: relative; 
+        overflow: hidden; 
+        
+        @media (max-width: 991px) {
+            // Убеждаемся, что есть место для приклеенного изображения
+            padding-bottom: 300px; 
+        }
+        
+        @media (max-width: 767px) {
+            padding: 30px 20px;
+            padding-bottom: 250px; // Чуть меньше для очень маленьких экранов
+        }
+    }
+
+    .cta-title {
+        color: vars.$color-primary; 
+        font-weight: 400;
+        font-size: 36px;
+    }
+
+    .cta-description {
+        color: vars.$color-text;
+        font-size: 1rem;
+    }
+
+    .cta-advantages {
+        padding-left: 0;
+        
+        li {
+            font-size: 1rem;
+        }
+    }
+
+    .cta-icon {
+        margin-bottom: 5px;
+        font-size: 1.2rem;
+        line-height: 0.8;
+        color: vars.$color-primary;
+    }
+
+    /* ---------------------------------------------------- */
+    /* Кнопка */
+    /* ---------------------------------------------------- */
+    .btn-primary-custom {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 6px 24px;
+        background: vars.$color-accent;
+        color: vars.$color-white;
+        border-radius: 16px;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 400;
+        transition: 0.3s;
+        
+        &:hover {
+            background: vars.$color-accent-alt;
+            color: vars.$color-white;
+        }
+    }
+
+    /* ---------------------------------------------------- */
+    /* ПОЗИЦИОНИРОВАНИЕ КОЛОНКИ */
+    /* ---------------------------------------------------- */
+    .row .col-lg-6:last-child {
+        @media (min-width: 992px) {
+            position: relative; 
+        }
+    }
+
+    /* ---------------------------------------------------- */
+    /* Обертка для изображения */
+    /* ---------------------------------------------------- */
+    .cta-image-wrapper {
+        min-height: 350px; 
+        
+        @media (max-width: 991px) {
+            min-height: auto; 
+        }
+    }
+
+    /* ---------------------------------------------------- */
+    /* Само изображение */
+    /* ---------------------------------------------------- */
+    .cta-image {
+        width: auto; 
+        
+        object-fit: contain; 
+        
+        // Стили для мобильных и планшетов (по умолчанию, <= 991px):
+        position: absolute;
+        bottom: -48px; 
+        left: 50%;
+        
+        transform: translateX(-50%) scaleX(-1) !important; 
+        
+        display: block; 
+        margin: 0; 
+        
+        // Адаптация для мобильных (<768px)
+        @media (max-width: 767px) {
+            height: 280px; 
+        }
+
+        // Стили для планшетов и выше (768px - 991px)
+        @media (min-width: 768px) and (max-width: 991px) {
+            height: 400px;
+        }
+        
+        // Стили для десктопа (lg и выше)
+        @media (min-width: 992px) {
+            position: absolute; 
+            left: 50%; 
+            bottom: -90px; 
+            transform: translateX(-50%) scaleX(-1) !important; 
+            right: auto;
+            height: 470px; 
+        }
+    }
+}

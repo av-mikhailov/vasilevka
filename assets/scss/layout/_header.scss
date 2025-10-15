@@ -1,0 +1,196 @@
+@use '../abstracts/variables' as vars; 
+@use '../abstracts/mixins' as *; 
+
+// ========== ЦВЕТОВЫЕ ПЕРЕМЕННЫЕ ДЛЯ SCSS ==========
+$nav-color-default: vars.$color-white;      // Цвет ссылок на прозрачном фоне (Белый)
+$nav-color-scrolled: vars.$color-white;     // Цвет ссылок на темном фоне (Белый)
+$header-color-scrolled: vars.$color-text;   // Цвет фона хедера при скролле (Темный)
+$nav-dropdown-color: vars.$color-text;      // Цвет ссылок в мобильном меню (Темный)
+$nav-mobile-bg: vars.$color-white;          // Цвет фона мобильного меню (Белый)
+
+
+.header {
+    background-color: transparent;
+    padding: 6px 0;
+    transition: all 0.5s;
+    z-index: 997;
+    border-bottom: 1px solid color-mix(in srgb, $nav-color-default, transparent 90%);
+    // background-color: rgba(40, 37, 32, 0.1);
+    background-color: rgba(28, 28, 28, 0.3);
+    
+    // Логотип (SVG-иконка)
+    .logo img {
+        height: 64px;
+        width: 64px;
+        transition: all 0.5s;
+        color: $nav-color-default; // Цвет иконки (для SVG с fill="currentColor")
+    }
+
+    // ========== Стили Главного Меню (Навигация) ==========
+    .navmenu {
+        padding: 0;
+        
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-link {
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: 400;
+            // Цвет задается в медиазапросах
+            transition: 0.3s;
+            
+            &:hover, &.active {
+                color: vars.$color-accent-alt;
+            }
+        }
+    }
+    
+    // ========== Стили Кнопок и Бургера (Контролы) ==========
+    .header-controls {
+        .cta-btn {
+            color: vars.$color-white;
+            border: 2px solid vars.$color-primary;
+            background-color: vars.$color-primary;
+            font-size: 16px;
+            padding: 4px 20px;
+            border-radius: 24px;
+            transition: 0.3s;
+            text-decoration: none;
+            
+            &:hover {
+                background-color: vars.$color-accent;
+                border-color: vars.$color-accent;
+            }
+        }
+    }
+    
+    // ========== Стили Кнопки-бургера ==========
+    .mobile-nav-toggle {
+        color: $nav-color-default; // Белая иконка по умолчанию
+        font-size: 28px;
+        line-height: 0;
+        cursor: pointer;
+        transition: color 0.5s;
+        margin-left: 8px;
+        
+        @media (min-width: 1200px) {
+            display: none; 
+        }
+    }
+}
+
+// ========== Стили при скролле (Класс на <body>) ==========
+// ИНВЕРСИЯ ЦВЕТОВ: Хедер темный, ссылки белые
+body.scrolled {
+    .header {
+        background-color: rgba(40, 37, 32, 0.94);
+        padding: 4px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
+    }
+    
+    // Ссылки и иконка бургера становятся белыми
+    .navmenu a, .header .mobile-nav-toggle {
+        color: $nav-color-scrolled; 
+    }
+    .header .logo img {
+        color: $nav-color-scrolled; // Иконка SVG белая
+    }
+    
+    .navmenu a:hover, .navmenu a.active {
+        color: vars.$color-primary; // Акцентный цвет
+    }
+}
+
+// ========== Стили Навигационного Меню (Десктоп >= 1200px) ==========
+@media (min-width: 1200px) {
+    .navmenu {
+        flex-grow: 1; 
+        display: flex; 
+        justify-content: center;
+        
+        // УСТАНОВКА ЦВЕТА ССЫЛОК НА ДЕСКТОПЕ (БЕЛЫЙ)
+        .nav-link {
+            color: $nav-color-default; 
+        }
+    }
+
+    .navmenu ul {
+        display: flex;
+        justify-content: center; 
+    }
+    
+    .header-controls {
+        .cta-btn {
+            margin-right: 0;
+        }
+    }
+}
+
+// ========== Стили Мобильного Меню (< 1200px) ==========
+@media (max-width: 1199px) {
+    
+    .navmenu ul {
+        display: none; 
+        position: absolute;
+        inset: 60px 20px 20px 20px; 
+        padding: 10px 0;
+        margin: 0;
+        border-radius: 6px;
+        background-color: $nav-mobile-bg; // Белый фон меню
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+        transition: 0.3s;
+        z-index: 9998;
+    }
+
+    // УСТАНОВКА ЦВЕТА ССЫЛОК НА МОБИЛЬНЫХ (ТЕМНЫЙ)
+    .navmenu a {
+        color: $nav-dropdown-color; // Темный цвет ссылок
+        padding: 10px 20px;
+        font-size: 17px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        &:hover, &.active {
+            color: vars.$color-primary;
+        }
+    }
+
+    // Состояние "Активно"
+    .mobile-nav-active {
+        overflow: hidden; 
+        
+        .mobile-nav-toggle {
+            color: $nav-color-default;
+            position: fixed; 
+            font-size: 32px;
+            top: 40px;
+            right: 8px;
+            z-index: 9999;
+        }
+        
+        &.mobile-nav-active .navmenu a {
+            color: $nav-dropdown-color; /* ТЕМНЫЙ цвет ссылок */
+        }
+    }
+
+    .mobile-nav-active .navmenu {
+        position: fixed;
+        overflow: hidden;
+        inset: 0;
+        background: rgba(33, 37, 41, 0.8); 
+        transition: 0.3s;
+        z-index: 9997;
+    }
+
+    .mobile-nav-active .navmenu>ul {
+        display: block;
+    }
+}

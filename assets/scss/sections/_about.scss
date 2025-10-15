@@ -1,0 +1,151 @@
+@use '../abstracts/variables' as vars; 
+@use '../abstracts/mixins' as *; 
+
+.about {
+    padding: 120px 0 60px 0;
+
+    /* НАСТРОЙКИ FLEXBOX ДЛЯ ВЫРАВНИВАНИЯ ПО ВЫСОТЕ (ТОЛЬКО ДЛЯ ДЕСКТОПОВ) */
+    @media (min-width: 992px) {
+        /* 1. Активируем Flexbox на строке, чтобы колонки имели одинаковую высоту */
+        .row {
+            display: flex;
+            align-items: stretch;
+        }
+
+        /* 2. Левая колонка: убеждаемся, что контейнер растягивается */
+        .col-lg-6:first-child {
+            display: flex; 
+        }
+
+        /* 3. Правая колонка: организуем контент (текст вверх, счетчики вниз) */
+        .col-lg-6:last-child {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+
+    /* ---------------------------------------------------- */
+    /* Стили изображения */
+    /* ---------------------------------------------------- */
+    .img-rounded {
+        border-radius: 24px;
+        overflow: hidden; 
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        
+        height: 100%; 
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    /* Контейнер для текста, который займет все свободное пространство */
+    .about-text-content {
+        flex-grow: 1; 
+        padding-bottom: 20px; /* Отступ от счетчиков */
+    }
+    
+    .about-title {
+        font-size: 36px;
+        font-weight: 400;
+        margin-bottom: 20px;
+        color: vars.$color-primary;
+    }
+
+    p {
+        color: vars.$color-text;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+    
+    /* Стилизация Кнопки */
+    .btn-about-more {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 6px 24px;
+        background: vars.$color-accent;
+        color: vars.$color-white;
+        border-radius: 16px;
+        text-decoration: none;
+        font-weight: 400;
+        transition: 0.3s;
+        
+        &:hover {
+            background: vars.$color-accent-alt;
+        }
+    }
+    
+    /* ---------------------------------------------------- */
+    /* Карточки-счетчики (Counters) */
+    /* ---------------------------------------------------- */
+    .counters {
+        flex-shrink: 0; 
+        
+        .counter-item {
+            padding: 0 10px; 
+            margin-bottom: 0; 
+
+            @media (max-width: 991px) {
+                margin-top: 20px;
+            }
+        }
+
+        .counter-box {
+            background: vars.$color-white; 
+            padding: 25px 20px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+            height: 100%; 
+            transition: 0.3s;
+            
+            &:hover {
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            span {
+                font-size: 22px;
+                display: block;
+                font-weight: 400;
+                color: vars.$color-primary;
+
+                &::before {
+                    content: "~";
+                    margin-right: 5px; 
+                }
+            }
+
+            p {
+                padding: 0;
+                margin: 0;
+                font-size: 16px;
+                color: vars.$color-primary;
+                font-weight: 400;
+            }
+        }
+    }
+    
+    /* Адаптивность для планшетов и мобильных */
+    @media (max-width: 991px) {
+        .col-lg-6:last-child {
+            display: block; 
+        }
+        
+        /* Стили для счетчиков (2 в ряд, затем 1) */
+        .counters .col-lg-4.col-md-6 {
+            flex: 0 0 50%; 
+            max-width: 50%; 
+        }
+        .counters .col-lg-4.col-md-12 {
+            flex: 0 0 100%; 
+            max-width: 100%; 
+        }
+
+        .counters .col-md-6,
+        .counters .col-md-12 {
+            @media (max-width: 575px) {
+                flex: 0 0 100%; 
+                max-width: 100%; 
+            }
+        }
+    }
+}

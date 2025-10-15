@@ -1,0 +1,231 @@
+@use '../abstracts/variables' as vars; 
+@use '../abstracts/mixins' as *; 
+
+.events { 
+    padding: 60px 0;
+    
+    /* Стили для общего заголовка секции */
+    .section-header {
+        margin-bottom: 40px;
+        h2 {
+            font-size: 36px;
+            font-weight: 400;
+            color: vars.$color-text;
+            margin-bottom: 16px;
+        }
+        p {
+            color: vars.$color-primary;
+            max-width: auto;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+    }
+    
+    /* ---------------------------------------------------- */
+    /* Контейнер карточек (Белая плашка) */
+    /* ---------------------------------------------------- */
+    .events-grid-wrapper {
+        background-color: vars.$color-white;
+        padding: 48px 64px; 
+        border-radius: 24px;
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+
+        @media (max-width: 767px) {
+            padding: 30px 20px;
+        }
+    }
+
+    /* ---------------------------------------------------- */
+    /* Стиль отдельной карточки (Активная ссылка) */
+    /* ---------------------------------------------------- */
+    .event-item {
+        display: flex;
+        align-items: stretch;
+        background-color: transparent;
+        border-radius: 24px;
+        text-decoration: none;
+        color: vars.$color-text;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease-in-out;
+        height: 100%;
+        
+        &:hover {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px); 
+        }
+
+        @media (max-width: 575px) {
+            flex-direction: column;
+        }
+    }
+    
+    /* ---------------------------------------------------- */
+    /* ЛЕВАЯ ЧАСТЬ: ДАТА */
+    /* ---------------------------------------------------- */
+    .event-date {
+        flex-shrink: 0;
+        width: 120px;
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: vars.$color-text;
+        
+        .month {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .day {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .year {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 575px) {
+            width: 100%;
+            padding: 16px 0;
+            flex-direction: row;
+            justify-content: space-around;
+            .day { font-size: 32px; }
+            .month, .year { margin: 0 5px; }
+        }
+    }
+
+    /* ---------------------------------------------------- */
+    /* ПРАВАЯ ЧАСТЬ: ОПИСАНИЕ */
+    /* ---------------------------------------------------- */
+    .event-content {
+        flex-grow: 1;
+        padding: 24px 24px 20px 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: vars.$color-light;
+    }
+    
+    /* ---------------------------------------------------- */
+    /* РЯД 1: Тип Мероприятия (Тег) */
+    /* ---------------------------------------------------- */
+    .event-type-tag {
+        font-size: 12px;
+        font-weight: 400;
+        padding: 4px 10px;
+        border-radius: 12px;
+        margin-bottom: 32px;
+        display: inline-block; 
+        width: fit-content;    }
+
+    /* ---------------------------------------------------- */
+    /* РЯД 2: Название */
+    /* ---------------------------------------------------- */
+    .event-title {
+        font-size: 18px;
+        font-weight: 500;
+        color: vars.$color-text; 
+        margin: 0 0 32px 0;
+        line-height: 1.4;
+    }
+    
+    /* ---------------------------------------------------- */
+    /* РЯД 3: Мета-информация (Время и Место) */
+    /* ---------------------------------------------------- */
+    .event-meta {
+        font-size: 13px;
+        color: vars.$color-primary;
+        
+        i {
+            margin-right: 0px;
+            vertical-align: -0.1rem;
+        }
+        .time {
+            margin-right: 15px;
+        }
+    }
+
+    /* ---------------------------------------------------- */
+    /* ЦВЕТОВОЕ КОДИРОВАНИЕ ТИПОВ МЕРОПРИЯТИЙ */
+    /* ---------------------------------------------------- */
+    
+    // Премьера фильма: DBDBDB
+    .type-film {
+        .event-date { background-color: #DBDBDB; }
+        .event-type-tag {
+            background-color: #DBDBDB;
+            color: #5A6D91; 
+        }
+    }
+
+    // Открытие выставки: D6E2DD
+    .type-exhibition {
+        .event-date { background-color: #D6E2DD; }
+        .event-type-tag {
+            background-color: #D6E2DD;
+            color: #4C7063;
+        }
+    }
+    
+    // Лекция: F2E8DE
+    .type-lecture {
+        .event-date { background-color: #F2E8DE; }
+        .event-type-tag {
+            background-color: #F2E8DE;
+            color: #9A7751;
+        }
+    }
+    
+    // Встреча с писателями: EBDFDF
+    .type-meeting {
+        .event-date { background-color: #EBDFDF; }
+        .event-type-tag {
+            background-color: #EBDFDF;
+            color: #8D5A5A;
+        }
+    }
+    
+    /* ---------------------------------------------------- */
+    /* Кнопка "Все мероприятия" и Декоративные Линии */
+    /* ---------------------------------------------------- */
+    .all-events-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        
+        &::before, &::after {
+            content: "";
+            width: 100px; 
+            height: 2px;
+            background-color: #F5F3F0;
+            display: block; 
+        }
+        
+        .btn-primary-outline {
+            /* Базовый стиль */
+            background-color: vars.$color-white;
+            /* !!! ИСПРАВЛЕНИЕ: Толщина рамки 1px !!! */
+            border: 0.5px solid vars.$color-primary; 
+            color: vars.$color-primary;
+            padding: 8px 30px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+
+            /* Эффект при наведении */
+            &:hover {
+                background-color: vars.$color-primary;
+                color: vars.$color-white;
+            }
+        }
+    }
+}

@@ -1,0 +1,174 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as *; 
+
+.faq {
+    padding: 60px 0 120px 0;
+
+    /* ---------------------------------------------------- */
+    /* ОБЩИЙ КОНТЕЙНЕР ДЛЯ ОГРАНИЧЕНИЯ ШИРИНЫ */
+    /* ---------------------------------------------------- */
+    .faq-content-wrapper {
+        @media (min-width: 992px) {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    }
+
+    /* ---------------------------------------------------- */
+    /* Заголовок секции */
+    /* ---------------------------------------------------- */
+    .section-header {
+        .section-title {
+            font-size: 36px;
+            font-weight: 400;
+            color: vars.$color-text;
+        }
+        .section-description {
+            display: none; 
+        }
+    }
+
+    /* ---------------------------------------------------- */
+    /* Аккордеон */
+    /* ---------------------------------------------------- */
+    .faq-accordion {
+        .accordion-item {
+            border: none;
+            background-color: transparent; 
+            border-bottom: 0.5px solid vars.$color-primary; // Нижнее подчеркивание
+            margin-bottom: 0; 
+        }
+    }
+
+    /* Кнопка/Заголовок вопроса */
+    .faq-button {
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: vars.$color-text;
+        // Увеличим горизонтальный паддинг для небольшого отступа от краев плашки
+        padding: 18px 0; 
+        background-color: transparent !important;
+        text-align: left;
+        
+        &:focus {
+            box-shadow: none;
+            border-color: transparent;
+        }
+        
+        &:not(.collapsed) {
+            color: vars.$color-primary; 
+            background-color: transparent !important; 
+        }
+
+        @media (max-width: 768px) {
+            font-size: 1rem;
+        }
+    }
+
+    /* ---------------------------------------------------- */
+    /* КРУГЛАЯ ИКОНКА ОТКРЫТИЯ/ЗАКРЫТИЯ (+ / X) */
+    /* ---------------------------------------------------- */
+    .accordion-button {
+        display: flex;
+        align-items: center;
+        width: 100%; // Гарантируем, что кнопка занимает всю ширину
+        
+        // Убираем лишний паддинг справа, так как мы его контролируем через Flexbox
+        padding-right: 0;
+        
+        &::after {
+            // Убираем стандартную стрелку Bootstrap
+            background-image: none !important; 
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            
+            content: '\2b'; 
+            font-size: 24px;
+            
+            background-color: vars.$color-light-alt;
+            box-shadow: inset 2px 2px 25px rgba(145, 122, 90, 0.1);
+            border: none; 
+            
+            font-family: Arial, sans-serif;
+            color: vars.$color-primary;
+            border-radius: 50%;
+            
+            margin-left: auto; 
+            margin-right: 0;
+            
+            // Flexbox для идеального центрирования символа '+'
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            transition: transform 0.2s ease-in-out;
+            transform: none; 
+        }
+        
+        // Стиль для открытой вкладки
+        &:not(.collapsed) {
+             &::after {
+                // Поворачиваем иконку '+' на 45 градусов, чтобы она выглядела как 'x'
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    /* Ответ */
+    .faq-body {
+        padding: 0 24px 24px 24px; 
+        color: vars.$color-text;
+        background-color: transparent; 
+    }
+
+    /* ============================================== */
+    /* Стили для CTA-блока в FAQ */
+    /* ============================================== */
+    .faq-cta-block {
+        background-color: vars.$color-light-alt;
+        color: vars.$color-text;
+        margin-top: 60px;
+        padding: 32px 40px; 
+        border-radius: 24px; 
+        box-shadow: inset 2px 2px 25px rgba(145, 122, 90, 0.1);
+        
+        .faq-cta-title {
+            display: flex;
+            font-size: 1.3rem; 
+            font-weight: 700;
+            color: vars.$color-text; 
+        }
+        
+        .faq-cta-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 4px 20px;
+            background: #863315;
+            color: #FFFFFF;
+            border-radius: 14px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: 0.3s;
+
+            &:hover {
+                background: vars.$color-accent-alt;
+                color: vars.$color-white;
+            }
+        }
+
+        
+        
+        // Переопределение иконки для лучшего вида
+        .bx-message-square-detail {
+            color: vars.$color-primary; // Цвет иконки как акцентный цвет
+        }
+        
+        @media (max-width: 991px) {
+            .col-lg-4 {
+                width: 100%; // Кнопка занимает всю ширину на мобильных
+            }
+        }
+    }
+}

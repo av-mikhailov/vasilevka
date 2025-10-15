@@ -1,0 +1,210 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as *;
+
+/* ============================================== */
+/* FOOTER СЕКЦИЯ */
+/* ============================================== */
+#footer {
+    /* Общий темный фон для футера */
+    background: vars.$color-text; 
+    color: vars.$color-white;
+    font-size: 16px;
+    padding-top: 50px; 
+    padding-bottom: 50px; 
+    
+    @media (max-width: 991px) {
+        padding-top: 30px; 
+        padding-bottom: 30px; 
+    }
+}
+
+/* ---------------------------------------------------- */
+/* Верхняя часть (4 колонки) */
+/* ---------------------------------------------------- */
+.footer-top {
+    /* Разделитель между основной частью и копирайтом. 
+       В HTML используем класс border-top на footer-bottom для черты */
+    .row {
+        padding-bottom: 20px;
+    }
+}
+
+.footer-title {
+    font-size: 18px;
+    font-weight: 400;
+    color: vars.$color-white;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+    
+    /* Декоративная линия под заголовком */
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 40px;
+        height: 2px;
+        background: vars.$color-primary;
+        bottom: -5px;
+        left: 0;
+    }
+}
+
+/* ---------------------------------------------------- */
+/* КОЛОНКА 1: Контакты и Идентификация */
+/* ---------------------------------------------------- */
+.library-name {
+    font-size: 16px;
+    color: vars.$color-white;
+    line-height: 1.2;
+    margin-bottom: 0;
+}
+
+.affiliation-status {
+    font-size: 15px;
+    // color: vars.$color-white;
+    // opacity: 0.8;
+    margin-bottom: 15px !important;
+
+    i {
+        color: vars.$color-primary; /* Иконки контактных данных */
+        font-size: 18px;
+        vertical-align: middle;
+        padding-bottom: 2px;
+    }
+    a {
+        color: vars.$color-white;
+        text-decoration: none;
+        // text-decoration-thickness: .1px;
+        // text-underline-offset: 7px; 
+        transition: color 0.3s, text-decoration-color 0.3s;
+        
+        &:hover {
+            color: vars.$color-primary;
+            text-decoration-color: vars.$color-primary;
+        }
+    }
+}
+
+.contact-details {
+    p {
+        color: vars.$color-light;
+        margin-bottom: 8px;
+        line-height: 1.5;
+        
+        i {
+            color: vars.$color-primary; /* Иконки контактных данных */
+            font-size: 16px;
+            vertical-align: middle;
+            padding-bottom: 2px;
+        }
+    }
+
+    a {
+        color: vars.$color-light;
+        text-decoration: none;
+        transition: color 0.3s, text-decoration-color 0.3s;
+        
+        &:hover {
+            color: vars.$color-primary;
+            text-decoration-color: vars.$color-primary;
+        }
+    }
+}
+
+/* Социальные сети */
+.social-links {
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: rgba(vars.$color-white, 0.1);
+        border-radius: 50%;
+        transition: 0.3s;
+        text-decoration: none;
+        
+        i {
+            color: vars.$color-white;
+            font-size: 18px;
+        }
+        
+        &:hover {
+            background: vars.$color-primary;
+            transform: translateY(-2px);
+        }
+    }
+}
+
+/* ---------------------------------------------------- */
+/* КОЛОНКИ 2, 3, 4: Ссылки (Навигация, Обратная связь, Ресурсы) */
+/* ---------------------------------------------------- */
+.footer-links {
+    padding: 0;
+    
+    li {
+        padding: 5px 0;
+        display: flex; /* Для выравнивания иконки и текста */
+        align-items: center;
+        
+        i {
+            font-size: 18px;
+            color: vars.$color-primary; /* Галочки или линки акцентным цветом */
+            line-height: 1;
+        }
+        
+        a {
+            color: vars.$color-light;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+            line-height: 1.5;
+
+            &:hover {
+                color: vars.$color-primary;
+                padding-left: 5px; /* Небольшой эффект смещения при наведении */
+            }
+        }
+    }
+}
+
+/* ---------------------------------------------------- */
+/* Нижняя часть (Копирайт) */
+/* ---------------------------------------------------- */
+.footer-bottom {
+    border-color: rgba(vars.$color-white, 0.1) !important; /* Тонкая светлая линия-разделитель */
+    
+    .copyright {
+        color: vars.$color-light;
+        line-height: 1.5;
+    }
+    
+    .credits {
+        font-size: 13px;
+        color: vars.$color-light;
+        
+        a {
+            color: vars.$color-light;
+            text-decoration: none;
+            transition: 0.3s;
+            
+            &:hover {
+                color: vars.$color-primary;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 767px) {
+    .footer-bottom {
+        text-align: center !important;
+        
+        .copyright, .credits {
+            text-align: center !important;
+            margin-bottom: 10px;
+        }
+    }
+}

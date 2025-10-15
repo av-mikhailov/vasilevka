@@ -1,0 +1,176 @@
+@use '../abstracts/variables' as vars; 
+@use '../abstracts/mixins' as *; 
+
+.services {
+    padding: 60px 0;
+    
+    .row {
+        /* 1. На десктопе, заставляем родительский ряд быть гибким */
+        @media (min-width: 992px) {
+            display: flex;
+            align-items: stretch; /* Заставляет колонки иметь одинаковую высоту */
+        }
+
+        /* 2. Убеждаемся, что колонка гибкая для передачи высоты */
+        .col-lg-6 {
+            display: flex;
+        }
+    }
+    
+    /* Стили для общего заголовка секции */
+    .section-header {
+        margin-bottom: 40px;
+        h2 {
+            font-size: 36px;
+            font-weight: 400;
+            color: vars.$color-text;
+            margin-bottom: 16px;
+        }
+        p {
+            color: vars.$color-primary;
+            max-width: auto;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+    }
+
+    /* ---------------------------------------------------- */
+    /* Блок 1: Основные Услуги (Service Items) */
+    /* ---------------------------------------------------- */
+    
+    .service-item {
+        height: 100%; /* КРИТИЧНО: Карточка занимает всю высоту своей колонки */
+        display: flex; 
+        align-items: center; 
+        
+        background: vars.$color-white; 
+        padding: 48px;
+        border-radius: 24px; 
+        text-decoration: none; 
+        cursor: pointer;
+        
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease-in-out;
+
+        /* Анимация: Подъем карточки при наведении */
+        &:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px); 
+        }
+
+        /* ---------------------------------------------------- */
+        /* Иконка (Левая часть с КРУГОМ) */
+        /* ---------------------------------------------------- */
+        .icon {
+            flex-shrink: 0; 
+            margin-right: 40px; 
+            
+            /* СТИЛИ КОНТЕЙНЕРА (КРУГА) */
+            width: 72px; 
+            height: 72px;
+            border-radius: 50%; 
+            background-color: #F5F3F0; 
+
+            /* Центрируем иконку внутри круга с помощью Flexbox */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            i {
+                font-size: 36px;
+                color: vars.$color-accent; 
+                line-height: 1;
+            }
+        }
+        
+        /* ---------------------------------------------------- */
+        /* Текстовая часть (Правая часть) */
+        /* ---------------------------------------------------- */
+        .text {
+            h3 {
+                font-size: 20px;
+                font-weight: 400; 
+                color: vars.$color-text; 
+                margin: 0 0 16px 0;
+                transition: 0.3s;
+                /* При наведении на всю карточку, меняем цвет заголовка */
+                .service-item:hover & {
+                    color: vars.$color-accent-alt;
+                }
+            }
+            
+            p {
+                font-size: 15px;
+                font-weight: 400; 
+                color: vars.$color-text;
+                margin: 0;
+                line-height: 1.4;
+            }
+        }
+        
+        @media (max-width: 575px) {
+            padding: 30px;
+            .icon {
+                margin-right: 15px;
+                width: 60px; 
+                height: 60px;
+                i {
+                    font-size: 28px;
+                }
+            }
+            .text h3 {
+                font-size: 18px;
+            }
+            .text p {
+                font-size: 14px;
+            }
+        }
+    }
+
+    /* ---------------------------------------------------- */
+    /* Блок 2: Особенности Библиотеки (Features Grid / Swiper) */
+    /* ---------------------------------------------------- */
+    
+    .features-grid {
+        margin-top: 40px; 
+        padding: 30px 20px; 
+        background-color: vars.$color-light-alt; 
+        border-radius: 24px;
+        
+        box-shadow: 
+            inset 2px 2px 25px rgba(145, 122, 90, 0.1); 
+        
+        /* Коррекция желобов для десктопа (почти всегда сбрасывается Swiper'ом, 
+           но оставим для перестраховки) */
+        .swiper-wrapper {
+            margin-left: 0; 
+            margin-right: 0; 
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 15px 5px; 
+            margin-bottom: 0; 
+            
+            /* Стили для Swiper на мобильных (должны быть в Swiper.js) */
+            @media (max-width: 991px) {
+                /* Это будет переопределено Swiper.js, но задает минимальную ширину */
+                width: 130px; 
+            }
+
+            i {
+                font-size: 36px;
+                color: vars.$color-primary; 
+                margin-bottom: 10px;
+                line-height: 1;
+            }
+
+            .feature-title { 
+                font-size: 14px; 
+                font-weight: 500;
+                color: vars.$color-primary;
+                margin: 0;
+            }
+        }
+    }
+}
