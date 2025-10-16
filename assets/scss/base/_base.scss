@@ -66,28 +66,28 @@ main {
 
 @font-face {
     font-family: 'Palladio'; // Единое имя для всех начертаний
-    src: url('../fonts/palladio/p052-roman.otf') format('truetype');
+    src: url('../fonts/palladio/P052-Roman.woff2') format('truetype');
     font-weight: 400; // Roman (Regular)
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Palladio';
-    src: url('../fonts/palladio/p052-bold.otf') format('truetype');
+    src: url('../fonts/palladio/P052-Bold.woff2') format('truetype');
     font-weight: 700; // Bold
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Palladio';
-    src: url('../fonts/palladio/p052-italic.otf') format('truetype');
+    src: url('../fonts/palladio/P052-Italic.woff2') format('truetype');
     font-weight: 400; // Italic (Regular)
     font-style: italic;
     font-display: swap;
 }
 @font-face {
     font-family: 'Palladio';
-    src: url('../fonts/palladio/p052-bolditalic.otf') format('truetype');
+    src: url('../fonts/palladio/P052-BoldItalic.woff2') format('truetype');
     font-weight: 700; // Bold Italic
     font-style: italic;
     font-display: swap;
