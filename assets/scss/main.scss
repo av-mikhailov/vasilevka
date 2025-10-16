@@ -1,8 +1,8 @@
 @use 'abstracts/variables'; 
 @use 'abstracts/mixins' as *;
 
-@use 'base/typography' as *;
 @use 'base/base' as *;
+@use 'base/typography' as *;
 
 @use 'layout/header' as *;
 @use 'layout/footer' as *;
