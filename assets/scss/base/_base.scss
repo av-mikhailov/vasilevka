@@ -37,28 +37,28 @@ main {
 
 @font-face {
     font-family: 'Philosopher'; // Единое имя для всех начертаний
-    src: url('/assets/fonts/philosopher/philosopher-regular.ttf') format('truetype');
+    src: url('../fonts/philosopher/philosopher-regular.ttf') format('truetype');
     font-weight: 400; // Regular
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Philosopher';
-    src: url('/assets/fonts/philosopher/philosopher-bold.ttf') format('truetype');
+    src: url('../fonts/philosopher/philosopher-bold.ttf') format('truetype');
     font-weight: 700; // Bold
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Philosopher';
-    src: url('/assets/fonts/philosopher/philosopher-italic.ttf') format('truetype');
+    src: url('../fonts/philosopher/philosopher-italic.ttf') format('truetype');
     font-weight: 400; // Italic (Regular)
     font-style: italic;
     font-display: swap;
 }
 @font-face {
     font-family: 'Philosopher';
-    src: url('/assets/fonts/philosopher/philosopher-bolditalic.ttf') format('truetype');
+    src: url('../fonts/philosopher/philosopher-bolditalic.ttf') format('truetype');
     font-weight: 700; // Bold Italic
     font-style: italic;
     font-display: swap;
@@ -66,28 +66,28 @@ main {
 
 @font-face {
     font-family: 'Palladio'; // Единое имя для всех начертаний
-    src: url('/assets/fonts/palladio/p052-roman.ttf') format('truetype');
+    src: url('../fonts/palladio/p052-roman.ttf') format('truetype');
     font-weight: 400; // Roman (Regular)
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Palladio';
-    src: url('/assets/fonts/palladio/p052-bold.ttf') format('truetype');
+    src: url('../fonts/palladio/p052-bold.ttf') format('truetype');
     font-weight: 700; // Bold
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Palladio';
-    src: url('/assets/fonts/palladio/p052-italic.ttf') format('truetype');
+    src: url('../fonts/palladio/p052-italic.ttf') format('truetype');
     font-weight: 400; // Italic (Regular)
     font-style: italic;
     font-display: swap;
 }
 @font-face {
     font-family: 'Palladio';
-    src: url('/assets/fonts/palladio/p052-bolditalic.ttf') format('truetype');
+    src: url('../fonts/palladio/p052-bolditalic.ttf') format('truetype');
     font-weight: 700; // Bold Italic
     font-style: italic;
     font-display: swap;
