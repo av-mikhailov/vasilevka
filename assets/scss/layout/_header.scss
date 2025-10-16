@@ -56,7 +56,12 @@ $nav-mobile-bg: vars.$color-white;          // Цвет фона мобильн�
             border: 2px solid vars.$color-primary;
             background-color: vars.$color-primary;
             font-size: 16px;
-            padding: 4px 20px;
+            
+            display: inline-flex; // Используем inline-flex для кнопки
+            align-items: center;   // Центрирование по вертикали
+            justify-content: center; // Центрирование по горизонтали
+            height: 32px;
+            padding: 0 20px;
             border-radius: 24px;
             transition: 0.3s;
             text-decoration: none;
@@ -116,7 +121,7 @@ body.scrolled {
         flex-grow: 1; 
         display: flex; 
         justify-content: center;
-        
+
         .nav-link {
             color: $nav-color-default; 
         }
