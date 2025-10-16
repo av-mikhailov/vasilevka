@@ -1,0 +1,28 @@
+@use '../abstracts/variables' as vars; 
+
+.scroll-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: -15px;
+    z-index: 99999;
+    background-color: vars.$color-primary;
+    color: vars.$color-white;
+    text-decoration: none;
+    font-size: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    transition: all 0.4s;
+} 
+
+.scroll-top.active {
+    visibility: visible;
+    opacity: 1;
+    bottom: 15px; 
+}
+
+.scroll-top:hover {
+    background-color: vars.$color-accent-alt;
+}

@@ -6,7 +6,7 @@ $nav-color-default: vars.$color-white;      // Цвет ссылок на про
 $nav-color-scrolled: vars.$color-white;     // Цвет ссылок на темном фоне (Белый)
 $header-color-scrolled: vars.$color-text;   // Цвет фона хедера при скролле (Темный)
 $nav-dropdown-color: vars.$color-text;      // Цвет ссылок в мобильном меню (Темный)
-$nav-mobile-bg: vars.$color-white;          // Цвет фона мобильного меню (Белый)
+$nav-mobile-bg: vars.$color-light;          // Цвет фона мобильного меню (Белый)
 
 
 .header {
@@ -165,7 +165,8 @@ body.scrolled {
     /* Делаем все LI блочными и добавляем разделитель */
     .navmenu ul li {
         display: block; 
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        background-color: $nav-color-default; 
     }
     
     .navmenu ul li:last-child {
