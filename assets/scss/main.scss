@@ -7,6 +7,7 @@
 @use 'layout/header' as *;
 @use 'layout/footer' as *;
 
+@use 'components/breadcrumbs' as *;
 @use 'components/button' as *;
 @use 'components/card' as *;
 @use 'components/navbar' as *;

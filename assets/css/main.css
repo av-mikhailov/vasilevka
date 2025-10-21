@@ -111,7 +111,7 @@ p {
   transition: all 0.5s;
   z-index: 997;
   border-bottom: 1px solid color-mix(in srgb, #FFFFFF, transparent 90%);
-  background-color: rgba(28, 28, 28, 0.3);
+  background-color: rgba(28, 28, 28, 0.5);
 }
 .header .logo img {
   height: 64px;
@@ -475,6 +475,54 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
     margin-bottom: 10px;
   }
 }
+.breadcrumbs-bar {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  z-index: 7;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.breadcrumbs-bar .container {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.breadcrumbs-bar .breadcrumb {
+  background: transparent;
+  margin-bottom: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.breadcrumbs-bar .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  content: none; /* Полностью удаляем стандартный разделитель */
+}
+.breadcrumbs-bar .breadcrumb .breadcrumb-item {
+  font-size: 0.9rem;
+  padding-right: 0 !important;
+  display: flex;
+  align-items: center;
+}
+.breadcrumbs-bar .breadcrumb .breadcrumb-item, .breadcrumbs-bar .breadcrumb .breadcrumb-item a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.breadcrumbs-bar .breadcrumb .breadcrumb-item a:hover {
+  color: #FFFFFF;
+}
+.breadcrumbs-bar .breadcrumb .breadcrumb-item.active {
+  color: rgba(255, 255, 255, 0.5);
+}
+.breadcrumbs-bar .breadcrumb .breadcrumb-item i.bx-chevron-right {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.4);
+  padding-bottom: 2px;
+}
+.breadcrumbs-bar .breadcrumb .breadcrumb-item:last-child i.bx-chevron-right {
+  display: none;
+}
+
 .scroll-top {
   position: fixed;
   visibility: hidden;
@@ -502,7 +550,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   background-color: #B08953;
 }
 
-.hero-section {
+.hero {
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -521,7 +569,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   /* Стили для нового блока контактов и графика работы */
   /* ---------------------------------------------------- */
 }
-.hero-section #hero-video {
+.hero #hero-video {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -532,20 +580,20 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   transform: translate(-50%, -50%);
   z-index: 1;
 }
-.hero-section::before {
+.hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(40, 37, 32, 0.85);
   z-index: 2;
 }
-.hero-section .hero-content {
+.hero .hero-content {
   position: relative;
   z-index: 3;
   text-align: center;
   padding: 20px;
 }
-.hero-section .hero-content h1 {
+.hero .hero-content h1 {
   font-size: 3rem;
   font-weight: 500;
   color: #FFFFFF;
@@ -553,16 +601,16 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   line-height: 1.2;
 }
 @media (max-width: 768px) {
-  .hero-section .hero-content h1 {
+  .hero .hero-content h1 {
     font-size: 2rem;
     margin-bottom: 40px;
   }
 }
-.hero-section .hero-content .typed-text-container {
+.hero .hero-content .typed-text-container {
   display: flex;
   justify-content: center;
 }
-.hero-section .hero-content .typed-text {
+.hero .hero-content .typed-text {
   font-size: 1.5rem;
   color: #917A5A;
   font-weight: 400;
@@ -577,15 +625,15 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   width: 0;
 }
 @media (max-width: 768px) {
-  .hero-section .hero-content .typed-text {
+  .hero .hero-content .typed-text {
     font-size: 1rem;
   }
 }
-.hero-section .hero-content .typed-text.typing-complete {
+.hero .hero-content .typed-text.typing-complete {
   overflow: visible !important;
   width: auto !important;
 }
-.hero-section .hero-transition-wave {
+.hero .hero-transition-wave {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -593,7 +641,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   height: 150px;
   z-index: 4; /* Под контактами */
 }
-.hero-section .hero-contact-bar {
+.hero .hero-contact-bar {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -607,20 +655,20 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   /* Стили для Контактов (Иконки) */
   /* ---------------------------------------------------- */
 }
-.hero-section .hero-contact-bar .container {
+.hero .hero-contact-bar .container {
   padding-top: 24px;
   padding-bottom: 16px;
   padding-left: 32px;
   padding-right: 16px;
   margin-bottom: 16px;
   border-top: 1px solid color-mix(in srgb, #917A5A, transparent 90%);
-  background-color: rgba(28, 28, 28, 0.3);
+  background-color: rgba(28, 28, 28, 0.5);
   border-radius: 24px;
 }
-.hero-section .hero-contact-bar .contact-item {
+.hero .hero-contact-bar .contact-item {
   margin-bottom: 8px;
 }
-.hero-section .hero-contact-bar .contact-item h4 {
+.hero .hero-contact-bar .contact-item h4 {
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
@@ -629,15 +677,15 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   opacity: 0.8;
   letter-spacing: 1px;
 }
-.hero-section .hero-contact-bar .contact-item p, .hero-section .hero-contact-bar .contact-item a, .hero-section .hero-contact-bar .contact-item span {
+.hero .hero-contact-bar .contact-item p, .hero .hero-contact-bar .contact-item a, .hero .hero-contact-bar .contact-item span {
   font-size: 14px;
   line-height: 1.5;
   color: color-mix(in srgb, #FFFFFF, transparent 30%);
 }
-.hero-section .hero-contact-bar .schedule-item {
+.hero .hero-contact-bar .schedule-item {
   padding-right: 32px;
 }
-.hero-section .hero-contact-bar .schedule-item .schedule-line {
+.hero .hero-contact-bar .schedule-item .schedule-line {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -645,19 +693,19 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   margin-bottom: 4px;
   position: relative;
 }
-.hero-section .hero-contact-bar .schedule-item .schedule-line span:first-child {
+.hero .hero-contact-bar .schedule-item .schedule-line span:first-child {
   flex-shrink: 0;
   margin-right: 15px;
   z-index: 1;
   background: rgba(0, 0, 0, 0.01);
 }
-.hero-section .hero-contact-bar .schedule-item .schedule-line span:last-child {
+.hero .hero-contact-bar .schedule-item .schedule-line span:last-child {
   flex-shrink: 0;
   margin-left: 15px;
   z-index: 1;
   background: rgba(0, 0, 0, 0.01);
 }
-.hero-section .hero-contact-bar .schedule-item .schedule-line::after {
+.hero .hero-contact-bar .schedule-item .schedule-line::after {
   content: "";
   position: absolute;
   bottom: 0px;
@@ -666,38 +714,112 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   height: 1px;
   border-bottom: 2px dotted rgba(145, 122, 90, 0.6);
 }
-.hero-section .hero-contact-bar .schedule-item .dotted-underline {
+.hero .hero-contact-bar .schedule-item .dotted-underline {
   display: none;
 }
-.hero-section .hero-contact-bar .phone-email-item {
+.hero .hero-contact-bar .phone-email-item {
   padding-left: 120px;
 }
-.hero-section .hero-contact-bar .phone-email-item .contact-info, .hero-section .hero-contact-bar .address-item .contact-info {
+.hero .hero-contact-bar .phone-email-item .contact-info, .hero .hero-contact-bar .address-item .contact-info {
   display: flex;
   align-items: flex-start;
   margin-bottom: 4px;
 }
-.hero-section .hero-contact-bar .phone-email-item .contact-info i, .hero-section .hero-contact-bar .address-item .contact-info i {
+.hero .hero-contact-bar .phone-email-item .contact-info i, .hero .hero-contact-bar .address-item .contact-info i {
   font-size: 16px;
   margin-right: 8px;
   padding-top: 1px;
   color: #917A5A;
 }
-.hero-section .hero-contact-bar .phone-email-item .contact-info a, .hero-section .hero-contact-bar .address-item .contact-info a {
+.hero .hero-contact-bar .phone-email-item .contact-info a, .hero .hero-contact-bar .address-item .contact-info a {
   text-decoration: none;
   transition: color 0.3s, text-decoration-color 0.3s;
 }
-.hero-section .hero-contact-bar .phone-email-item .contact-info a:hover, .hero-section .hero-contact-bar .address-item .contact-info a:hover {
+.hero .hero-contact-bar .phone-email-item .contact-info a:hover, .hero .hero-contact-bar .address-item .contact-info a:hover {
   color: #917A5A;
   text-decoration-color: #917A5A;
 }
-.hero-section .hero-contact-bar .phone-email-item .contact-info span, .hero-section .hero-contact-bar .address-item .contact-info span {
+.hero .hero-contact-bar .phone-email-item .contact-info span, .hero .hero-contact-bar .address-item .contact-info span {
   opacity: 0.7;
   margin-left: 5px;
   font-style: italic;
 }
-.hero-section .hero-contact-bar .address-item {
+.hero .hero-contact-bar .address-item {
   padding-left: 100px;
+}
+.hero--archive {
+  height: 50vh;
+  min-height: 400px;
+}
+.hero--archive .hero-content {
+  position: absolute; /* Делаем его абсолютно позиционированным */
+  top: 60%; /* Сдвигаем на 50% сверху */
+  left: 50%; /* Сдвигаем на 50% слева */
+  transform: translate(-50%, -50%); /* Возвращаем на 50% (Финальное центрирование) */
+  z-index: 3;
+  text-align: center;
+  margin-bottom: 0;
+}
+.hero--archive .hero-content h1 {
+  font-size: 3rem;
+}
+.hero--archive .hero-transition-wave {
+  z-index: 4;
+}
+.hero--archive .hero-contact-bar .container {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 24px;
+  padding-right: 16px;
+  margin-bottom: 16px;
+  border-top: 1px solid color-mix(in srgb, #F5F3F0, transparent 90%);
+  background-color: rgba(28, 28, 28, 0.5);
+  border-radius: 24px;
+}
+.hero--archive .hero-contact-bar .phone-email-item {
+  padding-left: 40px;
+  margin-bottom: 0px;
+}
+.hero--archive .hero-contact-bar .phone-email-item .contact-info {
+  margin-bottom: 0px;
+}
+.hero--archive .hero-contact-bar .address-item {
+  padding-left: 0px;
+  margin-bottom: 0px;
+}
+.hero--archive .hero-contact-bar .contact-item {
+  margin-bottom: 0px;
+}
+.hero--archive .hero-contact-bar .contact-item p, .hero--archive .hero-contact-bar .contact-item a, .hero--archive .hero-contact-bar .contact-item span {
+  font-size: 16px;
+  line-height: 1.5;
+  color: color-mix(in srgb, #FFFFFF, transparent 20%);
+}
+@media (max-width: 991.98px) {
+  .hero--archive .hero-contact-bar .container {
+    margin-bottom: 16px;
+    padding-bottom: 0px;
+  }
+}
+.hero .btn-custom-outline {
+  color: color-mix(in srgb, #FFFFFF, transparent 30%);
+  border-color: color-mix(in srgb, #FFFFFF, transparent 30%);
+  background-color: transparent;
+  border-width: 1px;
+  border-radius: 18px;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+.hero .btn-custom-outline i {
+  font-size: 14px;
+  margin-right: 2px;
+  padding-bottom: 2px;
+  vertical-align: middle;
+}
+.hero .btn-custom-outline:hover {
+  color: #282520; /* Текст становится темным */
+  background-color: #F5F3F0; /* Фон становится белым */
+  border-color: #F5F3F0;
 }
 
 .about {

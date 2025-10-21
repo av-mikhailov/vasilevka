@@ -1,0 +1,70 @@
+@use '../abstracts/variables' as vars; 
+
+// ==========================================================
+// СТИЛИ ХЛЕБНЫХ КРОШЕК (BREADCRUMBS)
+// ==========================================================
+.breadcrumbs-bar {
+    position: absolute; 
+    top: 80px;
+    left: 0;
+    width: 100%;
+    
+    // Z-INDEX ПОВЫШЕН
+    z-index: 7; 
+    
+    // БОРДЕР НА ВСЮ ШИРИНУ
+    border-bottom: 1px solid rgba(vars.$color-white, 0.1); 
+
+    .container {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .breadcrumb {
+        background: transparent; 
+        margin-bottom: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        
+        // 1. Скрываем стандартный разделитель Bootstrap
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: none; /* Полностью удаляем стандартный разделитель */
+        }
+        
+        .breadcrumb-item {
+            font-size: 0.9rem;
+            
+            // Убираем потенциальные отступы от скрытого разделителя
+            padding-right: 0 !important; 
+            display: flex; 
+            align-items: center;
+            
+            &, a {
+                color: rgba(vars.$color-white, 0.5); 
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+            a:hover {
+                color: vars.$color-white;
+            }
+            
+            &.active {
+                // Активный элемент (текст) должен быть немного ярче
+                color: rgba(vars.$color-white, 0.5); 
+            }
+
+            // 2. Стили для иконки (bx-chevron-right), вставленной в HTML
+            i.bx-chevron-right {
+                font-size: 1rem; // Чуть больше, чем текст
+                color: rgba(vars.$color-white, 0.4); // Чуть более прозрачный, чем текст
+                padding-bottom: 2px;
+            }
+            
+            // 3. Убеждаемся, что иконка не показывается на последнем элементе (если она там есть)
+            &:last-child i.bx-chevron-right {
+                display: none;
+            }
+        }
+    }
+}

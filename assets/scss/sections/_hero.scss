@@ -1,7 +1,7 @@
 @use '../abstracts/variables' as vars; 
 @use '../abstracts/mixins' as *; 
 
-.hero-section {
+.hero {
     width: 100%;
     height: 100vh;
     overflow: hidden;
@@ -28,7 +28,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: rgba(0, 0, 0, 0.75);
+        background: rgba(40, 37, 32, 0.85);
         z-index: 2;
     }
     
@@ -119,7 +119,7 @@
             padding-right: 16px;
             margin-bottom: 16px;
             border-top: 1px solid color-mix(in srgb, vars.$color-primary, transparent 90%);
-            background-color: rgba(28, 28, 28, 0.3);
+            background-color: rgba(28, 28, 28, 0.5);
             border-radius: 24px;
         }
 
@@ -233,6 +233,109 @@
 
         .address-item {
             padding-left: 100px;
+        }
+    }
+
+    // ==========================================================
+    // СТИЛЬ HERO-СЕКЦИИ ДЛЯ РУБРИКИ "АФИША" (ПЕРЕОПРЕДЕЛЕНИЯ)
+    // ==========================================================
+    &--archive {
+        height: 50vh; // Уменьшенная высота
+        min-height: 400px; 
+        
+        .hero-content {
+            position: absolute; /* Делаем его абсолютно позиционированным */
+            top: 60%;           /* Сдвигаем на 50% сверху */
+            left: 50%;          /* Сдвигаем на 50% слева */
+            transform: translate(-50%, -50%); /* Возвращаем на 50% (Финальное центрирование) */
+            
+            z-index: 3; 
+            text-align: center;
+            margin-bottom: 0;
+
+            h1 {
+                font-size: 3rem;
+            }
+        }
+
+        .hero-transition-wave {
+            z-index: 4; 
+        }
+        
+        .hero-contact-bar {
+
+            .container {
+                padding-top: 16px;
+                padding-bottom: 16px;
+                padding-left: 24px;
+                padding-right: 16px;
+                margin-bottom: 16px;
+                border-top: 1px solid color-mix(in srgb, vars.$color-light, transparent 90%);
+                background-color: rgba(28, 28, 28, 0.5);
+                border-radius: 24px;
+            }
+            
+            // Переопределяем отступы для Афиши (для 3 колонок без schedule-item)
+            .phone-email-item {
+                padding-left: 40px;
+                margin-bottom: 0px;
+
+                .contact-info {
+                    margin-bottom: 0px;
+                }
+            }
+
+            .address-item {
+                padding-left: 0px;
+                margin-bottom: 0px;
+            }
+
+            .contact-item {
+                margin-bottom: 0px;
+
+                p, a, span {
+                    font-size: 16px;
+                    line-height: 1.5;
+                    color: color-mix(in srgb, vars.$color-white, transparent 20%);
+                }
+            }
+
+            // Дополнительные стили для мобильных (кнопка центрируется)
+            .container {
+                @media (max-width: 991.98px) { 
+                    margin-bottom: 16px;
+                    padding-bottom: 0px;
+                } 
+            }
+        }
+    }
+
+
+
+    // ==========================================================
+    // СТИЛИ ДЛЯ КАСТОМНОЙ КНОПКИ (Белая обводка / Белый фон на ховере)
+    // ==========================================================
+    .btn-custom-outline {
+        // Начальное состояние
+        color: color-mix(in srgb, vars.$color-white, transparent 30%);
+        border-color: color-mix(in srgb, vars.$color-white, transparent 30%);
+        background-color: transparent;
+        border-width: 1px;
+        border-radius: 18px;
+        transition: all 0.3s ease;
+        font-size: 15px; 
+
+        i {
+            font-size: 14px;
+            margin-right: 2px;
+            padding-bottom: 2px;
+            vertical-align: middle;
+        }
+
+        &:hover {
+            color: vars.$color-text; /* Текст становится темным */
+            background-color: vars.$color-light; /* Фон становится белым */
+            border-color: vars.$color-light;
         }
     }
 }
