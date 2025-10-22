@@ -584,7 +584,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(29, 28, 27, 0.85);
+  background: rgba(29, 28, 27, 0.8);
   z-index: 2;
 }
 .hero .hero-content {
