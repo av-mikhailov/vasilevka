@@ -1931,7 +1931,6 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
 }
 
 .post-sidebar-info {
-  position: sticky;
   top: 100px;
   background-color: #F0EDE8;
   color: #282520;
