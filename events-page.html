@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Историко-краеведческая библиотека им. И. И. Василёва</title>
+
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/aos/aos.css">
+    <link rel="stylesheet" href="vendor/boxicons/fonts/basic/boxicons.min.css">
+    <link rel="stylesheet" href="vendor/boxicons/fonts/brands/boxicons-brands.min.css">
+    <link rel="stylesheet" href="vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="vendor/glightbox/css/glightbox.min.css">
+    
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="body--single-post">
+
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container position-relative d-flex align-items-center justify-content-between">
+
+            <a href="index.html" class="logo d-flex align-items-center logo-link">
+                <img src="assets/img/logo-alt-2.svg" alt="Логотип Василёва" id="header-logo">
+            </a>
+
+            <nav id="navmenu" class="navmenu ps-5">
+                <ul>
+                    <li><a class="nav-link" href="">О библиотеке</a></li>
+                    <li><a class="nav-link" href="">Услуги</a></li>
+                    <li><a class="nav-link" href="">Афиша</a></li>
+                    <li><a class="nav-link" href="">Галерея</a></li>
+                    <li><a class="nav-link" href="">Контакты</a></li>
+
+                    <li class="mobile-contact-wrapper p-4">
+                        <div class="contact-item schedule-item mb-4">
+                            <h5 class="mb-2">График работы</h5>
+                            <div class="schedule-line small d-flex justify-content-between">
+                                <span>Вторник - Воскресенье: 10.00 - 20.00</span>
+                            </div>
+                            <div class="schedule-line small d-flex justify-content-between">
+                                <span>Понедельник: Выходной</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-item phone-email-item mb-4">
+                            <h5 class="mb-2">Связаться с нами</h5>
+                            <p class="contact-info mb-1 d-flex">
+                                <i class='bx bx-phone me-2'></i> 
+                                <a href="tel:88112331123">8 (8112) 33-11-23 (абонемент)</a>
+                            </p>
+                            <p class="contact-info mb-0 d-flex">
+                                <i class='bx bx-envelope me-2'></i> 
+                                <a href="mailto:vasilevka@bibliopskov.ru">vasilevka@bibliopskov.ru</a>
+                            </p>
+                        </div>
+
+                        <div class="contact-item address-item">
+                            <h5 class="mb-2">Адрес</h5>
+                            <p class="contact-info mb-0 d-flex">
+                                <i class='bx bx-location me-2'></i> 
+                                <a href="https://yandex.ru/maps/-/CHurbPN4" target="_blank">
+                                    180000, Псковская область, г. Псков,<br> Площадь Ленина, д. 3
+                                </a>
+                            </p>
+                        </div>
+                    </li>
+                </ul>      
+            </nav>
+
+            <div class="header-controls d-flex align-items-center">
+    
+                <button type="button" class="cta-btn" data-bs-toggle="modal" data-bs-target="#renewalModal">
+                    Продлить книгу
+                </button>
+                
+                <i class="mobile-nav-toggle d-xl-none bx bx-menu"></i>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+
+        <div class="breadcrumbs-bar breadcrumbs-bar--light">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        
+                        <li class="breadcrumb-item">
+                            <a href="index.html">Главная</a>
+                            <i class='bx bx-chevron-right ps-3 pe-0'></i> </li>
+                        <li class="breadcrumb-item">
+                        <a href="events.html">Афиша</a>
+                        <i class='bx bx-chevron-right ps-3 pe-0'></i> </li>
+                        
+                        <li class="breadcrumb-item active" aria-current="page">Истории за кадром: Документальная сага о городском наследии</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <section class="section--post-cover type-film">  <div class="container">
+        
+                <figure class="post-cover-box" 
+                        style="background-image: url('assets/img/event-1.jpg');">
+                    
+                    <div class="cover-overlay"></div>
+
+                    <div class="cover-content">
+                        <div class="cover-top-row">
+                            <div class="cover-top-left">
+                                <a href="#" class="btn tag-btn">  
+                                    #Премьера фильма
+                                </a>
+                            </div>
+                            <div class="cover-top-right">
+                                <div class="social-share">
+                                    <a href="#" class="share-icon"><i class='bxl bx-vk'></i></a>
+                                    <a href="#" class="share-icon"><i class='bxl bx-telegram'></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cover-bottom-left">
+                            <h1 class="display-4">Истории за кадром: Документальная сага о городском наследии</h1>
+                        </div>
+
+                    </div>
+                </figure>
+            </div>
+        </section>
+
+        <section class="section--post-content">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-lg-9">
+                        <div class="post-text">
+                            <p>29 августа в Историко-краеведческой библиотеке им. И. И. Василева состоялся премьерный показ фильма «Аркадий Филинов», созданного рамках проекта «Мастера» в 2025 году.</p>
+
+                            <p>Этот фильм знакомит нас с человеком давно и прочно связавшим свою жизнь и творчество с Псковским краем. Аркадий Филинов — живописец, член Союза художников России, преподаватель, человек, который внёс огромный вклад в сохранение таких бесценных памятников Псковской области, как уникальные фрески в церкви Успения Богородицы в Мелётово (1462 г).</p>
+
+                            <p>С 2015 года Аркадий живет в Выбутах, там же родились удивительные картины, демонстрирующие нам еще один шедевр: Церковь Ильи Пророка (первое упоминание в 1585-1587 гг.), сравнимую с всемирно известной церковью Покрова на Нерли, здесь же им создан удивительный музей.</p>
+
+                            <p>Последние несколько лет художник работает над панорамными картинами с видами Пскова XVII века — это не только творческий процесс, но и серьёзное научное исследование. Фрагменты этих картин вызвали множество вопросов и восторженных откликов у гостей нашей встречи.</p>
+                            </div>
+                    </div>
+                    
+                    <div class="col-lg-3">
+                        
+                        <div class="event-sidebar-info post-sidebar-info">
+                            <div class="info-block">
+                                <p><i class='bx bx-calendar-event pb-1'></i> 25 октября</p>
+                                <p><i class='bx bx-clock-4 pb-1'></i> 18:00</p>
+                                <p><i class='bx bx-location pb-1'></i> Главный зал</p>
+                                <p><i class='bx bx-user-voice pb-1'></i> 16+</p>
+                            </div>
+                        </div>
+                        
+                        <div class="post-register-cta">
+                            <a href="#" class="post-register-btn">Записаться на мероприятие</a>
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+
+
+
+    </main>
+
+    <footer id="footer" class="py-5">
+        <div class="container">
+            <!-- Основные 4 колонки с навигацией и контактами -->
+            <div class="row footer-top pb-4 mb-4">
+                
+                <!-- КОЛОНКА 1: Контакты и Идентификация (col-lg-3) -->
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Контакты</h4>
+                    
+                    <p class="library-name mb-4">Историко-краеведческая библиотека <br> им. И. И. Василёва</p>
+                    
+                    <!-- <p class="affiliation-status mb-3">
+                        <a href=""><i class='bx  bx-chevron-right-circle me-1'></i> Стуктурное подразделение МАУК «ЦБС» г. Пскова</a>
+                    </p> -->
+
+                    <div class="contact-details">
+                        <p class="mb-1"><a href="tel:88112331123"><i class='bx bx-phone me-1'></i> 8 (8112) 33-11-23 (абонемент)</a></p>
+                        <p class="mb-1"><a href="mailto:vasilevka@bibliopskov.ru"><i class='bx bx-envelope me-1'></i> vasilevka@bibliopskov.ru</a></p>
+                        <p class="mb-3"><a href="https://yandex.ru/maps/-/CHurbPN4" target="_blank"><i class='bx bx-location me-1'></i> 180000, г. Псков, Площадь Ленина, 3</a></p>
+                    </div>
+                    
+                    <!-- Социальные сети -->
+                    <div class="social-links d-flex mt-4">
+                        <a href="#" class="social-icon me-2"><i class='bxl bx-vk'></i> </a>
+                        <a href="#" class="social-icon"><i class='bxl bx-youtube'></i> </a>
+                    </div>
+                </div>
+
+                <!-- КОЛОНКА 2: Разделы сайта (Навигация) (col-lg-3) -->
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Разделы</h4>
+                    <ul class="footer-links list-unstyled">
+                        <li><i class='bx bx-chevron-right me-2'></i> <a href="#">Главная</a></li>
+                        <li><i class='bx bx-chevron-right me-2'></i> <a href="#">О библиотеке</a></li>
+                        <li><i class='bx bx-chevron-right me-2'></i> <a href="#">Услуги</a></li>
+                        <li><i class='bx bx-chevron-right me-2'></i> <a href="#">Афиша</a></li>
+                        <li><i class='bx bx-chevron-right me-2'></i> <a href="#">Галерея</a></li>
+                        <li><i class='bx bx-chevron-right me-2'></i> <a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <!-- КОЛОНКА 3: Обратная связь и Качество услуг (col-lg-3) -->
+                <div class="col-lg-4 col-md-6 ps-lg-5 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Обратная связь</h4>
+                    <ul class="footer-links list-unstyled">
+                        <li><i class='bx bx-chevron-right me-2'></i> <a href="#">Независимая оценка качества</a></li>
+                        <li><i class='bx bx-chevron-right me-2'></i> <a href="#">Отзыв о работе библиотек</a></li>
+                        <li><i class='bx bx-chevron-right me-2'></i> <a href="#">Оценка качества услуг</a></li>
+                        <li><i class='bx bx-chevron-right me-2'></i> <a href="#">Комплектуем фонд вместе</a></li>
+                        <li><i class='bx bx-chevron-right me-2'></i> <a href="#">Удовлетворенность работой</a></li>
+                    </ul>
+                </div>
+
+                <!-- КОЛОНКА 4: Ресурсы ЦБС (col-lg-3) -->
+                <div class="col-lg-2 ps-lg-3 col-md-6">
+                    <h4 class="footer-title">Наши сайты</h4>
+                    <ul class="footer-links list-unstyled">
+                        <li><i class='bx bx-link me-2'></i> <a href="http://bibliopskov.ru" target="_blank">bibliopskov.ru</a></li>
+                        <li><i class='bx bx-link me-2'></i> <a href="http://pskovkid.ru" target="_blank">pskovkid.ru</a></li>
+                        <li><i class='bx bx-link me-2'></i> <a href="http://bibliogames.ru" target="_blank">bibliogames.ru</a></li>
+                        <li><i class='bx bx-link me-2'></i> <a href="http://nevsky-pskov.ru" target="_blank">nevsky-pskov.ru</a></li>
+                        <li><i class='bx bx-link me-2'></i> <a href="http://book-apple.ru" target="_blank">book-apple.ru</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <!-- Нижняя строка: Копирайт и Разработчик -->
+            <div class="row footer-bottom pt-4 mt-4 border-top">
+                <div class="col-md-6 copyright text-center text-md-start">
+                    &copy; 2025, Историко-краеведческая библиотека им. И. И. Василёва. <br>
+                    <!-- Структурное подразделение Муниципального автономного учреждения культуры «Централизованная библиотечная система» города Пскова -->
+                </div>
+                <!-- <div class="col-md-6 credits text-center text-md-end">
+                    Разработка и дизайн: <a href="#"></a>
+                </div> -->
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- scroll-to-top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class='bx  bx-arrow-up-stroke'></i> </a>
+
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/aos/aos.js"></script>
+    <script src="vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="vendor/glightbox/js/glightbox.min.js"></script>
+
+    <script src="assets/js/main.js"></script>
+
+
+    <div class="modal fade" id="renewalModal" tabindex="-1" aria-labelledby="renewalModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-3">
+        
+                <div class="modal-header">
+                    <h5 class="modal-title" id="renewalModalLabel">Запрос на продление книг</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                
+                <form id="renewalForm" action="#" method="POST">
+                    <div class="modal-body">
+                        <div class="alert alert-warning small py-2 mb-4" role="alert">
+                        Заполните поля, и мы свяжемся с вами для подтверждения продления.
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Ваше ФИО (полностью)*</label>
+                            <input type="text" class="form-control" id="fullName" name="fullName" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Ваш Email (для обратной связи)*</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="readerId" class="form-label">Номер читательского билета (если есть)</label>
+                            <input type="text" class="form-control" id="readerId" name="readerId">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-7 mb-3">
+                                <label for="school" class="form-label">Школа</label>
+                                <input type="text" class="form-control" id="school" name="school">
+                            </div>
+                            <div class="col-md-5 mb-3">
+                                <label for="grade" class="form-label">Класс</label>
+                                <input type="text" class="form-control" id="grade" name="grade">
+                            </div>
+                        </div>
+
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="checkbox" value="" id="privacyCheck" required>
+                            <label class="form-check-label small" for="privacyCheck">
+                                Я согласен(а) на обработку моих персональных данных.
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer d-block p-0">
+                        <!-- Юридический дисклеймер (Стилизован под приписку) -->
+                        <div class="legal-disclaimer p-3 rounded-bottom bg-light">
+                            <p class="mb-1 small text-muted">
+                                Внимание! Информация о персональных данных удаленных пользователей, воспользовавшихся онлайн-сервисами Централизованной библиотечной системы г. Пскова, обрабатывается с соблюдением требований Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных».
+                            </p>
+                            <p class="mb-0 small"><a href="#" class="text-secondary">Положение об использовании персональных данных пользователей.</a></p>
+                        </div>
+
+                        <div class="p-3 d-flex justify-content-end">
+                            <button type="button" class="btn btn-danger me-2" data-bs-dismiss="modal">Отмена</button>
+                            <button type="submit" class="btn btn-success">Отправить заявку</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

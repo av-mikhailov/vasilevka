@@ -1,0 +1,198 @@
+@use '../abstracts/variables' as vars; 
+@use '../abstracts/mixins' as *; 
+
+// ==========================================================
+// СЕКЦИЯ ОБЛОЖКИ ЗАПИСИ
+// ==========================================================
+.section--post-cover { 
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+    // --- Общий базовый стиль для всех tag-btn внутри обложки ---
+    // Этот стиль задает БЕЛЫЙ фон по умолчанию.
+    .tag-btn {
+        background-color: vars.$color-white; /* Базовый БЕЛЫЙ ФОН */
+        color: vars.$color-text; /* Базовый ТЕМНЫЙ ТЕКСТ */
+        border-radius: 50px;
+        padding: 4px 16px;
+        font-size: 0.9rem;
+        font-weight: 400;
+        border: 1px solid transparent; 
+        transition: all 0.2s ease;
+    }
+}
+
+.post-cover-box { 
+    position: relative;
+    width: 100%;
+    height: 500px; 
+    margin: 0; 
+    
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    border-radius: 24px; 
+    
+    .cover-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to bottom, 
+            rgba(146, 134, 114, 0.6), /* #928672 с 60% прозрачностью */
+            rgba(40, 37, 32, 0.6)     /* #282520 с 60% прозрачностью */
+        );
+        z-index: 1;
+    }
+
+    .cover-content {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        padding: 40px;
+        color: vars.$color-white;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas: 
+            "top-left top-right"
+            "bottom-left bottom-right";
+        align-items: end; 
+
+
+        @media (max-width: 767.98px) {
+            // Переключаемся на Flexbox для вертикального стекирования основных блоков
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Прижимаем контент к низу */
+        }
+    }
+
+    .cover-top-row {
+        // На десктопе он должен быть невидимым
+        display: contents; 
+
+        @media (max-width: 767.98px) {
+            // На мобильных: становится Flex-контейнером
+            display: flex;
+            justify-content: space-between; /* Тег слева, иконки справа */
+            align-items: center;
+            width: 100%;
+        }
+    }
+
+    /* А. ЛЕВЫЙ ВЕРХ: Контейнер Тега */
+    .cover-top-left {
+        grid-area: top-left; /* Десктоп */
+        align-self: start;
+        
+        @media (max-width: 767.98px) {
+            /* Сбрасываем Grid-позиционирование, Flexbox возьмет управление */
+            grid-area: unset; 
+        }
+    }
+
+    /* Б. ПРАВЫЙ ВЕРХ: Соцсети */
+    .cover-top-right {
+        grid-area: top-right;
+        align-self: start;
+        text-align: right;
+
+        @media (max-width: 767.98px) {
+            /* Сбрасываем Grid-позиционирование */
+            grid-area: unset; 
+            text-align: right;
+        }
+        
+        .social-share {
+            display: inline-flex;
+        }
+
+        .share-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 32px;
+            height: 32px;
+            background-color: vars.$color-light;
+            border-radius: 50%;
+            margin-left: 8px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            
+
+            i {
+                color: vars.$color-primary;
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    /* В. ЛЕВЫЙ НИЗ: Заголовок */
+    .cover-bottom-left {
+        grid-area: bottom-left;
+
+        @media (max-width: 767.98px) {
+            /* Сбрасываем Grid-позиционирование и делаем отступ */
+            grid-area: unset; 
+            margin-top: 15px; 
+            margin-top: auto;
+        }
+
+        h1 {
+            color: vars.$color-light;
+            font-size: 2rem;
+            line-height: 1.2;
+
+            @media (max-width: 991.98px) {
+                font-size: 2.2rem; /* Уменьшаем на tablet */
+            }
+
+            @media (max-width: 767.98px) {
+                font-size: 1.8rem; /* Уменьшаем на mobile */
+                
+            }
+        }
+    }
+}
+
+
+/* ---------------------------------------------------- */
+/* ЦВЕТОВОЕ КОДИРОВАНИЕ ТЕГА ПО ТИПУ МЕРОПРИЯТИЯ */
+/* (Используем модификатор на родителе, чтобы перебить базовый белый фон) */
+/* ---------------------------------------------------- */
+
+// Премьера фильма: DBDBDB
+.section--post-cover.type-film { 
+    .tag-btn {
+        background-color: vars.$color-light;
+        color: #5A6D91; 
+        border-color: rgba(#5A6D91, 0.8);
+    }
+}
+
+// Открытие выставки: D6E2DD
+.section--post-cover.type-exhibition {
+    .tag-btn {
+        background-color: #D6E2DD;
+        color: #4C7063;
+        border-color: rgba(#4C7063, 0.2);
+    }
+}
+
+// Лекция: F2E8DE
+.section--post-cover.type-lecture {
+    .tag-btn {
+        background-color: #F2E8DE;
+        color: #9A7751;
+        border-color: rgba(#9A7751, 0.2);
+    }
+}
+
+// Встреча с писателями: EBDFDF
+.section--post-cover.type-meeting {
+    .tag-btn {
+        background-color: #EBDFDF;
+        color: #8D5A5A;
+        border-color: rgba(#8D5A5A, 0.2);
+    }
+}

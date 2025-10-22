@@ -1,18 +1,14 @@
 @use '../abstracts/variables' as vars; 
 
 // ==========================================================
-// СТИЛИ ХЛЕБНЫХ КРОШЕК (BREADCRUMBS)
+// СТИЛИ ХЛЕБНЫХ КРОШЕК (ТЕМНЫЙ ФОН - ДЛЯ HERO)
 // ==========================================================
 .breadcrumbs-bar {
     position: absolute; 
     top: 80px;
     left: 0;
     width: 100%;
-    
-    // Z-INDEX ПОВЫШЕН
     z-index: 7; 
-    
-    // БОРДЕР НА ВСЮ ШИРИНУ
     border-bottom: 1px solid rgba(vars.$color-white, 0.1); 
 
     .container {
@@ -27,15 +23,12 @@
         display: flex;
         align-items: center;
         
-        // 1. Скрываем стандартный разделитель Bootstrap
         .breadcrumb-item + .breadcrumb-item::before {
-            content: none; /* Полностью удаляем стандартный разделитель */
+            content: none; 
         }
         
         .breadcrumb-item {
             font-size: 0.9rem;
-            
-            // Убираем потенциальные отступы от скрытого разделителя
             padding-right: 0 !important; 
             display: flex; 
             align-items: center;
@@ -50,20 +43,50 @@
             }
             
             &.active {
-                // Активный элемент (текст) должен быть немного ярче
-                color: rgba(vars.$color-white, 0.5); 
+                color: rgba(vars.$color-white, 0.8); /* Сделал активный текст чуть ярче */
             }
 
-            // 2. Стили для иконки (bx-chevron-right), вставленной в HTML
             i.bx-chevron-right {
-                font-size: 1rem; // Чуть больше, чем текст
-                color: rgba(vars.$color-white, 0.4); // Чуть более прозрачный, чем текст
+                font-size: 1rem;
+                color: rgba(vars.$color-white, 0.4);
+                margin: 0 5px; /* Добавил margin для центрирования */
                 padding-bottom: 2px;
             }
             
-            // 3. Убеждаемся, что иконка не показывается на последнем элементе (если она там есть)
             &:last-child i.bx-chevron-right {
                 display: none;
+            }
+        }
+    }
+}
+
+// ==========================================================
+// МОДИФИКАТОР: СВЕТЛЫЙ ФОН (ДЛЯ СТРАНИЦ ЗАПИСЕЙ)
+// ==========================================================
+.breadcrumbs-bar--light {
+    position: relative; /* Не нужно абсолютного позиционирования на обычных страницах */
+    top: 0; /* Снимаем смещение */
+    margin-top: 80px;
+    z-index: 5;
+    background-color: vars.$color-light; // Или очень светлый фон
+    border-bottom-color: rgba(vars.$color-text, 0.1); /* Светлый серый бордер */
+
+    .breadcrumb {
+
+        .breadcrumb-item {
+            &, a {
+                color: rgba(vars.$color-text, 0.8); /* Темный текст */
+            }
+            a:hover {
+                color: vars.$color-primary;
+            }
+            
+            &.active {
+                color: rgba(vars.$color-text, 0.6); /* Активный темный текст */
+            }
+
+            i.bx-chevron-right {
+                color: rgba(vars.$color-text, 0.6); /* Темный разделитель */
             }
         }
     }
