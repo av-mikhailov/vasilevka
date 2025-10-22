@@ -584,7 +584,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(40, 37, 32, 0.85);
+  background: rgba(29, 28, 27, 0.85);
   z-index: 2;
 }
 .hero .hero-content {
@@ -1155,6 +1155,11 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   max-width: auto;
   margin: 0 auto;
   font-size: 16px;
+}
+.events .section-header p i {
+  display: inline-flex;
+  vertical-align: -0.175rem;
+  font-size: 18px;
 }
 .events .events-grid-wrapper {
   background-color: #FFFFFF;
