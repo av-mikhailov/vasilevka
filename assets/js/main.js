@@ -227,4 +227,82 @@
         });
     });
 
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('eventSubmitForm');
+        const steps = form.querySelectorAll('.form-step');
+        const nextBtn = document.getElementById('next-step-btn');
+        const prevBtn = document.getElementById('prev-step-btn');
+        const submitBtn = document.getElementById('submit-form-btn');
+        const indicator = document.getElementById('step-indicator');
+        
+        let currentStep = 0; // Начинаем с первого шага (индекс 0)
+
+        function updateForm() {
+            // 1. Скрываем/показываем шаги
+            steps.forEach((step, index) => {
+                step.style.display = (index === currentStep) ? 'block' : 'none';
+            });
+
+            // 2. Обновляем индикатор
+            indicator.textContent = `Шаг ${currentStep + 1} из ${steps.length}: ${getStepTitle(currentStep)}`;
+
+            // 3. Управляем кнопками "Назад"
+            prevBtn.style.display = (currentStep === 0) ? 'none' : 'block';
+
+            // 4. Управляем кнопками "Далее"/"Отправить"
+            if (currentStep === steps.length - 1) {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'block';
+            } else {
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+            }
+        }
+
+        function getStepTitle(index) {
+            // Удобная функция для индикатора
+            switch(index) {
+                case 0: return 'Контакты';
+                case 1: return 'Описание мероприятия';
+                case 2: return 'Требования и согласие';
+                default: return '';
+            }
+        }
+
+        function validateStep(stepIndex) {
+            // Простая валидация (нужно улучшить для полной проверки)
+            const currentStepEl = steps[stepIndex];
+            const requiredInputs = currentStepEl.querySelectorAll('[required]');
+            
+            let isValid = true;
+            
+            requiredInputs.forEach(input => {
+                if (!input.value.trim() || (input.type === 'checkbox' && !input.checked)) {
+                    // В реальном проекте здесь нужно добавить Bootstrap-класс invalid-feedback
+                    isValid = false;
+                }
+            });
+            
+            return isValid;
+        }
+
+        // Обработчики кнопок
+        nextBtn.addEventListener('click', () => {
+            if (validateStep(currentStep)) {
+                currentStep++;
+                updateForm();
+            } else {
+                alert('Пожалуйста, заполните все обязательные поля.');
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentStep--;
+            updateForm();
+        });
+
+        // Инициализация формы
+        updateForm(); 
+    });
+
 })();

@@ -45,20 +45,78 @@
     /* Стиль отдельной карточки (Активная ссылка) */
     /* ---------------------------------------------------- */
     .event-item {
+        position: relative; // Важно для позиционирования оверлея
         display: flex;
         align-items: stretch;
-        background-color: transparent;
+        background-color: transparent; // Изначально прозрачный фон
         border-radius: 24px;
         text-decoration: none;
         color: vars.$color-text;
-        overflow: hidden;
+        overflow: hidden; // Важно для скрытия фото
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease-in-out;
+        transition: all 0.5s ease-in-out;
         height: 100%;
         
+        // НОВЫЙ БЛОК: Стили для фото-оверлея (Скрыт по умолчанию)
+        .event-photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: scale(1.05); // Эффект плавного "выезда"
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            z-index: 1; // Под текстом
+            background-size: cover;
+            background-position: center;
+            
+            // Добавляем темный оверлей поверх фото для лучшей читаемости белого текста
+            background-color: rgba(0, 0, 0, 0.4); 
+            background-blend-mode: overlay;
+        }
+
+        // Перемещаем контент наверх и добавляем переход для цвета
+        .event-date, .event-content {
+            position: relative;
+            z-index: 2;
+            transition: color 0.3s ease, background-color 0.3s ease; 
+        }
+
+        // НОВЫЙ БЛОК: Стили при наведении
         &:hover {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); // Более заметная тень
             transform: translateY(-5px); 
+            
+            // 1. Показываем фото
+            .event-photo-overlay {
+                opacity: 1;
+                transform: scale(1); 
+            }
+
+            // 2. Меняем цвет контента на белый
+            .event-date { 
+                background-color: transparent !important; // Делаем цвет даты прозрачным
+                color: vars.$color-white !important; 
+            }
+            .event-content {
+                background-color: transparent; // Фон контента становится прозрачным, видно фото
+                color: vars.$color-white; // Основной текст белый
+            }
+            
+            // 3. Меняем цвет элементов внутри контента
+            .event-title {
+                color: vars.$color-white; 
+            }
+            .event-meta {
+                color: rgba(255, 255, 255, 0.8); // Чуть менее яркий белый
+            }
+            .event-type-tag {
+                // Тег делаем прозрачным с белой рамкой
+                background-color: transparent !important; 
+                border: 1px solid vars.$color-white;
+                color: vars.$color-white !important;
+            }
         }
 
         @media (max-width: 575px) {
@@ -116,7 +174,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        background-color: vars.$color-light;
+        background-color: vars.$color-light; // Исходный светлый фон
     }
     
     /* ---------------------------------------------------- */
@@ -160,7 +218,7 @@
     }
 
     /* ---------------------------------------------------- */
-    /* ЦВЕТОВОЕ КОДИРОВАНИЕ ТИПОВ МЕРОПРИЯТИЙ */
+    /* ЦВЕТОВОЕ КОДИРОВАНИЕ ТИПОВ МЕРОПРИЯТИЙ (только исходные цвета) */
     /* ---------------------------------------------------- */
     
     // Премьера фильма: DBDBDB
