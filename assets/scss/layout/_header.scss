@@ -54,9 +54,10 @@ $nav-mobile-bg: vars.$color-light;          // Цвет фона мобильн�
 
         .nav-link {
             padding: 10px 15px;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 400;
             transition: 0.3s;
+            text-transform: uppercase;
             
             &:hover, &.active {
                 color: vars.$color-accent-alt;
@@ -70,7 +71,7 @@ $nav-mobile-bg: vars.$color-light;          // Цвет фона мобильн�
             color: vars.$color-white;
             border: 2px solid vars.$color-primary;
             background-color: vars.$color-primary;
-            font-size: 16px;
+            font-size: 15px;
             
             display: inline-flex; // Используем inline-flex для кнопки
             align-items: center;   // Центрирование по вертикали

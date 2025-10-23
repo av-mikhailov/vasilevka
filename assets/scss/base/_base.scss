@@ -65,30 +65,13 @@ main {
 }
 
 @font-face {
-    font-family: 'Palladio'; // Единое имя для всех начертаний
-    src: url('../fonts/palladio/P052-Roman.woff2') format('truetype');
-    font-weight: 400; // Roman (Regular)
+    font-family: 'Lora'; 
+    src: url('../fonts/lora/Lora-VariableFont_wght.ttf') format('truetype-variations'); 
+    
+    // Определяем доступный диапазон весов (wght)
+    font-weight: 400 700; 
+    
+    // Определяем, что это прямое начертание
     font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Palladio';
-    src: url('../fonts/palladio/P052-Bold.woff2') format('truetype');
-    font-weight: 700; // Bold
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Palladio';
-    src: url('../fonts/palladio/P052-Italic.woff2') format('truetype');
-    font-weight: 400; // Italic (Regular)
-    font-style: italic;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Palladio';
-    src: url('../fonts/palladio/P052-BoldItalic.woff2') format('truetype');
-    font-weight: 700; // Bold Italic
-    font-style: italic;
     font-display: swap;
 }
