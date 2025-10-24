@@ -740,7 +740,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
 .hero .hero-contact-bar .phone-email-item .contact-info i, .hero .hero-contact-bar .address-item .contact-info i {
   font-size: 16px;
   margin-right: 8px;
-  padding-top: 1px;
+  line-height: 1.35;
   color: #917A5A;
 }
 .hero .hero-contact-bar .phone-email-item .contact-info a, .hero .hero-contact-bar .address-item .contact-info a {
@@ -1124,34 +1124,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
 
 .events {
   padding: 60px 0;
-  /* Стили для общего заголовка секции */
-  /* ---------------------------------------------------- */
-  /* Контейнер карточек (Белая плашка) */
-  /* ---------------------------------------------------- */
-  /* ---------------------------------------------------- */
-  /* Стиль отдельной карточки (Активная ссылка) */
-  /* ---------------------------------------------------- */
-  /* ---------------------------------------------------- */
-  /* ЛЕВАЯ ЧАСТЬ: ДАТА */
-  /* ---------------------------------------------------- */
-  /* ---------------------------------------------------- */
-  /* ПРАВАЯ ЧАСТЬ: ОПИСАНИЕ */
-  /* ---------------------------------------------------- */
-  /* ---------------------------------------------------- */
-  /* РЯД 1: Тип Мероприятия (Тег) */
-  /* ---------------------------------------------------- */
-  /* ---------------------------------------------------- */
-  /* РЯД 2: Название */
-  /* ---------------------------------------------------- */
-  /* ---------------------------------------------------- */
-  /* РЯД 3: Мета-информация (Время и Место) */
-  /* ---------------------------------------------------- */
-  /* ---------------------------------------------------- */
-  /* ЦВЕТОВОЕ КОДИРОВАНИЕ ТИПОВ МЕРОПРИЯТИЙ (только исходные цвета) */
-  /* ---------------------------------------------------- */
-  /* ---------------------------------------------------- */
-  /* Кнопка "Все мероприятия" и Декоративные Линии */
-  /* ---------------------------------------------------- */
+  /* ЦВЕТОВОЕ КОДИРОВАНИЕ ТИПОВ МЕРОПРИЯТИЙ */
 }
 .events .section-header {
   margin-bottom: 40px;
@@ -1186,6 +1159,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
 }
 .events .event-item {
   position: relative;
+  z-index: 1;
   display: flex;
   align-items: stretch;
   background-color: transparent;
@@ -1194,7 +1168,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   color: #282520;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
   height: 100%;
 }
 .events .event-item .event-photo-overlay {
@@ -1212,14 +1186,22 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   background-color: rgba(0, 0, 0, 0.4);
   background-blend-mode: overlay;
 }
+.events .event-item .event-photo-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(146, 134, 114, 0.6), rgba(40, 37, 32, 0.6));
+  z-index: 3;
+}
 .events .event-item .event-date, .events .event-item .event-content {
   position: relative;
-  z-index: 2;
+  z-index: 4;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 .events .event-item:hover {
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px) translateZ(0);
+  z-index: 10;
 }
 .events .event-item:hover .event-photo-overlay {
   opacity: 1;
@@ -1241,7 +1223,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
 }
 .events .event-item:hover .event-type-tag {
   background-color: transparent !important;
-  border: 1px solid #FFFFFF;
+  border-color: #FFFFFF;
   color: #FFFFFF !important;
 }
 @media (max-width: 575px) {
@@ -1306,6 +1288,8 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   margin-bottom: 32px;
   display: inline-block;
   width: fit-content;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
 }
 .events .event-title {
   font-size: 18px;
@@ -1367,9 +1351,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   display: block;
 }
 .events .all-events-link .btn-primary-outline {
-  /* Базовый стиль */
   background-color: #FFFFFF;
-  /* !!! ИСПРАВЛЕНИЕ: Толщина рамки 1px !!! */
   border: 0.5px solid #917A5A;
   color: #917A5A;
   padding: 8px 30px;
@@ -1377,7 +1359,6 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s;
-  /* Эффект при наведении */
 }
 .events .all-events-link .btn-primary-outline:hover {
   background-color: #917A5A;

@@ -4,7 +4,6 @@
 .events { 
     padding: 60px 0;
     
-    /* Стили для общего заголовка секции */
     .section-header {
         margin-bottom: 40px;
         h2 {
@@ -27,9 +26,6 @@
         }
     }
     
-    /* ---------------------------------------------------- */
-    /* Контейнер карточек (Белая плашка) */
-    /* ---------------------------------------------------- */
     .events-grid-wrapper {
         background-color: vars.$color-white;
         padding: 48px 64px; 
@@ -41,23 +37,20 @@
         }
     }
 
-    /* ---------------------------------------------------- */
-    /* Стиль отдельной карточки (Активная ссылка) */
-    /* ---------------------------------------------------- */
     .event-item {
-        position: relative; // Важно для позиционирования оверлея
+        position: relative;
+        z-index: 1;
         display: flex;
         align-items: stretch;
-        background-color: transparent; // Изначально прозрачный фон
+        background-color: transparent;
         border-radius: 24px;
         text-decoration: none;
         color: vars.$color-text;
-        overflow: hidden; // Важно для скрытия фото
+        overflow: hidden;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        transition: all 0.5s ease-in-out;
+        transition: all 0.3s ease-in-out; // Уменьшил длительность перехода для скорости
         height: 100%;
         
-        // НОВЫЙ БЛОК: Стили для фото-оверлея (Скрыт по умолчанию)
         .event-photo-overlay {
             position: absolute;
             top: 0;
@@ -65,56 +58,64 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transform: scale(1.05); // Эффект плавного "выезда"
+            transform: scale(1.05);
             transition: opacity 0.5s ease, transform 0.5s ease;
-            z-index: 1; // Под текстом
+            z-index: 1;
             background-size: cover;
             background-position: center;
             
-            // Добавляем темный оверлей поверх фото для лучшей читаемости белого текста
-            background-color: rgba(0, 0, 0, 0.4); 
+            background-color: rgba(0, 0, 0, 0.4);
             background-blend-mode: overlay;
+
+            // Добавляем градиент для контраста текста
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    to bottom, 
+                    rgba(146, 134, 114, 0.6), /* #928672 с 60% прозрачностью */
+                    rgba(40, 37, 32, 0.6)     /* #282520 с 60% прозрачностью */
+                );
+                z-index: 3;
+            }
         }
 
-        // Перемещаем контент наверх и добавляем переход для цвета
         .event-date, .event-content {
             position: relative;
-            z-index: 2;
+            z-index: 4; // Z-index выше оверлея и градиента
             transition: color 0.3s ease, background-color 0.3s ease; 
         }
 
-        // НОВЫЙ БЛОК: Стили при наведении
         &:hover {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); // Более заметная тень
-            transform: translateY(-5px); 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); // Обновил тень
+            transform: translateY(-5px) translateZ(0);
+            z-index: 10;
             
-            // 1. Показываем фото
             .event-photo-overlay {
                 opacity: 1;
                 transform: scale(1); 
             }
 
-            // 2. Меняем цвет контента на белый
             .event-date { 
-                background-color: transparent !important; // Делаем цвет даты прозрачным
+                background-color: transparent !important;
                 color: vars.$color-white !important; 
             }
             .event-content {
-                background-color: transparent; // Фон контента становится прозрачным, видно фото
-                color: vars.$color-white; // Основной текст белый
+                background-color: transparent;
+                color: vars.$color-white;
             }
             
-            // 3. Меняем цвет элементов внутри контента
             .event-title {
                 color: vars.$color-white; 
             }
             .event-meta {
-                color: rgba(255, 255, 255, 0.8); // Чуть менее яркий белый
+                color: rgba(255, 255, 255, 0.8);
             }
             .event-type-tag {
-                // Тег делаем прозрачным с белой рамкой
                 background-color: transparent !important; 
-                border: 1px solid vars.$color-white;
+                // ИСПРАВЛЕНИЕ: Меняем только цвет рамки
+                border-color: vars.$color-white; 
                 color: vars.$color-white !important;
             }
         }
@@ -124,9 +125,6 @@
         }
     }
     
-    /* ---------------------------------------------------- */
-    /* ЛЕВАЯ ЧАСТЬ: ДАТА */
-    /* ---------------------------------------------------- */
     .event-date {
         flex-shrink: 0;
         width: 120px;
@@ -165,21 +163,15 @@
         }
     }
 
-    /* ---------------------------------------------------- */
-    /* ПРАВАЯ ЧАСТЬ: ОПИСАНИЕ */
-    /* ---------------------------------------------------- */
     .event-content {
         flex-grow: 1;
         padding: 24px 24px 20px 24px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        background-color: vars.$color-light; // Исходный светлый фон
+        background-color: vars.$color-light;
     }
     
-    /* ---------------------------------------------------- */
-    /* РЯД 1: Тип Мероприятия (Тег) */
-    /* ---------------------------------------------------- */
     .event-type-tag {
         font-size: 12px;
         font-weight: 400;
@@ -187,12 +179,13 @@
         border-radius: 12px;
         margin-bottom: 32px;
         display: inline-block; 
-        width: fit-content;    
+        width: fit-content;
+        
+        // !!! КЛЮЧЕВОЕ ИСПРАВЛЕНИЕ ДЛЯ ПЛАВНОСТИ !!!
+        border: 1px solid transparent; 
+        transition: all 0.3s ease;
     }
 
-    /* ---------------------------------------------------- */
-    /* РЯД 2: Название */
-    /* ---------------------------------------------------- */
     .event-title {
         font-size: 18px;
         font-weight: 500;
@@ -201,9 +194,6 @@
         line-height: 1.4;
     }
     
-    /* ---------------------------------------------------- */
-    /* РЯД 3: Мета-информация (Время и Место) */
-    /* ---------------------------------------------------- */
     .event-meta {
         font-size: 13px;
         color: vars.$color-primary;
@@ -217,11 +207,8 @@
         }
     }
 
-    /* ---------------------------------------------------- */
-    /* ЦВЕТОВОЕ КОДИРОВАНИЕ ТИПОВ МЕРОПРИЯТИЙ (только исходные цвета) */
-    /* ---------------------------------------------------- */
+    /* ЦВЕТОВОЕ КОДИРОВАНИЕ ТИПОВ МЕРОПРИЯТИЙ */
     
-    // Премьера фильма: DBDBDB
     .type-film {
         .event-date { background-color: #DBDBDB; }
         .event-type-tag {
@@ -230,7 +217,6 @@
         }
     }
 
-    // Открытие выставки: D6E2DD
     .type-exhibition {
         .event-date { background-color: #D6E2DD; }
         .event-type-tag {
@@ -239,7 +225,6 @@
         }
     }
     
-    // Лекция: F2E8DE
     .type-lecture {
         .event-date { background-color: #F2E8DE; }
         .event-type-tag {
@@ -248,7 +233,6 @@
         }
     }
     
-    // Встреча с писателями: EBDFDF
     .type-meeting {
         .event-date { background-color: #EBDFDF; }
         .event-type-tag {
@@ -257,9 +241,6 @@
         }
     }
     
-    /* ---------------------------------------------------- */
-    /* Кнопка "Все мероприятия" и Декоративные Линии */
-    /* ---------------------------------------------------- */
     .all-events-link {
         display: flex;
         align-items: center;
@@ -275,9 +256,7 @@
         }
         
         .btn-primary-outline {
-            /* Базовый стиль */
             background-color: vars.$color-white;
-            /* !!! ИСПРАВЛЕНИЕ: Толщина рамки 1px !!! */
             border: 0.5px solid vars.$color-primary; 
             color: vars.$color-primary;
             padding: 8px 30px;
@@ -286,7 +265,6 @@
             font-weight: 500;
             transition: all 0.3s;
 
-            /* Эффект при наведении */
             &:hover {
                 background-color: vars.$color-primary;
                 color: vars.$color-white;
