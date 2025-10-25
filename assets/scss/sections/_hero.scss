@@ -42,7 +42,7 @@
         position: relative;
         z-index: 3;
         text-align: center;
-        padding: 20px;
+        padding: 16px;
         
         h1 {
             font-size: 3rem; 
@@ -242,12 +242,12 @@
     // СТИЛЬ HERO-СЕКЦИИ ДЛЯ РУБРИКИ "АФИША" (ПЕРЕОПРЕДЕЛЕНИЯ)
     // ==========================================================
     &--archive {
-        height: 50vh; // Уменьшенная высота
+        height: 60vh; // Уменьшенная высота
         min-height: 400px; 
         
         .hero-content {
             position: absolute; /* Делаем его абсолютно позиционированным */
-            top: 60%;           /* Сдвигаем на 50% сверху */
+            top: 50%;           /* Сдвигаем на 50% сверху */
             left: 50%;          /* Сдвигаем на 50% слева */
             transform: translate(-50%, -50%); /* Возвращаем на 50% (Финальное центрирование) */
             
@@ -256,7 +256,34 @@
             margin-bottom: 0;
 
             h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
+                margin-bottom: 16px;
+            }
+
+            @media (max-width: 991.98px) {
+                top: 55%;
+                width: 100%;
+
+                h1 {
+                    font-size: 1.5rem;
+                    margin-bottom: 16px;
+                }
+            } 
+
+            .hero-badge {
+                display: inline-flex;
+                align-items: center;
+                padding: 4px 12px;
+                border-radius: 50px;
+                background-color: rgb(145, 122, 90, 0.4);
+                font-size: 16px;
+                font-weight: 300;
+                letter-spacing: 0.5px;
+                color: vars.$color-white;
+                
+                i {
+                    font-size: 16px;
+                }
             }
         }
 

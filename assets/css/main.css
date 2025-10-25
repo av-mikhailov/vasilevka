@@ -603,7 +603,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   position: relative;
   z-index: 3;
   text-align: center;
-  padding: 20px;
+  padding: 16px;
 }
 .hero .hero-content h1 {
   font-size: 3rem;
@@ -760,12 +760,12 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   padding-left: 100px;
 }
 .hero--archive {
-  height: 50vh;
+  height: 60vh;
   min-height: 400px;
 }
 .hero--archive .hero-content {
   position: absolute; /* Делаем его абсолютно позиционированным */
-  top: 60%; /* Сдвигаем на 50% сверху */
+  top: 50%; /* Сдвигаем на 50% сверху */
   left: 50%; /* Сдвигаем на 50% слева */
   transform: translate(-50%, -50%); /* Возвращаем на 50% (Финальное центрирование) */
   z-index: 3;
@@ -773,7 +773,32 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   margin-bottom: 0;
 }
 .hero--archive .hero-content h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+@media (max-width: 991.98px) {
+  .hero--archive .hero-content {
+    top: 55%;
+    width: 100%;
+  }
+  .hero--archive .hero-content h1 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+}
+.hero--archive .hero-content .hero-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 50px;
+  background-color: rgba(145, 122, 90, 0.4);
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+}
+.hero--archive .hero-content .hero-badge i {
+  font-size: 16px;
 }
 .hero--archive .hero-transition-wave {
   z-index: 4;
@@ -1757,8 +1782,8 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
 }
 
 .section--post-cover {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 .section--post-cover .tag-btn {
   background-color: #FFFFFF; /* Базовый БЕЛЫЙ ФОН */
@@ -1917,7 +1942,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
 }
 
 .section--post-content {
-  padding-top: 24px;
+  padding-top: 0px;
   padding-bottom: 120px;
 }
 .section--post-content .post-text {
