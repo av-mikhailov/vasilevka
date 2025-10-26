@@ -305,4 +305,67 @@
         updateForm(); 
     });
 
+   // Этот код должен быть в вашем основном файле JS (например, main.js)
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Проверяем, существуют ли элементы перед инициализацией
+    const imageSliderEl = document.getElementById('HistoryImageSlider');
+    const textSliderEl = document.getElementById('HistoryTextSlider');
+    if (!imageSliderEl || !textSliderEl) return;
+
+    // 1. Инициализируем Swiper для изображений (основной)
+    const imageSlider = new Swiper(imageSliderEl, {
+        loop: false,
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        speed: 500,
+        allowTouchMove: false, // Запрещаем перетаскивание
+    });
+
+    // 2. Инициализируем Swiper для текста (синхронизируется с изображениями)
+    const textSlider = new Swiper(textSliderEl, {
+        loop: false,
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        speed: 500,
+        autoHeight: true, // Адаптируем высоту под текст
+        allowTouchMove: false,
+        // Синхронизация:
+        controller: {
+            control: imageSlider
+        }
+    });
+
+    // 3. Обработка кликов по точкам таймлайна
+    const navPoints = document.querySelectorAll('#HistoryTimelineNav .timeline-nav-point');
+    navPoints.forEach((point, index) => {
+        point.addEventListener('click', () => {
+            // Сброс активного состояния
+            navPoints.forEach(p => p.classList.remove('active'));
+            // Установка активного состояния
+            point.classList.add('active');
+            
+            // Переключение слайдеров
+            imageSlider.slideTo(index);
+            textSlider.slideTo(index);
+        });
+    });
+
+    // Дополнительно: Обработка свайпа (хотя разрешено только через точки)
+    // Если слайдер сменится (например, при смене размера окна), обновить точки
+    textSlider.on('slideChange', function () {
+        navPoints.forEach(p => p.classList.remove('active'));
+        navPoints[textSlider.activeIndex].classList.add('active');
+    });
+
+    // Устанавливаем активное состояние при первой загрузке (если не установлено в HTML)
+    if (!document.querySelector('#HistoryTimelineNav .active')) {
+        navPoints[0].classList.add('active');
+    }
+});
+
 })();

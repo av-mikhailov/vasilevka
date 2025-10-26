@@ -14,7 +14,7 @@
     
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body class="body--single-post">
+<body>
 
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container position-relative d-flex align-items-center justify-content-between">
@@ -80,92 +80,140 @@
     </header>
 
     <main>
-
-        <div class="breadcrumbs-bar breadcrumbs-bar--light">
-            <div class="container">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        
-                        <li class="breadcrumb-item">
-                            <a href="index.html">Главная</a>
-                            <i class='bx bx-chevron-right ps-3 pe-0'></i> </li>
-                        <li class="breadcrumb-item">
-                        <a href="events.html">Афиша</a>
-                        <i class='bx bx-chevron-right ps-3 pe-0'></i> </li>
-                        
-                        <li class="breadcrumb-item active" aria-current="page">Истории за кадром: Документальная сага о городском наследии</li>
-                    </ol>
-                </nav>
+        <section id="hero" 
+            class="hero hero--archive" 
+            style="background-image: url('assets/img/about-bg.jpg');" 
+            data-aos="fade-in" data-aos-duration="1200"
+        >
+            <div class="breadcrumbs-bar">
+                <div class="container">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            
+                            <li class="breadcrumb-item">
+                                <a href="index.html">Главная</a>
+                                <i class='bx bx-chevron-right ps-3 pe-0'></i> </li>
+                            
+                            <li class="breadcrumb-item active" aria-current="page">О библиотеке</li>
+                        </ol>
+                    </nav>
+                </div>
             </div>
-        </div>
+            <div class="hero-content">
+                <h1 data-aos="zoom-in" data-aos-duration="1200">Мы храним прошлое и создаём будущее</h1>
+                <span class="hero-badge" data-aos="zoom-in" data-aos-duration="1200">
+                    <i class='bx bx-minus pe-1'></i> О библиотеке <i class=' ps-1 bx bx-minus'></i> 
+                </span>
+            </div>
+            <div class="hero-transition-wave"></div>
+            
+            <div class="hero-contact-bar" data-aos="fade-up" data-aos-duration="1600">
+                <div class="container">
+                    <div class="row align-items-center">
+                        
+                        <!-- 1. БЛОК КНОПКИ (ВСЕГДА ВИДИМ) -->
+                        <div class="col-lg-6 col-12 d-flex justify-content-center justify-content-lg-start ps-2 mb-3 mb-lg-0">
+                            <a href="" 
+                               class="btn btn-lg btn-custom-outline" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                            >
+                                <i class='bx bx-file-detail'></i>  Положение о библиотеке
+                            </a>
+                        </div>
 
-        <section class="section--post-cover type-film">  <div class="container">
-        
-                <figure class="post-cover-box" 
-                        style="background-image: url('assets/img/event-1.jpg');">
-                    
-                    <div class="cover-overlay"></div>
-
-                    <div class="cover-content">
-                        <div class="cover-top-row">
-                            <div class="cover-top-left">
-                                <a href="#" class="btn tag-btn">  
-                                    #Премьера фильма
+                        <!-- 2. Контакты (СКРЫТЫ НА МОБИЛЬНЫХ) -->
+                        <div class="col-lg-5 d-none d-lg-flex contact-item justify-content-end phone-email-item">
+                            <p class="contact-info">
+                                <i class='bx bx-location me-2'></i> 
+                                <a href="https://yandex.ru/maps/-/CHurbPN4" target="_blank">
+                                    180000, Псковская область, г. Псков, Площадь Ленина, д. 3
                                 </a>
-                            </div>
-                            <div class="cover-top-right">
-                                <div class="social-share">
-                                    <a href="#" class="share-icon"><i class='bxl bx-vk'></i></a>
-                                    <a href="#" class="share-icon"><i class='bxl bx-telegram'></i></a>
-                                </div>
+                            </p>
+                            <!-- <p class="contact-info">
+                                <i class='bx bx-envelope'></i> 
+                                <a href="mailto:vasilevka@bibliopskov.ru">vasilevka@bibliopskov.ru</a>
+                            </p> -->
+                        </div>
+                        <div class="col-lg-1 d-none d-lg-flex contact-item justify-content-end pe-2">
+                            <div class="social-links">
+                                <a href="#" class="social-icon me-2"><i class='bxl bx-vk'></i> </a>
                             </div>
                         </div>
-
-                        <div class="cover-bottom-left">
-                            <h1 class="display-4">Истории за кадром: Документальная сага о городском наследии</h1>
-                        </div>
-
                     </div>
-                </figure>
-            </div>
-        </section>
-
-        <section class="section--post-content">
-            <div class="container">
-                <div class="row">
-                    
-                    <div class="col-lg-9">
-                        <div class="post-text">
-                            <p>29 августа в Историко-краеведческой библиотеке им. И. И. Василева состоялся премьерный показ фильма «Аркадий Филинов», созданного рамках проекта «Мастера» в 2025 году.</p>
-
-                            <p>Этот фильм знакомит нас с человеком давно и прочно связавшим свою жизнь и творчество с Псковским краем. Аркадий Филинов — живописец, член Союза художников России, преподаватель, человек, который внёс огромный вклад в сохранение таких бесценных памятников Псковской области, как уникальные фрески в церкви Успения Богородицы в Мелётово (1462 г).</p>
-
-                            <p>С 2015 года Аркадий живет в Выбутах, там же родились удивительные картины, демонстрирующие нам еще один шедевр: Церковь Ильи Пророка (первое упоминание в 1585-1587 гг.), сравнимую с всемирно известной церковью Покрова на Нерли, здесь же им создан удивительный музей.</p>
-
-                            <p>Последние несколько лет художник работает над панорамными картинами с видами Пскова XVII века — это не только творческий процесс, но и серьёзное научное исследование. Фрагменты этих картин вызвали множество вопросов и восторженных откликов у гостей нашей встречи.</p>
-                            </div>
-                    </div>
-                    
-                    <div class="col-lg-3">
-                        
-                        <div class="event-sidebar-info post-sidebar-info">
-                            <div class="info-block ps-2 pt-2">
-                                <p><i class='bx bx-calendar-event'></i> 25 октября</p>
-                                <p><i class='bx bx-clock-4'></i> 18:00</p>
-                                <p><i class='bx bx-location'></i> Главный зал</p>
-                                <p><i class='bx bx-user-voice'></i> 16+</p>
-                            </div>
-                        </div>
-                        <div class="post-register-cta">
-                            <a href="#" class="post-register-btn">Записаться на мероприятие</a>
-                        </div>
-                        
-
-                    </div>
-                    
                 </div>
             </div>
         </section>
+
+<section class="section section--history-timeline">
+    <div class="container">
+
+        <h2 class="section-title text-center" data-aos="fade-right" data-aos-duration="1600">Наша История: От Основания до Нового Поколения</h2>
+
+        <div class="history-content-wrapper" data-aos="fade-left" data-aos-duration="1600">
+            
+            <div class="row history-row">
+                
+                <div class="col-12 col-lg-2 history-col--timeline ps-xl-5">
+                    <div class="timeline-navigation" id="HistoryTimelineNav">
+                        <div class="timeline-nav-point active" data-year="1946">1946</div>
+                        <div class="timeline-nav-point" data-year="1966"><span class="pb-3">1966</span></div>
+                        <div class="timeline-nav-point" data-year="2025">2025</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 history-col--content order-lg-first">
+                    <div class="swiper history-text-slider" id="HistoryTextSlider">
+                        <div class="swiper-wrapper">
+                            
+                            <div class="swiper-slide history-slide-content" data-history-year="1946">
+                                <div class="slide-year-display">1946</div> 
+                                <div class="slide-text-wrapper">
+                                    <h3 class="slide-title h2">Рождение Очага Знаний</h3>
+                                    <p>В 1880 году состоялось открытие первой публичной библиотеки в Пскове, положив начало долгой истории. В те годы библиотека служила важнейшим центром просвещения и доступа к книгам для всех жителей города.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide history-slide-content" data-history-year="1966">
+                                <div class="slide-year-display">1966</div>
+                                <div class="slide-text-wrapper">
+                                    <h3 class="slide-title h2">Возрождение После Войны</h3>
+                                    <p>Во время Второй мировой войны фонд библиотеки был почти полностью утрачен. 1944 год ознаменовался восстановлением работы и сбором нового фонда, что стало символом стойкости и культурного возрождения города.</p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide history-slide-content" data-history-year="2025">
+                                <div class="slide-year-display">2025</div>
+                                <div class="slide-text-wrapper">
+                                    <h3 class="slide-title h2">Переход в Новое Измерение</h3>
+                                    <p>В 2025 году библиотека переезжает в современное здание площадью 3200 м² в центре города. Это стало не просто переездом, а рождением "Библиотеки нового поколения" — центра технологий, краеведения и коворкинга.</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 history-col--image">
+                    <div class="swiper history-image-slider" id="HistoryImageSlider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="assets/img/about-1.jpeg" alt="История библиотеки, 1880">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/img/about-2.jpeg" alt="История библиотеки, 1944">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/img/gallery-1.jpg" alt="Новое здание, 2025">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
 
 
 

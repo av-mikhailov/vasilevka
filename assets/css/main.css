@@ -791,7 +791,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   align-items: center;
   padding: 4px 12px;
   border-radius: 50px;
-  background-color: rgba(145, 122, 90, 0.4);
+  background-color: rgba(134, 51, 22, 0.6);
   font-size: 16px;
   font-weight: 300;
   letter-spacing: 0.5px;
@@ -2023,4 +2023,204 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   .post-register-cta .post-register-btn {
     width: 100%;
   }
+}
+
+.section--history-timeline {
+  padding: 80px 0;
+  /* 0. ОБЩИЙ КОНТЕЙНЕР для фона и закругления */
+  /* ==================================================== */
+  /* 2. ЦЕНТРАЛЬНАЯ КОЛОНКА: ТАЙМЛАЙН (Линия-Узел) */
+  /* ==================================================== */
+  /* ==================================================== */
+  /* 1. КОНТЕНТ СЛАЙДЕР (ДАТА + ТЕКСТ) */
+  /* ==================================================== */
+  /* ==================================================== */
+  /* 3. ФОТО СЛАЙДЕР (Фикс. высота) */
+  /* ==================================================== */
+}
+.section--history-timeline .section-title {
+  margin-bottom: 40px;
+}
+.section--history-timeline .history-content-wrapper {
+  background-color: #FFFFFF;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+@media (max-width: 767px) {
+  .section--history-timeline .history-content-wrapper {
+    padding: 20px;
+  }
+}
+.section--history-timeline .history-row {
+  display: flex;
+  align-items: stretch;
+}
+.section--history-timeline .history-col--timeline {
+  position: relative;
+}
+@media (min-width: 992px) {
+  .section--history-timeline .history-col--timeline {
+    padding: 0 10px;
+    height: 350px;
+  }
+}
+.section--history-timeline .history-col--timeline .timeline-navigation {
+  display: flex;
+  height: 100%;
+  position: relative;
+  /* --- ДЕСКТОП: ВЕРТИКАЛЬНАЯ ЛИНИЯ (::before) --- */
+  /* --- МОБИЛЬНЫЙ: ГОРИЗОНТАЛЬНАЯ ЛИНИЯ (::after) --- */
+}
+@media (min-width: 992px) {
+  .section--history-timeline .history-col--timeline .timeline-navigation {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .section--history-timeline .history-col--timeline .timeline-navigation::before {
+    content: "";
+    position: absolute;
+    left: -2px;
+    top: 12px;
+    bottom: 12px;
+    width: 2px;
+    background-color: #F5F3F0;
+    transform: translateX(calc(100% - 1px));
+  }
+}
+@media (max-width: 991px) {
+  .section--history-timeline .history-col--timeline .timeline-navigation {
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding: 10px 0;
+  }
+  .section--history-timeline .history-col--timeline .timeline-navigation::after {
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: 50%;
+    height: 2px;
+    background-color: #F5F3F0;
+    transform: translateY(-50%);
+  }
+}
+.section--history-timeline .history-col--timeline .timeline-nav-point {
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 400;
+  color: #282520;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  /* КРУГЛАЯ ТОЧКА (Узел) */
+  /* --- АКТИВНЫЙ ЭФФЕКТ: ВНУТРЕННЯЯ ТОЧКА И ВНЕШНЕЕ КОЛЬЦО --- */
+}
+@media (min-width: 992px) {
+  .section--history-timeline .history-col--timeline .timeline-nav-point {
+    text-align: left;
+    padding-left: 30px;
+  }
+}
+@media (max-width: 991px) {
+  .section--history-timeline .history-col--timeline .timeline-nav-point {
+    font-size: 18px;
+    margin: 0 5px;
+    padding-bottom: 32px;
+  }
+}
+.section--history-timeline .history-col--timeline .timeline-nav-point::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 4px solid #863315;
+  transition: all 0.3s ease;
+  z-index: 11;
+}
+@media (min-width: 992px) {
+  .section--history-timeline .history-col--timeline .timeline-nav-point::before {
+    left: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@media (max-width: 991px) {
+  .section--history-timeline .history-col--timeline .timeline-nav-point::before {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.section--history-timeline .history-col--timeline .timeline-nav-point.active {
+  color: #863315;
+}
+.section--history-timeline .history-col--timeline .timeline-nav-point.active::before {
+  background-color: #863315;
+  width: 10px;
+  height: 10px;
+}
+.section--history-timeline .history-col--timeline .timeline-nav-point.active::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #863315;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+@media (min-width: 992px) {
+  .section--history-timeline .history-col--timeline .timeline-nav-point.active::after {
+    left: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@media (max-width: 991px) {
+  .section--history-timeline .history-col--timeline .timeline-nav-point.active::after {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.section--history-timeline .history-text-slider .history-slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 350px;
+  padding-bottom: 0;
+}
+.section--history-timeline .history-text-slider .history-slide-content > * {
+  flex-shrink: 0;
+}
+.section--history-timeline .history-text-slider .slide-year-display {
+  font-family: "Philosopher", sans-serif;
+  font-size: 80px;
+  font-weight: 600;
+  color: #282520;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.section--history-timeline .history-text-slider .slide-text-wrapper {
+  margin-top: auto;
+}
+.section--history-timeline .history-text-slider .slide-text-wrapper .slide-title {
+  margin-bottom: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.section--history-timeline .history-text-slider .slide-text-wrapper p {
+  line-height: 1.7;
+}
+.section--history-timeline .history-col--image img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }/*# sourceMappingURL=main.css.map */
