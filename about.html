@@ -25,7 +25,7 @@
 
             <nav id="navmenu" class="navmenu ps-5">
                 <ul>
-                    <li><a class="nav-link" href="about.html">О библиотеке</a></li>
+                    <li><a class="nav-link active" href="about.html">О библиотеке</a></li>
                     <li><a class="nav-link" href="">Услуги</a></li>
                     <li><a class="nav-link" href="events.html">Афиша</a></li>
                     <li><a class="nav-link" href="">Галерея</a></li>
@@ -85,6 +85,7 @@
             style="background-image: url('assets/img/about-bg.jpg');" 
             data-aos="fade-in" data-aos-duration="1200"
         >
+            <video autoplay loop muted playsinline id="hero-video" src="assets/video/vasilevka-about-2.mp4"></video>
             <div class="breadcrumbs-bar">
                 <div class="container">
                     <nav aria-label="breadcrumb">
@@ -148,45 +149,89 @@
 <section class="section section--history-timeline">
     <div class="container">
 
-        <h2 class="section-title text-center" data-aos="fade-right" data-aos-duration="1600">Наша История: От Основания до Нового Поколения</h2>
-
-        <div class="history-content-wrapper" data-aos="fade-left" data-aos-duration="1600">
+        <div class="history-content-wrapper" data-aos="fade-up" data-aos-duration="1600">
+            <div class="row history-decor-row" data-aos="fade-in" data-aos-duration="1600">
+                <div class="col-6 history-decor-dots history-decor-dots--left">
+                    <i class='bx bxs-circle'></i>
+                    <i class='bx bxs-circle'></i>
+                    <i class='bx bxs-circle'></i>
+                </div>
+                <div class="col-6 history-decor-dots history-decor-dots--right">
+                    <i class='bx bxs-circle'></i>
+                    <i class='bx bxs-circle'></i>
+                    <i class='bx bxs-circle'></i>
+                </div>
+            </div>
+            <div class="row text-center pb-3 pb-lg-5 mb-3">
+                <h2 class="section-title text-center mb-3">Наша История:</h2>
+                <p class="section-description">От первых книжных собраний до современного центра знаний</p>
+            </div>
+             
             
             <div class="row history-row">
                 
                 <div class="col-12 col-lg-2 history-col--timeline ps-xl-5">
                     <div class="timeline-navigation" id="HistoryTimelineNav">
-                        <div class="timeline-nav-point active" data-year="1946">1946</div>
-                        <div class="timeline-nav-point" data-year="1966"><span class="pb-3">1966</span></div>
-                        <div class="timeline-nav-point" data-year="2025">2025</div>
+                        <button class="timeline-nav-point active" data-year="1946">1946</button>
+                        <button class="timeline-nav-point" data-year="1966">1966</button>
+                        <button class="timeline-nav-point" data-year="1994">1994</button>
+                        <button class="timeline-nav-point" data-year="1996">1996</button>
+                        <button class="timeline-nav-point" data-year="2000">2000</button>
+                        <button class="timeline-nav-point" data-year="2025">2025</button>
                     </div>
                 </div>
 
                 <div class="col-lg-5 history-col--content order-lg-first">
+                    
+                    <div id="HistoryYearSlider" class="swiper year-slider-container">
+                        <div class="swiper-wrapper">
+                            </div>
+                    </div>
                     <div class="swiper history-text-slider" id="HistoryTextSlider">
                         <div class="swiper-wrapper">
                             
                             <div class="swiper-slide history-slide-content" data-history-year="1946">
-                                <div class="slide-year-display">1946</div> 
                                 <div class="slide-text-wrapper">
-                                    <h3 class="slide-title h2">Рождение Очага Знаний</h3>
-                                    <p>В 1880 году состоялось открытие первой публичной библиотеки в Пскове, положив начало долгой истории. В те годы библиотека служила важнейшим центром просвещения и доступа к книгам для всех жителей города.</p>
+                                    <h3 class="slide-title h2">Первые страницы</h3>
+                                    <p>Историко-краеведческая библиотека ведёт свою историю с 1946 года. Первая запись в инвентарной книге — поэтический сборник Александра Блока «О Родине».</p> 
+                                    <p>Библиотека разместилась в небольшом помещении на улице Советской и сразу стала центром чтения и встреч псковичей.</p>
                                 </div>
                             </div>
                             
                             <div class="swiper-slide history-slide-content" data-history-year="1966">
-                                <div class="slide-year-display">1966</div>
                                 <div class="slide-text-wrapper">
-                                    <h3 class="slide-title h2">Возрождение После Войны</h3>
-                                    <p>Во время Второй мировой войны фонд библиотеки был почти полностью утрачен. 1944 год ознаменовался восстановлением работы и сбором нового фонда, что стало символом стойкости и культурного возрождения города.</p>
+                                    <h3 class="slide-title h2">Центральная городская библиотека</h3>
+                                    <p>Библиотека получает статус Центральной и становится методическим центром для библиотек города.</p>
+                                    <p>Появляются первые клубы и литературные встречи, проводятся конференции и кинолектории — библиотека становится местом живого культурного общения.</p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide history-slide-content" data-history-year="1994">
+                                <div class="slide-text-wrapper">
+                                    <h3 class="slide-title h2">Профиль историко-краеведческий</h3>
+                                    <p>По решению администрации Пскова библиотеке присвоен статус историко-краеведческого профиля.</p>
+                                    <p>С этого времени формируется уникальный фонд краеведческих изданий, начинают развиваться проекты, посвящённые истории и культуре Псковской земли.</p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide history-slide-content" data-history-year="1996">
+                                <div class="slide-text-wrapper">
+                                    <h3 class="slide-title h2">Имя Ивана Ивановича Василёва</h3>
+                                    <p>К 50-летию библиотека получает имя выдающегося псковского краеведа И. И. Василёва. Именно его имя стало символом уважения к истории, исследовательскому духу и любви к родному краю.</p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide history-slide-content" data-history-year="2000">
+                                <div class="slide-text-wrapper">
+                                    <h3 class="slide-title h2">Проекты, чтения, исследования</h3>
+                                    <p>Библиотека становится активной площадкой для научных и просветительских инициатив.Проходят Юношеские Кутузовские и Василёвские чтения, Калкинские конференции, действует военно-исторический клуб «Кольчуга». В эти годы формируется особое сообщество краеведов и исследователей Пскова.</p>
                                 </div>
                             </div>
 
                             <div class="swiper-slide history-slide-content" data-history-year="2025">
-                                <div class="slide-year-display">2025</div>
                                 <div class="slide-text-wrapper">
-                                    <h3 class="slide-title h2">Переход в Новое Измерение</h3>
-                                    <p>В 2025 году библиотека переезжает в современное здание площадью 3200 м² в центре города. Это стало не просто переездом, а рождением "Библиотеки нового поколения" — центра технологий, краеведения и коворкинга.</p>
+                                    <h3 class="slide-title h2">Новая эпоха</h3>
+                                    <p>20 февраля 2025 года библиотека открыла двери в здании бывшего кинотеатра «Октябрь» — современном пространстве площадью 3200 м². Здесь работают читальные залы, медиа-музей, студия звукозаписи и коворкинг-зона. Библиотека объединяет традиции и новые технологии, оставаясь центром истории, знаний и вдохновения.</p>
                                 </div>
                             </div>
                             
@@ -198,15 +243,34 @@
                     <div class="swiper history-image-slider" id="HistoryImageSlider">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img src="assets/img/about-1.jpeg" alt="История библиотеки, 1880">
+                                <img src="assets/img/history-1.jpg" alt="История библиотеки, 1946">
                             </div>
                             <div class="swiper-slide">
-                                <img src="assets/img/about-2.jpeg" alt="История библиотеки, 1944">
+                                <img src="assets/img/history-2.jpg" alt="Центральная городская библиотека, 1966">
                             </div>
                             <div class="swiper-slide">
-                                <img src="assets/img/gallery-1.jpg" alt="Новое здание, 2025">
+                                <img src="assets/img/history-3.jpg" alt="Профиль историко-краеведческий, 1994">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/img/history-4.jpg" alt="Имя Ивана Ивановича Василёва, 1996">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/img/history-5.jpg" alt="Проекты, чтения, исследования, 2000">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/img/history-6.jpg" alt="Новое здание, 2025">
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="row pt-5 history-download-row">
+                    <div class="col-12 d-flex">
+                        <a href="assets/docs/full-history.pdf" target="_blank" class="section-download-link">
+                            <div class="section-download">
+                                <i class='bx bx-file-detail pe-1'></i> Скачать полную историю
+                            </div>
+                        </a>
                     </div>
                 </div>
 
@@ -214,7 +278,6 @@
         </div>
     </div>
 </section>
-
 
 
 

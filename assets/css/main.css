@@ -123,9 +123,10 @@ p {
   font-weight: 600;
   transition: 0.3s;
   text-transform: uppercase;
+  position: relative;
 }
 .header .navmenu .nav-link:hover, .header .navmenu .nav-link.active {
-  color: #B08953;
+  color: #917A5A;
 }
 .header .header-controls .cta-btn {
   color: #FFFFFF;
@@ -174,6 +175,19 @@ body.scrolled .header .logo img {
 body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   color: #917A5A;
 }
+body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.active::after {
+  content: attr(data-text);
+  display: block;
+  position: absolute;
+  bottom: 3px;
+  left: 15px;
+  right: 15px;
+  height: 2px;
+  background: #917A5A;
+  color: transparent;
+  width: auto;
+  padding: 0;
+}
 
 @media (min-width: 1200px) {
   .navmenu ul .mobile-contact-wrapper {
@@ -186,6 +200,20 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   }
   .navmenu .nav-link {
     color: #FFFFFF;
+    display: inline-block;
+  }
+  .navmenu .nav-link.active::after {
+    content: attr(data-text);
+    display: block;
+    position: absolute;
+    bottom: 3px;
+    left: 15px;
+    right: 15px;
+    height: 1px;
+    background: #B08953;
+    color: transparent;
+    width: auto;
+    padding: 0;
   }
   .navmenu ul {
     display: flex;
@@ -198,7 +226,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
 @media (max-width: 1199px) {
   /* Стили для контейнера белого окна (UL) */
   .navmenu ul {
-    display: none; /* Скрывается по умолчанию */
+    display: none;
     position: absolute;
     inset: 60px 20px 20px 20px;
     padding: 0;
@@ -229,6 +257,10 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
     display: block;
   }
   .navmenu a:hover, .navmenu a.active {
+    color: #917A5A;
+  }
+  .navmenu a.active {
+    background-color: color-mix(in srgb, #917A5A, transparent 90%);
     color: #917A5A;
   }
   /* Стили для контейнера контактов в меню */
@@ -279,7 +311,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
     z-index: 9997;
   }
   .mobile-nav-active .navmenu > ul {
-    display: flex; /* Снова используем flex, потому что это корневой элемент меню */
+    display: flex;
   }
 }
 /* ============================================== */
@@ -2027,22 +2059,78 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
 
 .section--history-timeline {
   padding: 80px 0;
+  /* ==================================================== */
+  /* 0.5. ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ (Точки) */
+  /* ==================================================== */
   /* 0. ОБЩИЙ КОНТЕЙНЕР для фона и закругления */
   /* ==================================================== */
-  /* 2. ЦЕНТРАЛЬНАЯ КОЛОНКА: ТАЙМЛАЙН (Линия-Узел) */
+  /* *** НОВЫЕ СТИЛИ ДЛЯ ВЕРТИКАЛЬНОГО СЛАЙДЕРА ГОДА *** */
   /* ==================================================== */
   /* ==================================================== */
-  /* 1. КОНТЕНТ СЛАЙДЕР (ДАТА + ТЕКСТ) */
+  /* 2. КОЛОНКА ТАЙМЛАЙНА (Навигация) - ВАШИ ОРИГИНАЛЬНЫЕ СТИЛИ */
+  /* ==================================================== */
+  /* ==================================================== */
+  /* 1. КОНТЕНТ СЛАЙДЕР (ТЕКСТ) */
   /* ==================================================== */
   /* ==================================================== */
   /* 3. ФОТО СЛАЙДЕР (Фикс. высота) */
   /* ==================================================== */
 }
 .section--history-timeline .section-title {
+  font-size: 36px;
+  font-weight: 400;
   margin-bottom: 40px;
 }
+@media (max-width: 991px) {
+  .section--history-timeline .section-title {
+    padding-top: 16px;
+  }
+}
+.section--history-timeline .section-description {
+  font-size: 18px;
+  color: #5a5a5a;
+}
+.section--history-timeline .history-download-row .section-download-link {
+  text-decoration: none;
+}
+.section--history-timeline .history-download-row .section-download {
+  display: inline-flex;
+  align-items: center;
+  padding-top: 8px;
+  border-top: 2px solid #F5F3F0;
+  color: #917A5A;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.section--history-timeline .history-download-row .section-download:hover {
+  color: #863315;
+}
+.section--history-timeline .history-download-row .section-download i {
+  font-size: 18px;
+}
+.section--history-timeline .history-decor-row .history-decor-dots {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+.section--history-timeline .history-decor-row .history-decor-dots i.bxs-circle {
+  color: #F5F3F0;
+  font-size: 16px;
+  margin: 0 5px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+.section--history-timeline .history-decor-row .history-decor-dots--left {
+  justify-content: flex-start;
+}
+.section--history-timeline .history-decor-row .history-decor-dots--right {
+  justify-content: flex-end;
+}
 .section--history-timeline .history-content-wrapper {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   padding: 40px;
   border-radius: 24px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
@@ -2056,21 +2144,41 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   display: flex;
   align-items: stretch;
 }
+.section--history-timeline #HistoryYearSlider {
+  height: 80px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.section--history-timeline #HistoryYearSlider .swiper-wrapper {
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.section--history-timeline #HistoryYearSlider .swiper-slide {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: "Philosopher", serif;
+  font-size: 80px;
+  font-weight: 600;
+  line-height: 1;
+  color: #333333;
+}
 .section--history-timeline .history-col--timeline {
   position: relative;
 }
 @media (min-width: 992px) {
   .section--history-timeline .history-col--timeline {
     padding: 0 10px;
-    height: 350px;
+    height: 380px;
   }
 }
 .section--history-timeline .history-col--timeline .timeline-navigation {
   display: flex;
   height: 100%;
   position: relative;
-  /* --- ДЕСКТОП: ВЕРТИКАЛЬНАЯ ЛИНИЯ (::before) --- */
-  /* --- МОБИЛЬНЫЙ: ГОРИЗОНТАЛЬНАЯ ЛИНИЯ (::after) --- */
+  /* --- ДЕСКТОП: ВЕРТИКАЛЬНАЯ ЛИНИЯ --- */
+  /* --- МОБИЛЬНЫЙ: ГОРИЗОНТАЛЬНАЯ ЛИНИЯ --- */
 }
 @media (min-width: 992px) {
   .section--history-timeline .history-col--timeline .timeline-navigation {
@@ -2097,8 +2205,8 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   .section--history-timeline .history-col--timeline .timeline-navigation::after {
     content: "";
     position: absolute;
-    left: 12px;
-    right: 12px;
+    left: 24px;
+    right: 24px;
     top: 50%;
     height: 2px;
     background-color: #F5F3F0;
@@ -2111,11 +2219,14 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   cursor: pointer;
   font-size: 18px;
   font-weight: 400;
-  color: #282520;
+  color: #a7a8aa;
   transition: all 0.3s ease;
   white-space: nowrap;
+  background: none;
+  border: none;
+  text-align: inherit;
   /* КРУГЛАЯ ТОЧКА (Узел) */
-  /* --- АКТИВНЫЙ ЭФФЕКТ: ВНУТРЕННЯЯ ТОЧКА И ВНЕШНЕЕ КОЛЬЦО --- */
+  /* --- АКТИВНЫЙ ЭФФЕКТ --- */
 }
 @media (min-width: 992px) {
   .section--history-timeline .history-col--timeline .timeline-nav-point {
@@ -2126,8 +2237,8 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
 @media (max-width: 991px) {
   .section--history-timeline .history-col--timeline .timeline-nav-point {
     font-size: 18px;
-    margin: 0 5px;
-    padding-bottom: 32px;
+    margin: 0 0px;
+    padding-bottom: 80px;
   }
 }
 .section--history-timeline .history-col--timeline .timeline-nav-point::before {
@@ -2137,7 +2248,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   height: 8px;
   border-radius: 50%;
   background-color: #ffffff;
-  border: 4px solid #863315;
+  border: 4px solid #a7a8aa;
   transition: all 0.3s ease;
   z-index: 11;
 }
@@ -2156,20 +2267,21 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   }
 }
 .section--history-timeline .history-col--timeline .timeline-nav-point.active {
-  color: #863315;
+  color: #333333;
 }
 .section--history-timeline .history-col--timeline .timeline-nav-point.active::before {
-  background-color: #863315;
-  width: 10px;
-  height: 10px;
+  background-color: #917A5A;
+  width: 8px;
+  height: 8px;
+  border-color: #863315;
 }
 .section--history-timeline .history-col--timeline .timeline-nav-point.active::after {
   content: "";
   position: absolute;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  border: 2px solid #863315;
+  border: 1px solid #863315;
   transition: all 0.3s ease;
   z-index: 10;
 }
@@ -2192,19 +2304,11 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  min-height: 350px;
+  min-height: 300px;
   padding-bottom: 0;
 }
 .section--history-timeline .history-text-slider .history-slide-content > * {
   flex-shrink: 0;
-}
-.section--history-timeline .history-text-slider .slide-year-display {
-  font-family: "Philosopher", sans-serif;
-  font-size: 80px;
-  font-weight: 600;
-  color: #282520;
-  line-height: 1;
-  margin-bottom: 20px;
 }
 .section--history-timeline .history-text-slider .slide-text-wrapper {
   margin-top: auto;
@@ -2219,7 +2323,7 @@ body.scrolled .navmenu a:hover, body.scrolled .navmenu a.active {
 }
 .section--history-timeline .history-col--image img {
   width: 100%;
-  height: 350px;
+  height: 380px;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
