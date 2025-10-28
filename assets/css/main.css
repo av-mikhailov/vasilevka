@@ -182,7 +182,7 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   bottom: 3px;
   left: 15px;
   right: 15px;
-  height: 2px;
+  height: 1px;
   background: #917A5A;
   color: transparent;
   width: auto;
