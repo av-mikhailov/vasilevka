@@ -130,6 +130,23 @@
     .description-bg-right {
         background-image: url('../../assets/img/decor-2.svg'); 
     }
+
+    .description-bg-left.aos-animate,
+    .description-bg-right.aos-animate {
+        // 💡 КЛЮЧЕВОЕ ИСПРАВЛЕНИЕ: Перезаписываем конечный opacity AOS
+        opacity: 0.15 !important;
+    }
+
+    .description-bg-left.aos-animate {
+        // Вращение против часовой стрелки на 360 градусов в конце анимации
+        transform: rotate(-360deg) !important;
+    }
+
+    .description-bg-right.aos-animate {
+        // Вращение по часовой стрелке на 360 градусов в конце анимации
+        transform: rotate(360deg) !important;
+    }
+        
     
     // 3. Адаптивность (Мобильная версия < 992px)
     @media (max-width: 991px) { 

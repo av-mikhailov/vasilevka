@@ -3,46 +3,43 @@
 
     // --- КОНСТАНТЫ И ХЕЛПЕРЫ ---
     const ACCENT_COLOR_HEX = "#917A5A"; 
+
+    /**
+     * Хелпер для выбора DOM-элементов.
+     * @param {string} el - CSS-селектор
+     * @param {boolean} [all=false] - Возвращать все элементы
+     */
     const select = (el, all = false) => {
         el = el.trim();
-        const node = document.querySelector(el);
         if (all) {
             return [...document.querySelectorAll(el)];
         } else {
-            return node;
+            return document.querySelector(el);
         }
     }
     
     // --- ФУНКЦИЯ ДЛЯ ВЫДЕЛЕНИЯ АКТИВНОГО ПУНКТА МЕНЮ (НАВИГАЦИИ) ---
-    // Вынесена из DOMContentLoaded, чтобы класс 'active' применялся как можно раньше
     function setActiveNavLink() {
         const currentPath = window.location.pathname;
         const navLinks = document.querySelectorAll('.nav-link');
-        
-        // Нормализация пути: удаляем слэши в начале и конце
         const normalizedCurrentPath = currentPath.replace(/^\/|\/$/g, '');
 
         navLinks.forEach(link => {
             const linkHref = link.getAttribute('href');
-            
             if (!linkHref) return; 
 
-            // Нормализация пути ссылки
             const normalizedLinkHref = linkHref.replace(/^\/|\/$/g, '');
             
-            // Проверка для главной страницы (index.html или '/')
             if (normalizedLinkHref === '' && (normalizedCurrentPath === '' || normalizedCurrentPath === 'index.html')) {
                  link.classList.add('active');
                  return;
             }
 
-            // Проверка на точное совпадение
             if (normalizedCurrentPath === normalizedLinkHref) {
                 link.classList.add('active');
                 return;
             }
             
-            // Проверка для внутренних страниц (URL содержит имя раздела)
             const sectionName = normalizedLinkHref.replace('.html', '');
             if (sectionName !== '' && normalizedCurrentPath.startsWith(sectionName) && sectionName !== 'index') {
                 link.classList.add('active');
@@ -50,7 +47,7 @@
         });
     }
 
-    // 🚀 ВЫЗЫВАЕМ СРАЗУ, чтобы класс active добавился до рендеринга страницы
+    // 🚀 ВЫЗЫВАЕМ СРАЗУ
     setActiveNavLink();
 
 
@@ -58,10 +55,10 @@
 
     const selectBody = select('body');
     const selectHeader = select('#header');
+    const mobileNavToggleBtn = select('.mobile-nav-toggle');
+    const scrollTop = select('.scroll-top');
     
-    /**
-     * Применение класса 'scrolled' к <body> при прокрутке
-     */
+    /** Применение класса 'scrolled' к <body> при прокрутке */
     function toggleScrolled() {
         if (!selectBody || !selectHeader) return; 
         
@@ -70,11 +67,7 @@
             : selectBody.classList.remove('scrolled');
     }
 
-    /**
-     * Открытие/закрытие мобильного меню
-     */
-    const mobileNavToggleBtn = select('.mobile-nav-toggle');
-
+    /** Открытие/закрытие мобильного меню */
     function mobileNavToogle() {
         if (!selectBody || !mobileNavToggleBtn) return;
         
@@ -83,11 +76,7 @@
         mobileNavToggleBtn.classList.toggle('bx-x');
     }
 
-    /**
-     * Scroll top button (Кнопка "Наверх")
-     */
-    const scrollTop = select('.scroll-top');
-
+    /** Scroll top button (Кнопка "Наверх") */
     function toggleScrollTop() {
         if (!scrollTop) return;
         window.scrollY > 100 
@@ -95,30 +84,24 @@
             : scrollTop.classList.remove('active');
     }
     
-    /**
-     * Эффект печатания (Typing Effect)
-     */
+    /** Эффект печатания (Typing Effect) */
     function setupTypingEffect() {
         const el = document.querySelector('.typed-text');
         if (!el) return;
 
         const text = el.textContent.trim();
         const charCount = text.length;
-        
-        // 1. Измеряем точную финальную ширину текста
-        el.style.visibility = 'hidden'; 
-        el.style.width = 'auto'; 
-        
-        const finalWidth = el.offsetWidth + 'px';
-        
-        el.style.width = '0';
-        el.style.visibility = 'visible';
-        
-        // 2. Добавление @keyframes (если их нет)
         const styleSheet = document.styleSheets[0];
         let hasTypingKeyframes = false;
         
-        // Проверяем, есть ли уже правила typing и blink
+        // Измерение точной финальной ширины текста
+        el.style.visibility = 'hidden'; 
+        el.style.width = 'auto'; 
+        const finalWidth = el.offsetWidth + 'px';
+        el.style.width = '0';
+        el.style.visibility = 'visible';
+        
+        // Проверка и добавление @keyframes
         for (let i = 0; i < styleSheet.cssRules.length; i++) {
             if (styleSheet.cssRules[i].name === 'typing' || styleSheet.cssRules[i].name === 'blink') {
                 hasTypingKeyframes = true;
@@ -127,28 +110,17 @@
         }
 
         if (!hasTypingKeyframes) {
-            styleSheet.insertRule(`
-                @keyframes typing {
-                    from { width: 0 }
-                    to { width: ${finalWidth} } 
-                }
-            `, styleSheet.cssRules.length);
-
-            styleSheet.insertRule(`
-                @keyframes blink {
-                    from, to { border-color: transparent }
-                    50% { border-color: ${ACCENT_COLOR_HEX} } 
-                }
-            `, styleSheet.cssRules.length);
+            styleSheet.insertRule(`@keyframes typing { from { width: 0 } to { width: ${finalWidth} } }`, styleSheet.cssRules.length);
+            styleSheet.insertRule(`@keyframes blink { from, to { border-color: transparent } 50% { border-color: ${ACCENT_COLOR_HEX} } }`, styleSheet.cssRules.length);
         }
         
-        // 3. Применяем анимацию
+        // Применение анимации
         const animationDuration = `${charCount * 0.15}s`; 
         
         el.classList.remove('typing-complete');
         el.style.animation = `typing ${animationDuration} steps(${charCount}, end) forwards, blink .75s step-end infinite`;
         
-        // 4. Обработчик завершения анимации печатания
+        // Обработчик завершения анимации печатания
         el.addEventListener('animationend', (e) => {
             if (e.animationName === 'typing') {
                 el.style.animation = `none`; 
@@ -158,7 +130,7 @@
         }, { once: true });
     }
 
-    // --- ФУНКЦИИ ФОРМЫ (Ваша оригинальная логика) ---
+    // --- ФУНКЦИИ ФОРМЫ ---
     function setupMultiStepForm() {
         const form = document.getElementById('eventSubmitForm');
         if (!form) return;
@@ -169,9 +141,9 @@
         const submitBtn = document.getElementById('submit-form-btn');
         const indicator = document.getElementById('step-indicator');
         
-        let currentStep = 0; // Начинаем с первого шага (индекс 0)
+        let currentStep = 0; 
 
-        function getStepTitle(index) {
+        const getStepTitle = (index) => {
             switch(index) {
                 case 0: return 'Контакты';
                 case 1: return 'Описание мероприятия';
@@ -180,7 +152,7 @@
             }
         }
         
-        function validateStep(stepIndex) {
+        const validateStep = (stepIndex) => {
             const currentStepEl = steps[stepIndex];
             const requiredInputs = currentStepEl.querySelectorAll('[required]');
             let isValid = true;
@@ -193,19 +165,15 @@
             return isValid;
         }
 
-        function updateForm() {
-            // 1. Скрываем/показываем шаги
+        const updateForm = () => {
             steps.forEach((step, index) => {
                 step.style.display = (index === currentStep) ? 'block' : 'none';
             });
 
-            // 2. Обновляем индикатор
             indicator.textContent = `Шаг ${currentStep + 1} из ${steps.length}: ${getStepTitle(currentStep)}`;
 
-            // 3. Управляем кнопками "Назад"
             prevBtn.style.display = (currentStep === 0) ? 'none' : 'block';
 
-            // 4. Управляем кнопками "Далее"/"Отправить"
             if (currentStep === steps.length - 1) {
                 nextBtn.style.display = 'none';
                 submitBtn.style.display = 'block';
@@ -215,7 +183,6 @@
             }
         }
 
-        // Обработчики кнопок
         nextBtn.addEventListener('click', () => {
             if (validateStep(currentStep)) {
                 currentStep++;
@@ -230,10 +197,46 @@
             updateForm();
         });
 
-        // Инициализация формы
         updateForm();
     }
+    
+    // --- ФУНКЦИЯ ДЛЯ АККОРДЕОНА ПРОСТРАНСТВ (DESKTOP) ---
+    function setupSpacesAccordion() {
+        const spacesRow = document.querySelector('.spaces-row');
+        if (!spacesRow) return;
 
+        const spaceItems = spacesRow.querySelectorAll('.space-item');
+
+        spaceItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (item.classList.contains('space-item-active')) {
+                    return; 
+                }
+
+                const currentActive = spacesRow.querySelector('.space-item-active');
+
+                // 3. Сворачиваем текущий активный элемент (col-lg-5 -> col-lg-1)
+                if (currentActive) {
+                    currentActive.classList.remove('space-item-active', 'col-lg-5');
+                    currentActive.classList.add('col-lg-1');
+                    
+                    // Показываем вертикальные элементы, скрываем широкий заголовок
+                    currentActive.querySelector('.space-title').style.display = 'none';
+                    currentActive.querySelector('.space-vertical-title').style.display = '';
+                    currentActive.querySelector('.space-action-button').style.display = '';
+                }
+
+                // 4. Разворачиваем кликнутый элемент (col-lg-1 -> col-lg-5)
+                item.classList.add('space-item-active', 'col-lg-5');
+                item.classList.remove('col-lg-1');
+                
+                // Скрываем вертикальные элементы, показываем широкий заголовок
+                item.querySelector('.space-title').style.display = '';
+                item.querySelector('.space-vertical-title').style.display = 'none';
+                item.querySelector('.space-action-button').style.display = 'none';
+            });
+        });
+    }
 
     // --- ИНИЦИАЛИЗАЦИЯ СЛАЙДЕРОВ И AOS (DOMContentLoaded) ---
     
@@ -309,9 +312,35 @@
             });
         }
 
-
-        // 6. ИНИЦИАЛИЗАЦИЯ ТАЙМЛАЙНА С ТРЕМЯ СЛАЙДЕРАМИ 🔥
+        // 6. ИНИЦИАЛИЗАЦИЯ АККОРДЕОНА ПРОСТРАНСТВ (DESKTOP)
+        setupSpacesAccordion();
         
+        // 7. ИНИЦИАЛИЗАЦИЯ СЛАЙДЕРА ПРОСТРАНСТВ (MOBILE)
+        if (select('.swiper-spaces')) {
+            new Swiper('.swiper-spaces', {
+                speed: 600,
+                loop: true,
+                slidesPerView: 'auto',
+                // Частичное отображение следующего слайда
+                breakpoints: {
+                    320: { slidesPerView: 1.1, spaceBetween: 10 }, 
+                    576: { slidesPerView: 1.5, spaceBetween: 15 },
+                    768: { slidesPerView: 2.2, spaceBetween: 20 }
+                },
+                pagination: {
+                    el: '.spaces-swiper-mobile .swiper-pagination',
+                    type: 'bullets',
+                    clickable: true
+                },
+                // 💡 ДОБАВЛЕНО: Навигационные кнопки
+                navigation: {
+                    nextEl: '.spaces-swiper-mobile .swiper-button-next', // Используем специфичный селектор для мобильного контейнера
+                    prevEl: '.spaces-swiper-mobile .swiper-button-prev'
+                }
+            });
+        }
+
+        // 8. ИНИЦИАЛИЗАЦИЯ ТАЙМЛАЙНА С ТРЕМЯ СЛАЙДЕРАМИ
         const imageSliderEl = document.getElementById('HistoryImageSlider');
         const textSliderEl = document.getElementById('HistoryTextSlider');
         const yearSliderEl = document.getElementById('HistoryYearSlider'); 
@@ -320,33 +349,20 @@
             
             // --- СЛАЙДЕРЫ ---
 
-            // 1. Изображения (Основной)
             const imageSlider = new Swiper(imageSliderEl, {
-                loop: false,
-                effect: 'fade',
-                fadeEffect: { crossFade: true },
-                speed: 500,
-                allowTouchMove: false,
+                loop: false, effect: 'fade', fadeEffect: { crossFade: true },
+                speed: 500, allowTouchMove: false,
             });
 
-            // 2. Текст (Синхронизирован с Изображениями)
             const textSlider = new Swiper(textSliderEl, {
-                loop: false,
-                effect: 'fade',
-                fadeEffect: { crossFade: true },
-                speed: 500,
-                autoHeight: true, 
-                allowTouchMove: false,
-                controller: {
-                    control: imageSlider
-                }
+                loop: false, effect: 'fade', fadeEffect: { crossFade: true },
+                speed: 500, autoHeight: true, allowTouchMove: false,
+                controller: { control: imageSlider }
             });
 
-            // 3. Вертикальный Год (Одометр)
             const navPoints = document.querySelectorAll('#HistoryTimelineNav .timeline-nav-point');
             const yearSwiperWrapper = yearSliderEl.querySelector('.swiper-wrapper');
 
-            // Наполняем Year Slider данными из навигации
             navPoints.forEach(point => {
                 const year = point.getAttribute('data-year');
                 const slide = document.createElement('div');
@@ -356,61 +372,46 @@
             });
 
             const yearSlider = new Swiper(yearSliderEl, {
-                direction: 'vertical', // 💡 КЛЮЧ: вертикальное перелистывание
-                loop: false,
-                speed: 500,
-                allowTouchMove: false,
-                // Синхронизация с текстовым слайдером
-                controller: {
-                    control: textSlider
-                }
+                direction: 'vertical', 
+                loop: false, speed: 500, allowTouchMove: false,
+                controller: { control: textSlider }
             });
 
             // --- ОБРАБОТЧИКИ ---
-
-            // Обработка кликов по точкам таймлайна
             navPoints.forEach((point, index) => {
-                // Преобразуем <div> или <button> в рабочие кнопки
+                // Коррекция тега, если это не кнопка
                 if (point.tagName.toLowerCase() !== 'button') {
                     point.outerHTML = `<button class="timeline-nav-point" data-year="${point.dataset.year}">${point.innerHTML}</button>`;
                 }
                 
-                // Перезагружаем коллекцию после возможной замены тегов
                 const currentPoint = document.querySelectorAll('#HistoryTimelineNav .timeline-nav-point')[index];
 
                 currentPoint.addEventListener('click', () => {
-                    // Сброс и установка активного состояния точки
                     navPoints.forEach(p => p.classList.remove('active'));
                     currentPoint.classList.add('active');
                     
-                    // Переключение всех трех слайдеров
                     imageSlider.slideTo(index);
                     textSlider.slideTo(index);
                     yearSlider.slideTo(index); 
                 });
             });
 
-            // Обработка смены слайда (синхронизация активной точки)
             textSlider.on('slideChange', function () {
                 const activeIndex = textSlider.activeIndex;
                 
-                // Обновляем активную точку
                 navPoints.forEach(p => p.classList.remove('active'));
                 navPoints[activeIndex].classList.add('active');
                 
-                // Синхронизация года (если сменилось не через клик)
                 yearSlider.slideTo(activeIndex);
             });
             
             // Инициализация первого активного состояния
             if (!document.querySelector('#HistoryTimelineNav .active')) {
-                // Если активный класс не установлен в HTML, устанавливаем на первом элементе
                 navPoints[0].classList.add('active');
             } else {
-                 // Убеждаемся, что слайдеры стоят на активном элементе
                  const activeIndex = Array.from(navPoints).findIndex(p => p.classList.contains('active'));
                  if (activeIndex !== -1) {
-                     imageSlider.slideTo(activeIndex, 0); // Без анимации
+                     imageSlider.slideTo(activeIndex, 0); 
                      textSlider.slideTo(activeIndex, 0);
                      yearSlider.slideTo(activeIndex, 0);
                  }
@@ -421,7 +422,6 @@
 
     // --- НАВЕШИВАНИЕ СЛУШАТЕЛЕЙ (SCROLL, LOAD, CLICK) ---
     
-    // Общие слушатели для прокрутки и загрузки (Scrolled Class, Scroll Top)
     document.addEventListener('scroll', toggleScrolled);
     window.addEventListener('load', toggleScrolled);
 
@@ -429,7 +429,6 @@
         mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
     }
     
-    // Слушатели для кнопки "Наверх"
     if (scrollTop) {
         scrollTop.addEventListener('click', (e) => {
             e.preventDefault();
@@ -439,10 +438,8 @@
         document.addEventListener('scroll', toggleScrollTop);
     }
 
-    // Слушатель для эффекта печатания
     window.addEventListener('load', setupTypingEffect);
     
-    // Слушатель для многошаговой формы
     document.addEventListener('DOMContentLoaded', setupMultiStepForm);
     
 })();
