@@ -1,0 +1,187 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as *;
+
+// =================================================================
+// ========== Стили Секции "Влияние Библиотеки" (_library-impact.scss) ==========
+// =================================================================
+.library-impact {
+    padding: 60px 0; 
+
+    .section-title h2 {
+        font-size: 36px;
+        font-weight: 400;
+        margin-bottom: 32px;
+    }
+
+    // 1. Блок с Фото и Статистикой
+    .stats-hero-box {
+        position: relative; 
+        margin-bottom: 40px; 
+    }
+
+    .stats-hero-image {
+        width: 100%;
+        border-radius: 24px;
+        display: block; 
+        object-fit: cover; 
+        aspect-ratio: 16 / 7; 
+    }
+
+    .stats-counter-row {
+        position: absolute;
+        bottom: -60px; 
+        left: 50%;
+        transform: translateX(-50%); 
+        width: 90%; 
+        z-index: 10;
+        
+        // КЛЮЧЕВОЕ ИСПРАВЛЕНИЕ ЦЕНТРОВКИ (Ваше рабочее решение)
+        margin-left: 0 !important; 
+        margin-right: 10px !important; 
+        
+        // 1. Обнуляем стандартные паддинги колонок Bootstrap
+        > div { // target col-lg-3
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        // 2. Логика отступов между карточками на ДЕСКТОПЕ (>= 992px)
+        @media (min-width: 992px) {
+            $card-gap: 20px; 
+            $gap-half: $card-gap / 2; 
+            
+            .counter-card-container {
+                 // Паддинг для создания отступов 20px
+                 padding-left: $gap-half; 
+                 padding-right: $gap-half;
+            }
+        }
+    }
+    
+    .counter-card-container {
+        @media (max-width: 991px) {
+            padding: 0 15px; 
+        }
+    }
+
+    .counter-card {
+        background-color: vars.$color-white;
+        color: vars.$color-primary;
+        padding: 25px 15px; 
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        
+        // Дополнительный Flex для внутреннего центрирования, если нужно
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .counter-value {
+        display: block;
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 1.5;
+        color: vars.$color-primary; 
+        
+        &::after {
+            content: "+";
+        }
+    }
+
+    .counter-label {
+        font-size: 18px;
+        font-weight: 500;
+        color: vars.$color-primary;
+        margin-top: 5px; 
+        margin-bottom: 0;
+        line-height: 1.3;
+    }
+    
+   // 2. Блок Описания (Декор и центровка текста)
+   .about-description-row {
+        margin-top: 80px; 
+        display: flex;
+        align-items: center;
+    }
+
+    .col-lg-8,
+    .description-bg-left,
+    .description-bg-right {
+        height: 100%; 
+    }
+    
+    // Стили для фоновых рисунков (Декор)
+    .description-bg-left,
+    .description-bg-right {
+        min-height: 200px; 
+        
+        background-repeat: no-repeat;
+        background-size: 90px 90px;
+        background-position: center; 
+        opacity: 0.15;
+    }
+
+    .description-bg-left {
+        background-image: url('../../assets/img/decor-1.svg'); 
+    }
+    
+    .description-bg-right {
+        background-image: url('../../assets/img/decor-2.svg'); 
+    }
+    
+    // 3. Адаптивность (Мобильная версия < 992px)
+    @media (max-width: 991px) { 
+        
+        .stats-hero-image {
+            aspect-ratio: 4 / 3; 
+        }
+
+        .stats-hero-box {
+            margin-bottom: 20px;
+        }
+        
+        .stats-counter-row {
+            position: static;
+            transform: none;
+            width: 100%; 
+            margin-top: 20px;
+            
+            // Flexbox для выравнивания карточек 2x2
+            display: flex; 
+            flex-wrap: wrap; 
+
+            margin-left: -15px; 
+            margin-right: -15px; 
+
+            > div { // col-6
+                 padding-left: 15px; 
+                 padding-right: 15px;
+            }
+        }
+        
+        .counter-card-container {
+            padding: 0 15px;
+        }
+        
+        .counter-card {
+            // w-100 и h-100 должны быть в HTML. Здесь только вертикальные отступы и размеры
+            margin-bottom: 15px; 
+            border-radius: 12px;
+            padding: 20px 15px; 
+        }
+
+        .counter-value {
+            font-size: 24px; 
+        }
+    
+        .counter-label {
+            font-size: 14px; 
+        }
+        
+        .about-description-row {
+            margin-top: 20px; 
+        }
+    }
+}
