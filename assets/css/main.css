@@ -2709,4 +2709,80 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
     width: 14px;
     height: 14px;
   }
+}
+
+.work-days {
+  padding-top: 60px;
+  padding-bottom: 120px;
+  background-color: #e7dfd9;
+  /* ---------------------------------------------------- */
+  /* Обертка для растяжения на всю ширину экрана */
+  /* ---------------------------------------------------- */
+  /* ---------------------------------------------------- */
+  /* Сетка и ряды (Flexbox) */
+  /* ---------------------------------------------------- */
+  /* ---------------------------------------------------- */
+  /* Отдельный элемент фото и его контент */
+  /* ---------------------------------------------------- */
+  /* ---------------------------------------------------- */
+  /* Стиль Наложения (Overlay) и Заголовка */
+  /* ---------------------------------------------------- */
+}
+.work-days .section-title {
+  color: #282520;
+  font-size: 36px;
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 40px;
+}
+.work-days .photo-grid-wrapper {
+  margin-left: calc((100vw - 100%) / -2 - 15px);
+  margin-right: calc((100vw - 100%) / -2 - 15px);
+  overflow: hidden;
+}
+.work-days .photo-grid {
+  display: flex;
+  flex-direction: column;
+}
+.work-days .grid-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.work-days .grid-item {
+  flex: 1 1 14.28%;
+  padding: 0 10px;
+  position: relative; /* 💡 ДОБАВЛЕНО: для позиционирования оверлея */
+}
+.work-days .grid-item img {
+  display: block;
+  width: 100%;
+  height: 248px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+.work-days .photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 10px; /* Учитываем padding родителя */
+  right: 10px; /* Учитываем padding родителя */
+  bottom: 0;
+  pointer-events: none; /* Пропускаем клики */
+  border-radius: 8px;
+  /* Градиент снизу для контраста заголовка */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 50%);
+  transition: background 0.3s ease;
+}
+.work-days .photo-title {
+  position: absolute;
+  bottom: 8px; /* Отступ от нижнего края */
+  left: 16px; /* Отступ от левого края */
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
 }/*# sourceMappingURL=main.css.map */
