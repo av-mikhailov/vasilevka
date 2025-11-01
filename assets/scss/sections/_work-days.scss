@@ -106,7 +106,7 @@
         bottom: 0;
         pointer-events: none; 
         border-radius: 12px;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 50%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 25%);
         transition: background 0.3s ease;
     }
 
@@ -114,12 +114,12 @@
         position: absolute;
 
         /* Перенос в верхний левый угол */
-        // top: 8px;    
-        // left: 16px; 
-        // bottom: auto;
+        top: 4px;    
+        left: 10px; 
+        bottom: auto;
         
-        bottom: 8px;
-        left: 8px;
+        // bottom: 8px;
+        // left: 8px;
         color: vars.$color-white;
         font-size: 14px;
         font-weight: 400;
