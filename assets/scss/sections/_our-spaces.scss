@@ -5,17 +5,21 @@
 // ========== Стили Секции "Наши пространства" (_our-spaces.scss) ==========
 // =================================================================
 .our-spaces {
-    padding-bottom: 120px;
+    padding-bottom: 60px;
 
     // ... (Стили .dark-bg-wrapper, .section-title, .spaces-accordion, .spaces-row, .space-item и т.д. остаются без изменений) ...
     
     .dark-bg-wrapper {
-        background-color: vars.$color-text; 
-        padding: 60px 0;
+        // background-color: vars.$color-text;
+        background-color: #dbe0de;
+        padding-top: 60px;
+        padding-bottom: 120px;
     }
     
     .section-title {
-        color: vars.$color-white;
+        font-size: 36px;
+        font-weight: 400;
+        color: vars.$color-text;
         margin-bottom: 40px;
     }
 
@@ -78,7 +82,7 @@
             cursor: default;
             
             .space-overlay {
-                background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 50%);
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 50%);
             }
             
             .space-title {
@@ -99,7 +103,7 @@
         /* --------- Стиль Свернутого Слайда (1 колонка) --------- */
         
         .space-item:not(.space-item-active) .space-overlay {
-            background-color: rgba(0, 0, 0, 0.5); 
+            background-color: rgba(0, 0, 0, 0.45); 
 
             display: flex;
             flex-direction: column; 

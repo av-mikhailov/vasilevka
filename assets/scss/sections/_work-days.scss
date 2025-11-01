@@ -17,19 +17,10 @@
         margin-bottom: 40px;
     }
 
-    /* ---------------------------------------------------- */
-    /* Обертка для растяжения на всю ширину экрана */
-    /* ---------------------------------------------------- */
     .photo-grid-wrapper {
-        // Минус контейнер (15px) + Минус gutter (15px)
-        margin-left: calc((100vw - 100%) / -2 - 15px);
-        margin-right: calc((100vw - 100%) / -2 - 15px);
         overflow: hidden; 
     }
 
-    /* ---------------------------------------------------- */
-    /* Сетка и ряды (Flexbox) */
-    /* ---------------------------------------------------- */
     .photo-grid {
         display: flex;
         flex-direction: column;
@@ -48,40 +39,87 @@
     .grid-item {
         flex: 1 1 14.28%; 
         padding: 0 10px; 
-        position: relative; /* 💡 ДОБАВЛЕНО: для позиционирования оверлея */
+        position: relative; /* Важно для позиционирования лайков/оверлея */
         
         img {
             display: block;
             width: 100%;
             max-height: 248px; 
             object-fit: cover; 
-            border-radius: 8px;
+            border-radius: 12px;
             transition: transform 0.3s ease;
-            cursor: default; 
+            cursor: pointer; /* Сделаем курсор кликабельным, чтобы фото тоже выглядело интерактивным */
         }
-        
     }
-    
+
+    /* ---------------------------------------------------- */
+    /* Стиль Лайка (.photo-likes) */
+    /* ---------------------------------------------------- */
+    .photo-likes {
+        position: absolute; 
+        display: flex; 
+        align-items: center;
+        
+        /* Расположение */
+        bottom: 12px; /* .78571em */
+        right: 20px;  /* 1.42857em */
+
+        /* Внешний вид */
+        border-radius: 8px;
+        background: hsla(0, 0%, 100%, .7); /* Полупрозрачный белый фон */
+        font-size: 14px; 
+        padding: 4px 15px 4px 10px; 
+        color: #111; /* Цвет текста (цифры) */
+        border: none; 
+        cursor: pointer;
+        z-index: 10;
+        text-decoration: none;
+        transition: background 0.2s ease;
+        
+        &:hover {
+            background: hsla(0, 0%, 100%, .9);
+        }
+
+        i {
+            color: #ff0000; /* Красный цвет для сердечка */
+            margin-right: 4px;
+            font-size: 1.1em;
+            transition: color 0.2s ease;
+        }
+
+        /* Закрашенное сердечко для состояния 'liked' */
+        &.liked i {
+            // Стиль для закрашенной иконки (bxs-heart)
+            // Цвет и так красный, но класс 'liked' помогает в JS
+        }
+    }
+
+
     /* ---------------------------------------------------- */
     /* Стиль Наложения (Overlay) и Заголовка */
     /* ---------------------------------------------------- */
     .photo-overlay {
         position: absolute;
         top: 0;
-        left: 10px; /* Учитываем padding родителя */
-        right: 10px; /* Учитываем padding родителя */
+        left: 10px; 
+        right: 10px; 
         bottom: 0;
-        pointer-events: none; /* Пропускаем клики */
-        border-radius: 8px;
-        /* Градиент снизу для контраста заголовка */
+        pointer-events: none; 
+        border-radius: 12px;
         background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 50%);
         transition: background 0.3s ease;
     }
 
     .photo-title {
         position: absolute;
-        bottom: 8px; /* Отступ от нижнего края */
-        left: 16px; /* Отступ от левого края */
+
+        /* Перенос в верхний левый угол */
+        // top: 8px;    
+        // left: 16px; 
+        // bottom: auto;
+        
+        bottom: 8px;
+        left: 8px;
         color: vars.$color-white;
         font-size: 14px;
         font-weight: 400;

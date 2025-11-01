@@ -1,0 +1,183 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as *; 
+
+// =================================================================
+// ========== Стили Секции "Сектор редкой книги" (_rare-books.scss) ==========
+// =================================================================
+.rare-books {
+    padding-top: 60px;
+    padding-bottom: 120px;
+    
+    // Переопределение базовых стилей заголовка
+    h2 {
+        font-size: 36px;
+        color: vars.$color-primary;
+        margin-bottom: 20px;
+        font-weight: 400;
+        line-height: 1.1;
+    }
+    
+    p {
+        color: vars.$color-text;
+        line-height: 1.6;
+    }
+    
+    /* ---------------------------------------------------- */
+    /* Адаптация правой колонки (Текст) */
+    /* ---------------------------------------------------- */
+    .content-col {
+        padding-left: 32px;
+        @media (max-width: 991px) {
+            margin-top: 30px;
+            padding-left: 16px;
+        }
+    }
+
+    /* ---------------------------------------------------- */
+    /* ЛЕВАЯ ЧАСТЬ: Галерея Фотографий (CSS GRID) */
+    /* ---------------------------------------------------- */
+    .rare-books-gallery {
+        position: relative;
+        display: grid;
+        grid-template-columns: 2fr 1fr; 
+        gap: 1.5rem; /* 24px */
+        height: 500px; 
+        
+        @media (max-width: 991px) {
+            height: 350px;
+            grid-template-columns: 1fr; 
+            gap: 1rem;
+        }
+
+        /* 💡 ИЗМЕНЕНО: Базовые стили для всех IMG */
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            border-radius: 0; /* Углы теперь задаются на контейнере */
+            transition: transform 0.4s ease; 
+            box-shadow: none;
+        }
+    }
+
+    /* 💡 ИСПРАВЛЕНО: Контейнер основного фото (большое) */
+    .gallery-main-img {
+        position: relative; 
+        overflow: hidden; /* Ключевое свойство для "зума внутри" */
+        border-radius: 12px; /* 💡 Скругление углов здесь */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+        
+        &:hover img {
+            transform: scale(1.03); /* 💡 Эффект зума */
+        }
+    }
+    
+    /* Стили для бейджа без изменений */
+    .info-badge {
+        position: absolute;
+        top: 20px; 
+        left: 20px; 
+        background-color: rgba(vars.$color-light, 0.85); 
+        color: vars.$color-primary;
+        padding: 6px 16px;
+        border-radius: 14px;
+        font-size: 14px;
+        font-weight: 600;
+        z-index: 10; 
+         i {
+            font-size: 16px;
+            vertical-align: text-top;
+        }
+    }
+    
+    /* 💡 ИСПРАВЛЕНО: Обертка для двух маленьких фото */
+    .gallery-side-imgs {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        
+        @media (max-width: 991px) {
+            display: none; 
+        }
+
+        /* 💡 КЛЮЧЕВОЙ ЭЛЕМЕНТ: Контейнер боковых изображений (нужно добавить в HTML) */
+        .side-img-wrapper { 
+            position: relative;
+            overflow: hidden; /* Ключевое свойство для "зума внутри" */
+            border-radius: 12px; /* 💡 Скругление углов здесь */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+            height: 100%; /* Занимает всю доступную высоту */
+
+            &:hover img {
+                transform: scale(1.03); /* 💡 Эффект зума */
+            }
+        }
+    }
+
+    /* ---------------------------------------------------- */
+    /* ПРАВАЯ ЧАСТЬ: Счетчики (без изменений) */
+    /* ---------------------------------------------------- */
+    .counters {
+        margin-top: 3rem;
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid vars.$color-light-alt;
+        
+        .counter-box {
+            text-align: center;
+            background: #FFFFFF;
+            padding: 25px 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: 0.3s;
+            
+            span.purecounter {
+                display: block;
+                font-size: 32px;
+                font-weight: 400;
+                color: vars.$color-accent; 
+                line-height: 1;
+            }
+            
+            p {
+                margin: 0;
+                padding-top: 8px;
+                font-size: 14px;
+                color: vars.$color-text;
+            }
+        }
+
+        @media (max-width: 767px) {
+            margin-top: 2rem;
+            padding-bottom: 1.5rem;
+        }
+    }
+    
+    .btn-about-more {
+        display: inline-block;
+        margin-top: 40px;
+        padding: 6px 24px;
+        background: #863315;
+        color: #FFFFFF;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 14px;
+        transition: 0.3s;
+
+        i {
+            font-size: 18px;
+            vertical-align: text-bottom;
+        }
+
+        &:hover {
+            background: #B08953;
+        }
+
+        @media (max-width: 767px) {
+             margin-top: 24px;
+        }
+        
+    }
+}
