@@ -1700,7 +1700,6 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 }
 @media (min-width: 992px) {
   .faq .faq-content-wrapper {
-    max-width: 800px;
     margin: 0 auto;
   }
 }
