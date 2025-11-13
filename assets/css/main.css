@@ -1323,10 +1323,11 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
     justify-content: space-around;
   }
   .events .event-date .day {
-    font-size: 32px;
+    font-size: 24px;
   }
   .events .event-date .month, .events .event-date .year {
     margin: 0 5px;
+    font-size: 24px;
   }
 }
 .events .event-content {
@@ -1420,6 +1421,115 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 .events .all-events-link .btn-primary-outline:hover {
   background-color: #917A5A;
   color: #FFFFFF;
+}
+
+.exhibitions {
+  padding: 60px 0;
+}
+.exhibitions .section-header {
+  margin-bottom: 40px;
+}
+.exhibitions .section-header h2 {
+  font-size: 36px;
+  font-weight: 400;
+  color: #282520;
+  margin-bottom: 16px;
+}
+.exhibitions .section-header p {
+  color: #917A5A;
+  max-width: auto;
+  margin: 0 auto;
+  font-size: 16px;
+}
+.exhibitions .section-header p i {
+  display: inline-flex;
+  vertical-align: -0.175rem;
+  font-size: 18px;
+}
+.exhibitions .exhibitions-grid-wrapper {
+  background-color: #FFFFFF;
+  padding: 48px 64px;
+  border-radius: 24px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+}
+@media (max-width: 767px) {
+  .exhibitions .exhibitions-grid-wrapper {
+    padding: 30px 20px;
+  }
+}
+.exhibitions .exhibition-item {
+  position: relative;
+  z-index: 1;
+  display: block;
+  border-radius: 24px;
+  text-decoration: none;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+  height: 350px;
+}
+.exhibitions .exhibition-item:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px) translateZ(0);
+}
+.exhibitions .exhibition-item .exhibition-photo-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px;
+  color: #FFFFFF;
+}
+.exhibitions .exhibition-item .exhibition-photo-content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(40, 37, 32, 0.1), rgba(40, 37, 32, 0.75));
+  z-index: 2;
+}
+.exhibitions .exhibition-item .exhibition-photo-content .exhibition-date-range, .exhibitions .exhibition-item .exhibition-photo-content .exhibition-content {
+  position: relative;
+  z-index: 3;
+}
+.exhibitions .exhibition-item .exhibition-date-range {
+  font-size: 16px;
+  font-weight: 400;
+  color: #917A5A;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 6px 15px;
+  border-radius: 15px;
+  width: fit-content;
+  margin-bottom: auto;
+}
+.exhibitions .exhibition-item .exhibition-date-range i {
+  margin-right: 4px;
+  vertical-align: -0.1rem;
+}
+.exhibitions .exhibition-item .exhibition-title {
+  font-size: 20px;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+@media (max-width: 991px) {
+  .exhibitions .exhibition-item .exhibition-title {
+    font-size: 20px;
+  }
+}
+.exhibitions .exhibition-item .exhibition-meta {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+.exhibitions .exhibition-item .exhibition-meta .location i {
+  margin-right: 4px;
+  vertical-align: -0.1rem;
 }
 
 .gallery {
@@ -1810,6 +1920,63 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   .faq .faq-cta-block .col-lg-4 {
     width: 100%;
   }
+}
+
+.contacts {
+  padding: 60px 0;
+}
+.contacts .map-wrapper {
+  height: 100%;
+}
+@media (max-width: 991px) {
+  .contacts .map-wrapper {
+    height: 400px;
+  }
+}
+.contacts .info-box {
+  padding: 30px;
+  background: #FFFFFF;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+}
+.contacts .info-box:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+.contacts .info-box i {
+  font-size: 24px;
+  color: #B08953;
+  background: rgba(145, 122, 90, 0.1);
+  border-radius: 50%;
+  padding: 10px;
+  margin-bottom: 15px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+}
+.contacts .info-box h3 {
+  font-size: 20px;
+  color: #282520;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.contacts .info-box p {
+  padding: 0;
+  margin-bottom: 0;
+  line-height: 1.4;
+  font-size: 15px;
+  color: #282520;
+}
+.contacts .info-box p a {
+  color: inherit;
+  text-decoration: none;
+}
+.contacts .info-box p a:hover {
+  color: #917A5A;
 }
 
 .section--post-cover {
@@ -3127,7 +3294,7 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   bottom: 0;
   pointer-events: none;
   border-radius: 12px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 25%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 30%);
   transition: background 0.3s ease;
 }
 .work-days .photo-title {

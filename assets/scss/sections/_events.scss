@@ -158,8 +158,8 @@
             padding: 16px 0;
             flex-direction: row;
             justify-content: space-around;
-            .day { font-size: 32px; }
-            .month, .year { margin: 0 5px; }
+            .day { font-size: 24px; }
+            .month, .year { margin: 0 5px; font-size: 24px; }
         }
     }
 
