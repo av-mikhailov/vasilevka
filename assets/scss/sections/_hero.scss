@@ -133,7 +133,7 @@
                 font-weight: 700;
                 text-transform: uppercase;
                 margin-bottom: 16px;
-                color: color-mix(in srgb, vars.$color-white, transparent 20%);
+                color: color-mix(in srgb, vars.$color-white, transparent 15%);
                 opacity: 0.8;
                 letter-spacing: 1px;
             }
@@ -141,7 +141,7 @@
             p, a, span {
                 font-size: 14px;
                 line-height: 1.5;
-                color: color-mix(in srgb, vars.$color-white, transparent 30%);
+                color: color-mix(in srgb, vars.$color-white, transparent 20%);
             }
         }
         

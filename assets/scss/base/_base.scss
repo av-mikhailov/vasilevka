@@ -35,6 +35,36 @@ main {
   }
 }
 
+.btn-success {
+    background-color: #4a897a;
+}
+
+.btn-success:hover {
+    background-color: #24866f;
+}
+
+.btn-secondary {
+    background-color: #f0f2f3;
+    border: 1px solid #ccc;
+    color: vars.$color-text;
+}
+
+.btn-secondary:hover {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    color: vars.$color-text;
+}
+
+.btn-danger {
+    background-color: #cc7c7c;
+    border: 1px solid #cc7c7c;
+}
+
+.btn-danger:hover {
+    background-color: #c55353;
+    border: 1px solid #c55353;
+}
+
 @font-face {
     font-family: 'Philosopher'; // Единое имя для всех начертаний
     src: url('../fonts/philosopher/philosopher-regular.ttf') format('truetype');

@@ -1,0 +1,112 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as *;
+
+
+.catalog {
+    // Устанавливаем новые отступы
+    padding-top: 60px;
+    padding-bottom: 120px;
+
+    .card--extended {
+        padding: 30px;
+        border-radius: 16px;
+        border: none;
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+
+        .catalog-status, .search-time {
+            background-color: transparent;
+            color: #9a9a9a;
+            font-size: 0.9em;
+        }
+
+        h5 i {
+            margin-right: 4px;
+            color: vars.$color-primary;
+        }
+    }
+
+    // Стили для контрастного блока "Условные обозначения"
+    .bg-light-gray {
+        background-color: vars.$color-light; /* Светло-серый фон */
+        border-radius: 16px;
+        color: vars.$color-primary;
+        // border: 1px solid #e9ecef;
+    }
+
+    // Стили для формы поиска
+    .catalog-form-table {
+        margin-top: 15px;
+
+        td {
+            padding-bottom: 24px;
+            
+            p {
+                margin-bottom: 5px;
+            }
+
+            input[type="text"] {
+                padding: 6px 10px;
+                border: 1px solid #ced4da;
+                border-radius: 4px;
+                width: 90%;
+            }
+        }
+        
+        .btn {
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+        .dic-button {
+            font-size: 0.85em;
+            padding: 5px 10px;
+        }
+        .list-group-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px; 
+            height: 38px;
+            padding: 0;
+            vertical-align: middle;
+            border: 1px solid #ced4da;
+            i {
+                font-size: 1.2em;
+            }
+        }
+    }
+
+    // Стили для вертикального меню каталогов
+    .catalog-nav-menu {
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+        
+        .list-group {
+            border-radius: 12px;
+            overflow: hidden;
+
+            .list-group-item {
+                border: none;
+                border-bottom: 1px solid #e9ecef;
+                padding: 12px 16px;
+                color: vars.$color-text;
+                font-size: 15px;
+                font-weight: 400;
+                transition: background-color 0.3s;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                &:hover {
+                    background-color: vars.$color-light;
+                    color: vars.$color-accent;
+                }
+
+                &.active {
+                    background-color: vars.$color-accent; /* Основной цвет */
+                    color: white;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}
