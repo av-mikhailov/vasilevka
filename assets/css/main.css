@@ -594,6 +594,28 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   background-color: #B08953;
 }
 
+.text-decor-dots {
+  display: flex;
+  align-items: center;
+  padding-top: 0px;
+  padding-bottom: 10px;
+}
+.text-decor-dots i.bxs-circle {
+  color: #F5F3F0;
+  font-size: 16px;
+  margin: 0 5px;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+.text-decor-dots--left {
+  justify-content: flex-start;
+  padding-left: 0;
+}
+.text-decor-dots--right {
+  justify-content: flex-end;
+  padding-right: 0;
+}
+
 .hero {
   width: 100%;
   height: 100vh;
@@ -1981,7 +2003,7 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 
 .section--post-cover {
   padding-top: 32px;
-  padding-bottom: 32px;
+  padding-bottom: 0px;
 }
 .section--post-cover .tag-btn {
   background-color: #FFFFFF; /* Базовый БЕЛЫЙ ФОН */
@@ -2143,83 +2165,105 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   padding-top: 0px;
   padding-bottom: 120px;
 }
-.section--post-content .post-text {
-  color: #282520;
-  padding-right: 24px;
+
+.event-header-bar {
+  background-color: #F0EDE8;
+  padding: 24px 24px;
+  border-radius: 24px;
+  box-shadow: inset 2px 2px 25px rgba(145, 122, 90, 0.1);
+  position: relative;
+  z-index: 10;
 }
-.section--post-content .post-text h2, .section--post-content .post-text h3, .section--post-content .post-text h4 {
+.event-header-bar .event-meta-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.event-header-bar .event-meta-info p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #917A5A;
+}
+.event-header-bar .event-meta-info p i {
+  margin-right: 8px;
+  font-size: 18px;
+  vertical-align: -0.1rem;
+  color: #917A5A;
+}
+@media (max-width: 575px) {
+  .event-header-bar .event-meta-info p {
+    margin-bottom: 10px !important;
+  }
+}
+@media (max-width: 767px) {
+  .event-header-bar {
+    padding: 20px;
+  }
+  .event-header-bar .event-meta-info {
+    margin-bottom: 15px;
+  }
+  .event-header-bar .event-meta-info p {
+    margin-right: 15px !important;
+  }
+  .event-header-bar .col-lg-2 {
+    text-align: center !important;
+  }
+  .event-header-bar .col-lg-2 .post-register-btn {
+    width: 100%;
+  }
+}
+
+.post-text-wrapper {
+  background-color: #FFFFFF;
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+}
+@media (max-width: 767px) {
+  .post-text-wrapper {
+    padding: 30px 20px;
+  }
+}
+
+.post-text {
+  padding-right: 0;
+  color: #282520;
+}
+.post-text h2, .post-text h3, .post-text h4 {
   color: #282520;
   margin-top: 25px;
   margin-bottom: 15px;
 }
-.section--post-content .post-text p {
+.post-text p {
   line-height: 1.7;
   margin-bottom: 1.5rem;
   font-size: 16px;
 }
 
-.post-sidebar-info {
-  top: 100px;
-  background-color: #F0EDE8;
-  color: #282520;
-  border-radius: 24px;
-  box-shadow: inset 2px 2px 25px rgba(145, 122, 90, 0.1); /* Внутренняя тень */
-  padding: 24px; /* Сохраняем внутренний отступ */
-}
-.post-sidebar-info h3 {
-  color: #282520;
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-}
-.post-sidebar-info .info-block {
-  margin-bottom: 0;
-}
-.post-sidebar-info .info-block p {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px; /* Увеличим отступ между строками */
-  font-size: 1.2rem;
-  color: #917A5A;
-}
-.post-sidebar-info .info-block p:last-child {
-  margin-bottom: 0; /* Убираем отступ у последнего элемента */
-}
-.post-sidebar-info .info-block i {
-  margin-right: 10px;
-  font-size: 1.4rem;
-  color: #917A5A;
-}
-@media (max-width: 991.98px) {
-  .post-sidebar-info {
-    position: relative;
-    top: 0;
-    margin-top: 30px;
-  }
-}
-
-.post-register-cta {
-  margin-top: 24px; /* Отступ от сайдбара */
-}
-.post-register-cta .post-register-btn {
-  display: inline-block;
-  padding: 10px 20px; /* Увеличенный вертикальный отступ */
+.post-register-btn {
+  padding: 8px 24px;
   background: #863315;
   color: #FFFFFF;
   border-radius: 20px;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 400;
   transition: 0.3s;
-  width: 100%;
   text-align: center;
 }
-.post-register-cta .post-register-btn:hover {
+.post-register-btn:hover {
   background: #B08953;
   color: #FFFFFF;
 }
-@media (max-width: 767.98px) {
-  .post-register-cta .post-register-btn {
+@media (max-width: 991px) {
+  .post-register-btn {
+    margin-top: 446px;
+  }
+}
+@media (max-width: 767px) {
+  .post-register-btn {
     width: 100%;
+    text-align: center;
   }
 }
 

@@ -1,0 +1,32 @@
+@use '../abstracts/variables' as vars; 
+@use '../abstracts/mixins' as *; 
+
+.text-decor-dots {
+    display: flex;
+    align-items: center; 
+    padding-top: 0px;
+    padding-bottom: 10px;
+    
+    // Стиль для каждой отдельной точки
+    i.bxs-circle {
+        color: vars.$color-light; 
+        font-size: 16px; 
+        margin: 0 5px;
+        opacity: 0.8;
+        transition: opacity 0.3s;
+    }
+
+    // Выравнивание для левой колонки (прижимаем к левому краю)
+    &--left {
+        justify-content: flex-start;
+        // Убеждаемся, что внутренний отступ отсутствует
+        padding-left: 0; 
+    }
+    
+    // Выравнивание для правой колонки (прижимаем к правому краю)
+    &--right {
+        justify-content: flex-end;
+        // Убеждаемся, что внутренний отступ отсутствует
+        padding-right: 0;
+    }
+}
