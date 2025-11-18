@@ -2053,6 +2053,7 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   height: 100%;
   object-fit: cover;
   object-position: top;
+  filter: sepia(0.1) saturate(0.9);
 }
 .contacts .staff-info {
   padding: 20px;
