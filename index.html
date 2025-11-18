@@ -690,9 +690,9 @@
                                     <p class="mb-0 text-muted">
                                         Наша справочная служба всегда на связи! Напишите нам, и мы с радостью предоставим любую необходимую информацию о фондах, мероприятиях или услугах.
                                     </p>
-                                    <a href="" class="btn faq-cta-btn">
+                                    <button type="button" class="btn faq-cta-btn" data-bs-toggle="modal" data-bs-target="#feedbackModal">
                                         Связаться с нами
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                             
@@ -869,98 +869,151 @@
     <!-- МОДАЛЬНОЕ ОКНО: Записаться в библиотеку -->
     <!-- ============================================== -->
     <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content p-3">
-        
-        <div class="modal-header">
-            <h5 class="modal-title" id="registrationModalLabel">Предварительная запись в библиотеку</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-        </div>
-        
-        <form id="registrationForm" action="#" method="POST">
-            <div class="modal-body">
-                
-                <!-- !!! ВАЖНОЕ ПРЕДУПРЕЖДЕНИЕ !!! -->
-                <div class="alert alert-warning small py-2 mb-4" role="alert">
-                    Внимание! Это предварительная запись. Для получения постоянного читательского билета вам необходимо **лично прийти в библиотеку с паспортом**.
-                </div>
-
-                <!-- Секция 1: Основная информация -->
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="regFullName" class="form-label">ФИО (полностью)*</label>
-                        <input type="text" class="form-control" id="regFullName" name="fullName" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="regBirthDate" class="form-label">Дата рождения*</label>
-                        <input type="date" class="form-control" id="regBirthDate" name="birthDate" required>
-                    </div>
-                </div>
-
-                <!-- Секция 2: Контакты -->
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="regEmail" class="form-label">Ваш Email*</label>
-                        <input type="email" class="form-control" id="regEmail" name="email" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="regPhone" class="form-label">Телефон</label>
-                        <input type="tel" class="form-control" id="regPhone" name="phone">
-                    </div>
-                </div>
-
-                <!-- Секция 3: Работа/Учеба -->
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="regWorkStudy" class="form-label">Место работы/учебы</label>
-                        <input type="text" class="form-control" id="regWorkStudy" name="workStudy">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="regPosition" class="form-label">Занимаемая должность</label>
-                        <input type="text" class="form-control" id="regPosition" name="position">
-                    </div>
-                </div>
-
-                <!-- Секция 4: Адреса -->
-                <div class="mb-3">
-                    <label for="regActualAddress" class="form-label">Адрес фактического проживания</label>
-                    <input type="text" class="form-control" id="regActualAddress" name="actualAddress">
-                </div>
-                <div class="mb-3">
-                    <label for="regRegAddress" class="form-label">Адрес по месту прописки</label>
-                    <input type="text" class="form-control" id="regRegAddress" name="regAddress">
-                </div>
-
-                <!-- Галочка согласия (Обязательно) -->
-                <div class="form-check mt-3">
-                    <input class="form-check-input" type="checkbox" value="" id="regPrivacyCheck" required>
-                    <label class="form-check-label small" for="regPrivacyCheck">
-                        Я согласен(а) на обработку моих персональных данных.
-                    </label>
-                </div>
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content p-3">
+            
+            <div class="modal-header">
+                <h5 class="modal-title" id="registrationModalLabel">Предварительная запись в библиотеку</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
             </div>
             
-            <div class="modal-footer d-block p-0">
-                <!-- Юридический дисклеймер (Стилизован под приписку) -->
-                <div class="legal-disclaimer p-3 rounded-bottom bg-light">
-                    <p class="mb-1 small text-muted">
-                        Внимание! Информация о персональных данных удаленных пользователей, воспользовавшихся онлайн-сервисами Централизованной библиотечной системы г. Пскова, обрабатывается с соблюдением требований Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных».
-                    </p>
-                    <p class="mb-0 small"><a href="#" class="text-secondary">Положение об использовании персональных данных пользователей.</a></p>
-                </div>
+            <form id="registrationForm" action="#" method="POST">
+                <div class="modal-body">
+                    
+                    <!-- !!! ВАЖНОЕ ПРЕДУПРЕЖДЕНИЕ !!! -->
+                    <div class="alert alert-warning small py-2 mb-4" role="alert">
+                        Внимание! Это предварительная запись. Для получения постоянного читательского билета вам необходимо **лично прийти в библиотеку с паспортом**.
+                    </div>
 
-                <div class="p-3 d-flex justify-content-end">
-                    <button type="button" class="btn btn-danger me-2" data-bs-dismiss="modal">Отмена</button>
-                    <button type="submit" class="btn btn-success">Отправить заявку</button>
+                    <!-- Секция 1: Основная информация -->
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="regFullName" class="form-label">ФИО (полностью)*</label>
+                            <input type="text" class="form-control" id="regFullName" name="fullName" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="regBirthDate" class="form-label">Дата рождения*</label>
+                            <input type="date" class="form-control" id="regBirthDate" name="birthDate" required>
+                        </div>
+                    </div>
+
+                    <!-- Секция 2: Контакты -->
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="regEmail" class="form-label">Ваш Email*</label>
+                            <input type="email" class="form-control" id="regEmail" name="email" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="regPhone" class="form-label">Телефон</label>
+                            <input type="tel" class="form-control" id="regPhone" name="phone">
+                        </div>
+                    </div>
+
+                    <!-- Секция 3: Работа/Учеба -->
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="regWorkStudy" class="form-label">Место работы/учебы</label>
+                            <input type="text" class="form-control" id="regWorkStudy" name="workStudy">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="regPosition" class="form-label">Занимаемая должность</label>
+                            <input type="text" class="form-control" id="regPosition" name="position">
+                        </div>
+                    </div>
+
+                    <!-- Секция 4: Адреса -->
+                    <div class="mb-3">
+                        <label for="regActualAddress" class="form-label">Адрес фактического проживания</label>
+                        <input type="text" class="form-control" id="regActualAddress" name="actualAddress">
+                    </div>
+                    <div class="mb-3">
+                        <label for="regRegAddress" class="form-label">Адрес по месту прописки</label>
+                        <input type="text" class="form-control" id="regRegAddress" name="regAddress">
+                    </div>
+
+                    <!-- Галочка согласия (Обязательно) -->
+                    <div class="form-check mt-3">
+                        <input class="form-check-input" type="checkbox" value="" id="regPrivacyCheck" required>
+                        <label class="form-check-label small" for="regPrivacyCheck">
+                            Я согласен(а) на обработку моих персональных данных.
+                        </label>
+                    </div>
                 </div>
+                
+                <div class="modal-footer d-block p-0">
+                    <!-- Юридический дисклеймер (Стилизован под приписку) -->
+                    <div class="legal-disclaimer p-3 rounded-bottom bg-light">
+                        <p class="mb-1 small text-muted">
+                            Внимание! Информация о персональных данных удаленных пользователей, воспользовавшихся онлайн-сервисами Централизованной библиотечной системы г. Пскова, обрабатывается с соблюдением требований Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных».
+                        </p>
+                        <p class="mb-0 small"><a href="#" class="text-secondary">Положение об использовании персональных данных пользователей.</a></p>
+                    </div>
+
+                    <div class="p-3 d-flex justify-content-end">
+                        <button type="button" class="btn btn-danger me-2" data-bs-dismiss="modal">Отмена</button>
+                        <button type="submit" class="btn btn-success">Отправить заявку</button>
+                    </div>
+                </div>
+            </form>
             </div>
-        </form>
         </div>
-    </div>
     </div>
     <!-- ============================================== -->
     <!-- КОНЕЦ МОДАЛЬНОГО ОКНА -->
     <!-- ============================================== -->
+    <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-3">
+        
+                <div class="modal-header">
+                    <h5 class="modal-title" id="feedbackModalLabel">Обратная связь</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                
+                <form id="feedbackForm" action="#" method="POST">
+                    <div class="modal-body">
+
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Ваше ФИО (полностью)*</label>
+                            <input type="text" class="form-control" id="fullName" name="fullName" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Ваш Email (для обратной связи)*</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="textarea" class="form-label">Текст сообщения*</label>
+                            <textarea class="form-control" name="message" rows="4" required=""></textarea>
+                        </div>
+
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="checkbox" value="" id="privacyCheck" required>
+                            <label class="form-check-label small" for="privacyCheck">
+                                Я согласен(а) на обработку моих персональных данных.
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer d-block p-0">
+                        <!-- Юридический дисклеймер (Стилизован под приписку) -->
+                        <div class="legal-disclaimer p-3 rounded-bottom bg-light">
+                            <p class="mb-1 small text-muted">
+                                Внимание! Информация о персональных данных удаленных пользователей, воспользовавшихся онлайн-сервисами Централизованной библиотечной системы г. Пскова, обрабатывается с соблюдением требований Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных».
+                            </p>
+                            <p class="mb-0 small"><a href="#" class="text-secondary">Положение об использовании персональных данных пользователей.</a></p>
+                        </div>
+
+                        <div class="p-3 d-flex justify-content-end">
+                            <button type="button" class="btn btn-danger me-2" data-bs-dismiss="modal">Отмена</button>
+                            <button type="submit" class="btn btn-success">Отправить заявку</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 </body>
 

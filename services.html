@@ -336,13 +336,13 @@
                             <div class="col-lg-12 mb-lg-0 d-flex align-items-center">
                                 
                                 <div>
-                                    <h4 class="mb-3 faq-cta-title"><i class='bx bx-message-bubble-question-mark me-2'></i>Хотите провести свое мероприятие?</h4>
+                                    <h4 class="mb-3 faq-cta-title"><i class='bx bx-message-bubble-question-mark me-2'></i>Не нашли ответ на свой вопрос?</h4>
                                     <p class="mb-0 text-muted">
-                                        Если у вас есть идеи для лекции, выставки или мастер-класса, мы готовы предоставить наше пространство. Узнайте, как стать нашим партнером.
+                                        Наша справочная служба всегда на связи! Напишите нам, и мы с радостью предоставим любую необходимую информацию о фондах, мероприятиях или услугах.
                                     </p>
-                                    <a href="" data-bs-toggle="modal" data-bs-target="#eventSubmitModal" class="btn faq-cta-btn">
-                                        Подать заявку
-                                    </a>
+                                    <button type="button" class="btn faq-cta-btn" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                                        Связаться с нами
+                                    </button>
                                 </div>
                             </div>
                             
@@ -487,6 +487,60 @@
                                 <label for="grade" class="form-label">Класс</label>
                                 <input type="text" class="form-control" id="grade" name="grade">
                             </div>
+                        </div>
+
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="checkbox" value="" id="privacyCheck" required>
+                            <label class="form-check-label small" for="privacyCheck">
+                                Я согласен(а) на обработку моих персональных данных.
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer d-block p-0">
+                        <!-- Юридический дисклеймер (Стилизован под приписку) -->
+                        <div class="legal-disclaimer p-3 rounded-bottom bg-light">
+                            <p class="mb-1 small text-muted">
+                                Внимание! Информация о персональных данных удаленных пользователей, воспользовавшихся онлайн-сервисами Централизованной библиотечной системы г. Пскова, обрабатывается с соблюдением требований Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных».
+                            </p>
+                            <p class="mb-0 small"><a href="#" class="text-secondary">Положение об использовании персональных данных пользователей.</a></p>
+                        </div>
+
+                        <div class="p-3 d-flex justify-content-end">
+                            <button type="button" class="btn btn-danger me-2" data-bs-dismiss="modal">Отмена</button>
+                            <button type="submit" class="btn btn-success">Отправить заявку</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-3">
+        
+                <div class="modal-header">
+                    <h5 class="modal-title" id="feedbackModalLabel">Обратная связь</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                
+                <form id="feedbackForm" action="#" method="POST">
+                    <div class="modal-body">
+
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Ваше ФИО (полностью)*</label>
+                            <input type="text" class="form-control" id="fullName" name="fullName" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Ваш Email (для обратной связи)*</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="textarea" class="form-label">Текст сообщения*</label>
+                            <textarea class="form-control" name="message" rows="4" required=""></textarea>
                         </div>
 
                         <div class="form-check mt-3">

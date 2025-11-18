@@ -2274,6 +2274,7 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   padding: 8px 24px;
   background: #863315;
   color: #FFFFFF;
+  border: 1px solid #863315;
   border-radius: 20px;
   text-decoration: none;
   font-size: 16px;
@@ -2284,6 +2285,7 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 .post-register-btn:hover {
   background: #B08953;
   color: #FFFFFF;
+  border: 1px solid #B08953;
 }
 @media (max-width: 991px) {
   .post-register-btn {
