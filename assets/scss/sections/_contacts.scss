@@ -68,4 +68,149 @@
             }
         }
     }
+
+    // ==========================================================
+    // СТИЛИ КАРТОЧЕК СОТРУДНИКОВ
+    // ==========================================================
+    // Класс .staff-cards теперь содержит маргин в HTML (mb-5)
+    
+    .staff-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%; // Для одинаковой высоты карточек в ряду
+        border-radius: 24px; // Скругление 24px для всей карточки
+        overflow: hidden; // Обрезаем фото по скруглению
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease-in-out;
+        background: vars.$color-white; 
+
+        &:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    // Фотография
+    .staff-photo {
+        aspect-ratio: 5 / 4; 
+        width: 100%;
+        overflow: hidden;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+    }
+
+    // Текстовая информация
+    .staff-info {
+        padding: 20px;
+        background: vars.$color-white;
+        flex-grow: 1;
+
+        h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: vars.$color-text;
+            margin-bottom: 2px;
+        }
+        
+        .staff-title {
+            font-size: 14px;
+            color: vars.$color-text;
+            margin-bottom: 12px;
+        }
+
+        .staff-contact {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            margin-bottom: 6px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            i {
+                font-size: 16px;
+                color: vars.$color-primary;
+                margin-right: 8px;
+            }
+
+            a {
+                color: vars.$color-text;
+                text-decoration: none;
+                
+                &:hover {
+                    color: vars.$color-primary;
+                }
+            }
+        }
+    }
+    
+    // ==========================================================
+    // СТИЛИ КАРТЫ и INFO-BOX
+    // ==========================================================
+
+    .map-wrapper {
+        height: 100%; 
+        
+        @media (max-width: 991px) {
+            height: 400px; 
+        }
+    } 
+    
+    .info-box {
+        padding: 30px;
+        background: vars.$color-white; 
+        width: 100%;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+        height: 100%; 
+
+        &:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        // ... (Остальные стили i, h3, p в info-box) ...
+        i {
+            font-size: 24px;
+            color: vars.$color-accent-alt; 
+            background: rgba(vars.$color-primary, 0.1); 
+            border-radius: 50%;
+            padding: 10px;
+            margin-bottom: 15px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+        }
+
+        h3 {
+            font-size: 20px;
+            color: vars.$color-text;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        p {
+            padding: 0;
+            margin-bottom: 0;
+            line-height: 1.4;
+            font-size: 15px;
+            color: vars.$color-text;
+
+            a {
+                color: inherit;
+                text-decoration: none;
+                
+                &:hover {
+                    color: vars.$color-primary;
+                }
+            }
+        }
+    }
 }
