@@ -4,217 +4,224 @@
 .contacts {
     padding: 60px 0;
     
-    // Обертка для карты, чтобы она растянулась на всю высоту col-lg-6
-    .map-wrapper {
-        height: 100%; // Устанавливаем высоту 100% для Flex-элемента
-        
-        @media (max-width: 991px) {
-            // Фиксированная высота для мобильных, когда столбцы перестают выравниваться
-            height: 400px; 
-        }
-    }
-    
-    // Общая стилизация для информационных карточек
-    .info-box {
-        padding: 30px;
-        background: vars.$color-white; 
-        width: 100%;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        border-radius: 12px;
-        text-align: center;
-        transition: all 0.3s ease-in-out;
-        // КЛЮЧЕВОЙ МОМЕНТ: height: 100% гарантирует, 
-        // что карточка растянется на всю доступную высоту в row gy-4
-        height: 100%; 
-
-        &:hover {
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        i {
-            font-size: 24px;
-            color: vars.$color-accent-alt; 
-            background: rgba(vars.$color-primary, 0.1); 
-            border-radius: 50%;
-            padding: 10px;
-            margin-bottom: 15px;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            line-height: 1;
-        }
-
-        h3 {
-            font-size: 20px;
-            color: vars.$color-text;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        p {
-            padding: 0;
-            margin-bottom: 0;
-            line-height: 1.4;
-            font-size: 15px;
-            color: vars.$color-text;
-
-            a {
-                color: inherit;
-                text-decoration: none;
-                
-                &:hover {
-                    color: vars.$color-primary;
-                }
-            }
-        }
-    }
-
     // ==========================================================
-    // СТИЛИ КАРТОЧЕК СОТРУДНИКОВ
+    // 1. СТИЛИ КАРТОЧЕК СОТРУДНИКОВ
     // ==========================================================
-    // Класс .staff-cards теперь содержит маргин в HTML (mb-5)
     
-    .staff-card {
-        display: flex;
-        flex-direction: column;
-        height: 100%; // Для одинаковой высоты карточек в ряду
-        border-radius: 24px; // Скругление 24px для всей карточки
-        overflow: hidden; // Обрезаем фото по скруглению
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease-in-out;
-        background: vars.$color-white; 
+    .staff {
 
-        &:hover {
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-    }
-
-    // Фотография
-    .staff-photo {
-        aspect-ratio: 5 / 4; 
-        width: 100%;
-        overflow: hidden;
-        
-        
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top;
-            filter: sepia(0.1) saturate(0.9);
-        }
-
-        // img:hover {
-        //     filter: brightness(0.95) contrast(0.95) saturate(0.95);
-        // }
-    }
-
-    // Текстовая информация
-    .staff-info {
-        padding: 20px;
-        background: vars.$color-white;
-        flex-grow: 1;
-
-        h4 {
-            font-size: 18px;
-            font-weight: 700;
-            color: vars.$color-text;
-            margin-bottom: 2px;
-        }
-        
-        .staff-title {
-            font-size: 14px;
-            color: vars.$color-text;
-            margin-bottom: 12px;
-        }
-
-        .staff-contact {
-            display: flex;
-            align-items: center;
-            font-size: 14px;
-            margin-bottom: 6px;
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-
-            i {
-                font-size: 16px;
-                color: vars.$color-primary;
-                margin-right: 8px;
-            }
-
-            a {
+        .section-header {
+            margin-bottom: 40px;
+            h2 {
+                font-size: 36px;
+                font-weight: 400;
                 color: vars.$color-text;
-                text-decoration: none;
+                margin-bottom: 16px;
+            }
+            p {
+                color: vars.$color-primary;
+                max-width: auto;
+                margin: 0 auto;
+                font-size: 16px;
+
+                i {
+                    display: inline-flex;
+                    vertical-align: -0.175rem;
+                    font-size: 18px;
+                }
+            }
+        }
+
+        padding: 40px;
+        padding-bottom: 60px;
+        background-color: vars.$color-light-alt;
+        border-radius: 24px;
+        box-shadow: inset 2px 2px 25px rgba(145, 122, 90, 0.1);
+        margin-bottom: 60px;
+
+        .staff-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%; // Для одинаковой высоты карточек в ряду
+            border-radius: 24px; // Скругление 24px для всей карточки
+            overflow: hidden; // Обрезаем фото по скруглению
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease-in-out;
+            background: vars.$color-white;
+            padding: 16px;
+
+            &:hover {
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        // Фотография и фильтры
+        .staff-photo {
+            aspect-ratio: 5 / 4; 
+            width: 100%;
+            overflow: hidden;
+            background-color: vars.$color-light-alt;
+            border-radius: 16px;
+            
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: top;
+                filter: sepia(0.1) saturate(0.9);
                 
-                &:hover {
-                    color: vars.$color-primary;
+                // Используем миксин для плавного перехода
+                @include transition(filter, 0.3s); 
+            }
+        }
+
+        .staff-card:hover { 
+            transform: translateY(-5px) translateZ(0);
+
+            .staff-photo img {
+                // При наведении делаем фото ярче (убираем эффект)
+                filter: none; 
+                background-color: vars.$color-light-alt;
+            }
+        }
+
+        // Текстовая информация (основной контейнер Flex)
+        .staff-info {
+            padding: 16px;
+            padding-bottom: 4px;
+            background: vars.$color-white;
+            flex-grow: 1;
+            
+            // КЛЮЧЕВОЕ ИЗМЕНЕНИЕ: Flexbox для прижатия контактов
+            display: flex;
+            flex-direction: column;
+
+            h4 {
+                font-size: 18px;
+                font-weight: 700;
+                color: vars.$color-text;
+                margin-bottom: 2px;
+            }
+            
+            .staff-title {
+                font-size: 14px;
+                color: vars.$color-text;
+                margin-bottom: 12px;
+            }
+
+            // Обертка для контактной информации
+            .staff-contacts-wrapper {
+                margin-top: auto; // ПРИЖИМАЕТ блок к нижнему краю
+            }
+            
+            .staff-contact {
+                display: flex;
+                align-items: center;
+                font-size: 14px;
+                margin-bottom: 2px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                i {
+                    font-size: 16px;
+                    color: vars.$color-accent-alt;
+                    margin-right: 8px;
+                }
+
+                a {
+                    color: vars.$color-text;
+                    text-decoration: none;
+                    
+                    &:hover {
+                        color: vars.$color-accent-alt;
+                    }
                 }
             }
         }
     }
     
     // ==========================================================
-    // СТИЛИ КАРТЫ и INFO-BOX
+    // 2. СТИЛИ КАРТЫ и INFO-BOX
     // ==========================================================
 
-    .map-wrapper {
-        height: 100%; 
+    .info {
+        padding-top: 40px;
+
+        .section-header {
+            margin-bottom: 40px;
+
+            h2 {
+                font-size: 36px;
+                font-weight: 400;
+                margin-bottom: 16px;
+                color: vars.$color-text;
+            }
+
+            p {
+                color: vars.$color-primary;
+                line-height: 1.6;
+            }
+        }
+        // Обертка для карты
+        .map-wrapper {
+            height: 100%; 
+            
+            @media (max-width: 991px) {
+                height: 400px; 
+            }
+        } 
         
-        @media (max-width: 991px) {
-            height: 400px; 
-        }
-    } 
-    
-    .info-box {
-        padding: 30px;
-        background: vars.$color-white; 
-        width: 100%;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        border-radius: 12px;
-        text-align: center;
-        transition: all 0.3s ease-in-out;
-        height: 100%; 
+        // Общая стилизация для информационных карточек
+        .info-box {
+            padding: 30px;
+            background: vars.$color-white; 
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+            height: 100%; 
 
-        &:hover {
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        // ... (Остальные стили i, h3, p в info-box) ...
-        i {
-            font-size: 24px;
-            color: vars.$color-accent-alt; 
-            background: rgba(vars.$color-primary, 0.1); 
-            border-radius: 50%;
-            padding: 10px;
-            margin-bottom: 15px;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            line-height: 1;
-        }
+            &:hover {
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            }
+            
+            i {
+                font-size: 24px;
+                color: vars.$color-accent-alt; 
+                background: rgba(vars.$color-primary, 0.1); 
+                border-radius: 50%;
+                padding: 10px;
+                margin-bottom: 15px;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                line-height: 1;
+            }
 
-        h3 {
-            font-size: 20px;
-            color: vars.$color-text;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
+            h3 {
+                font-size: 20px;
+                color: vars.$color-text;
+                font-weight: 600;
+                margin-bottom: 8px;
+            }
 
-        p {
-            padding: 0;
-            margin-bottom: 0;
-            line-height: 1.4;
-            font-size: 15px;
-            color: vars.$color-text;
+            p {
+                padding: 0;
+                margin-bottom: 0;
+                line-height: 1.4;
+                font-size: 15px;
+                color: vars.$color-text;
 
-            a {
-                color: inherit;
-                text-decoration: none;
-                
-                &:hover {
-                    color: vars.$color-primary;
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                    
+                    &:hover {
+                        color: vars.$color-primary;
+                    }
                 }
             }
         }

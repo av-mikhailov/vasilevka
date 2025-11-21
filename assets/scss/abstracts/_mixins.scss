@@ -1,0 +1,11 @@
+// ==========================================================
+// MIXIN: Переходы (Transitions)
+// @include transition(свойство, длительность, [функция]);
+// ==========================================================
+@mixin transition($property, $duration, $function: ease) {
+    -webkit-transition: $property $duration $function;
+    -moz-transition: $property $duration $function;
+    -ms-transition: $property $duration $function;
+    -o-transition: $property $duration $function;
+    transition: $property $duration $function;
+}
