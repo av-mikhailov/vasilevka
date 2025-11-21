@@ -63,7 +63,7 @@
             background-position: top center;
             background-color: vars.$color-light-alt;
             border-radius: 16px;
-            filter: sepia(0.1) saturate(0.9);
+            filter: saturate(0.9);
             @include transition(filter, 0.3s); 
             
             img {
@@ -71,7 +71,7 @@
                 height: 100%;
                 object-fit: cover;
                 object-position: top;
-                filter: sepia(0.1) saturate(0.9);
+                filter: saturate(0.9);
                 @include transition(filter, 0.3s); 
                 border-radius: 16px;
             }
@@ -87,14 +87,13 @@
             
         .staff-card:hover .golubeva-photo {
             background-image: url('../../assets/img/girl-2.png');
-            filter: none; // Сбрасываем фильтр, делаем фото ярким
             transform: scaleX(-1);
         }
 
         .staff-card:hover .dergacheva-photo {
-            background-image: url('../../assets/img/girl-1.png');
-            filter: none; // Сбрасываем фильтр, делаем фото ярким
-            transform: scaleX(-1);
+            // background-image: url('../../assets/img/girl-1.png');
+            filter: none;
+            // transform: scaleX(-1);
         }
 
         .staff-card:hover { 
