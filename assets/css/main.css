@@ -2023,9 +2023,16 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 .contacts .staff .staff-photo {
   aspect-ratio: 5/4;
   width: 100%;
-  overflow: hidden;
+  background-size: cover;
+  background-position: top center;
   background-color: #F0EDE8;
   border-radius: 16px;
+  filter: sepia(0.1) saturate(0.9);
+  -webkit-transition: filter 0.3s ease;
+  -moz-transition: filter 0.3s ease;
+  -ms-transition: filter 0.3s ease;
+  -o-transition: filter 0.3s ease;
+  transition: filter 0.3s ease;
 }
 .contacts .staff .staff-photo img {
   width: 100%;
@@ -2038,6 +2045,23 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   -ms-transition: filter 0.3s ease;
   -o-transition: filter 0.3s ease;
   transition: filter 0.3s ease;
+  border-radius: 16px;
+}
+.contacts .staff .dergacheva-photo {
+  background-image: url("../../assets/img/dergacheva.png");
+}
+.contacts .staff .golubeva-photo {
+  background-image: url("../../assets/img/golubeva.png");
+}
+.contacts .staff .staff-card:hover .golubeva-photo {
+  background-image: url("../../assets/img/girl-2.png");
+  filter: none;
+  transform: scaleX(-1);
+}
+.contacts .staff .staff-card:hover .dergacheva-photo {
+  background-image: url("../../assets/img/girl-1.png");
+  filter: none;
+  transform: scaleX(-1);
 }
 .contacts .staff .staff-card:hover {
   transform: translateY(-5px) translateZ(0);
