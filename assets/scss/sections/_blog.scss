@@ -1,0 +1,245 @@
+@use '../abstracts/variables' as vars; 
+@use '../abstracts/mixins' as *; 
+
+.blog {
+    padding: 60px 0;
+    padding-bottom: 120px;
+    
+    // ==========================================================
+    // 1. СТИЛИ КАРТОЧКИ ЗАПИСИ (.post-item)
+    // ... (без изменений, кроме цветовых модификаторов ниже)
+    // ==========================================================
+    .post-item {
+        position: relative;
+        z-index: 1;
+        display: block; 
+        border-radius: 24px;
+        text-decoration: none;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease-in-out;
+        height: 350px; 
+
+        &:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); 
+            transform: translateY(-5px) translateZ(0); 
+        }
+
+        .post-photo-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 25px;
+            color: vars.$color-white; 
+            
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    to bottom, 
+                    rgba(40, 37, 32, 0.1),  
+                    rgba(40, 37, 32, 0.75)   
+                );
+                z-index: 2;
+            }
+            
+            .post-category-tag, .post-content {
+                position: relative;
+                z-index: 3; 
+            }
+        }
+        
+        // А. РУБРИКА (Badge в левом верхнем углу)
+        .post-category-tag {
+            font-size: 13px;
+            font-weight: 500;
+            color: vars.$color-text;
+            background-color: vars.$color-primary; 
+            padding: 6px 15px;
+            border-radius: 15px;
+            width: fit-content; 
+            margin-bottom: auto; 
+        }
+
+        // Б. КОНТЕНТ (Заголовок и дата в левом нижнем углу)
+        .post-content {
+            
+            .post-title {
+                font-size: 20px;
+                font-weight: 500;
+                color: vars.$color-white;
+                margin: 0 0 8px 0;
+                line-height: 1.3;
+
+                @media (max-width: 991px) {
+                    font-size: 18px;
+                }
+            }
+            
+            .post-date {
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.7);
+                margin-bottom: 0;
+            }
+        }
+    }
+    
+    // ==========================================================
+    // 2. СТИЛИ САЙДБАРА
+    // ==========================================================
+    .sidebar {
+        padding: 0 0 60px 0;
+        
+        @media (max-width: 991px) {
+            margin-top: 40px;
+        }
+        
+        .sidebar-block {
+            margin-bottom: 30px;
+            // background: vars.$color-white;
+            // border-radius: 12px;
+            // box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
+            h4 {
+                font-size: 22px;
+                font-weight: 400;
+                color: vars.$color-text;
+                padding: 0;
+                margin-bottom: 24px;
+            }
+            
+            // --- СТИЛИ ДЛЯ СПИСКА РУБРИК (DIVS) ---
+            .category-list {
+                display: grid;
+                gap: 10px;
+            }
+            
+            .category-item {
+                display: flex;
+                text-decoration: none;
+                border-radius: 24px;
+                border: 1px solid transparent;
+                padding: 8px 12px;
+                @include transition(all, 0.3s);
+
+                .category-title {
+                    font-size: 15px;
+                    font-weight: 400;
+                    padding-left: 8px;
+                }
+                
+                .category-count {
+                    font-size: 13px;
+                    font-weight: 400;
+                    min-width: 25px;
+                    padding: 8px 12px;
+                    border-radius: 16px;
+                    color: vars.$color-white;
+                }
+                
+                &:hover {
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    transform: translateY(-2px);
+                }
+            }
+            
+            ul {
+                display: none; 
+            }
+        }
+    }
+
+    /* ========================================================== */
+    /* ЦВЕТОВОЕ КОДИРОВАНИЕ РУБРИК БЛОГА (Карточки) */
+    /* ========================================================== */
+
+    // 1. Новостной дайджест (Цвета Film)
+    .post-item.type-news {
+        .post-category-tag {
+            background-color: #DBDBDB; /* Цвет фона Film */
+            color: #5A6D91;            /* Цвет текста Film */
+        }
+    }
+
+    // 2. Обзоры книг (Цвета Exhibition)
+    .post-item.type-book-review {
+        .post-category-tag {
+            background-color: #D6E2DD;
+            color: #4C7063;
+        }
+    }
+
+    // 3. Краеведение (Цвета Lecture)
+    .post-item.type-local-history {
+        .post-category-tag {
+            background-color: #F2E8DE;
+            color: #9A7751;
+        }
+    }
+
+    // 4. Редкая книга (Цвета Meeting)
+    .post-item.type-rare-book {
+        .post-category-tag {
+            background-color: #EBDFDF;
+            color: #8D5A5A;
+        }
+    }
+    
+    /* ========================================================== */
+    /* ЦВЕТОВОЕ КОДИРОВАНИЕ РУБРИК БЛОГА (Сайдбар) */
+    /* ========================================================== */
+
+    .sidebar {
+        // 1. Новостной дайджест (Film: DBDBDB / 5A6D91)
+        .type-news {
+            background-color: #DBDBDB;
+            color: #5A6D91; 
+            
+            .category-count {
+                background-color: #5A6D91;
+                color: vars.$color-white;
+            }
+        }
+
+        // 2. Обзоры книг (Exhibition: D6E2DD / 4C7063)
+        .type-book-review {
+            background-color: #D6E2DD;
+            color: #4C7063;
+            
+            .category-count {
+                background-color: #4C7063;
+                color: vars.$color-white;
+            }
+        }
+
+        // 3. Краеведение (Lecture: F2E8DE / 9A7751)
+        .type-local-history {
+            background-color: #F2E8DE;
+            color: #cf9c67;
+            
+            .category-count {
+                background-color: #cf9c67;
+                color: vars.$color-white;
+            }
+        }
+        
+        // 4. Редкая книга (Meeting: EBDFDF / 8D5A5A)
+        .type-rare-book {
+            background-color: #EBDFDF;
+            color: #8D5A5A;
+            
+            .category-count {
+                background-color: #8D5A5A;
+                color: vars.$color-white;
+            }
+        }
+    }
+}

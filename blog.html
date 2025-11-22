@@ -11,10 +11,17 @@
     <link rel="stylesheet" href="vendor/boxicons/fonts/brands/boxicons-brands.min.css">
     <link rel="stylesheet" href="vendor/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="vendor/glightbox/css/glightbox.min.css">
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="vasilevka.ru" />
+    <link rel="manifest" href="/site.webmanifest" />
     
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body class="body--single-post">
+<body>
 
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container position-relative d-flex align-items-center justify-content-between">
@@ -27,8 +34,8 @@
                 <ul>
                     <li><a class="nav-link" href="about.html">О библиотеке</a></li>
                     <li><a class="nav-link" href="services.html">Услуги</a></li>
-                    <li><a class="nav-link active" href="events.html">События</a></li>
-                    <li><a class="nav-link" href="blog.html">Блог</a></li>
+                    <li><a class="nav-link" href="events.html">События</a></li>
+                    <li><a class="nav-link active" href="blog.html">Блог</a></li>
                     <li><a class="nav-link" href="catalog.html">Каталог</a></li>
                     <li><a class="nav-link" href="contact.html">Контакты</a></li>
 
@@ -81,113 +88,179 @@
     </header>
 
     <main>
-
-        <div class="breadcrumbs-bar breadcrumbs-bar--light">
-            <div class="container">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        
-                        <li class="breadcrumb-item">
-                            <a href="index.html">Главная</a>
-                            <i class='bx bx-chevron-right ps-3 pe-0'></i> </li>
-                        <li class="breadcrumb-item">
-                        <a href="events.html">Афиша</a>
-                        <i class='bx bx-chevron-right ps-3 pe-0'></i> </li>
-                        
-                        <li class="breadcrumb-item active" aria-current="page">Истории за кадром: Документальная сага о городском наследии</li>
-                    </ol>
-                </nav>
+        <!-- <section id="hero" 
+            class="hero hero--archive" 
+            style="background-image: url('assets/img/events-bg.jpeg');" 
+            data-aos="fade-in" data-aos-duration="1200"
+        > -->
+        <section id="hero" 
+            class="hero hero--archive" 
+            data-aos="fade-in" data-aos-duration="1200"
+        >
+            <video autoplay loop muted playsinline id="hero-video" src="assets/video/video-contact.mp4"></video>
+            <div class="breadcrumbs-bar">
+                <div class="container">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            
+                            <li class="breadcrumb-item">
+                                <a href="index.html">Главная</a>
+                                <i class='bx bx-chevron-right ps-3 pe-0'></i> </li>
+                            
+                            <li class="breadcrumb-item active" aria-current="page">События</li>
+                        </ol>
+                    </nav>
+                </div>
             </div>
-        </div>
+            <div class="hero-content">
+                <h1 data-aos="zoom-in" data-aos-duration="1200">Ваш путеводитель по культурной жизни Пскова</h1>
+                <span class="hero-badge" data-aos="zoom-in" data-aos-duration="1200">
+                    <i class='bx bx-minus pe-1'></i> События <i class=' ps-1 bx bx-minus'></i> 
+                </span>
+            </div>
+            <div class="hero-transition-wave"></div>
+            
+            <div class="hero-contact-bar" data-aos="fade-up" data-aos-duration="1600">
+                <div class="container">
+                    <div class="row align-items-center">
+                        
+                        <div class="col-lg-6 col-12 d-flex justify-content-center justify-content-lg-start ps-2 mb-3 mb-lg-0">
+                            <a href="" 
+                               class="btn btn-lg btn-custom-outline" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                            >
+                                <i class='bx bx-file-detail'></i>  Скачать план мероприятий
+                            </a>
+                        </div>
 
-        <section class="section--post-cover type-film">  <div class="container">
-        
-                <figure class="post-cover-box" 
-                        style="background-image: url('assets/img/event-1.jpg');">
+                        <div class="col-lg-5 d-none d-lg-flex contact-item justify-content-end phone-email-item">
+                            <p class="contact-info">
+                                <!-- <i class='bx bx-phone'></i>  -->Справки по телефону:
+                                <a href="tel:88112331123" class="ps-2"> 8 (8112) 33-11-23</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-1 d-none d-lg-flex contact-item justify-content-end pe-2">
+                            <div class="social-links">
+                                <a href="#" class="social-icon me-2"><i class='bxl bx-vk'></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <section id="blog" data-aos="fade-up" class="blog"> 
+            <div class="container">
+                <div class="row">
                     
-                    <div class="cover-overlay"></div>
-
-                    <div class="cover-content">
-                        <div class="cover-top-row">
-                            <div class="cover-top-left">
-                                <a href="#" class="btn tag-btn">  
-                                    #Премьера фильма
+                    <div class="col-lg-9">
+                        <div class="row gy-4">
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                                <a href="#" class="post-item type-news">
+                                    <div class="post-photo-content" style="background-image: url('assets/img/event-2.jpg');">
+                                        <span class="post-category-tag">
+                                            Новостной дайджест
+                                        </span>
+                                        <div class="post-content">
+                                            <h3 class="post-title">Обзор главных событий недели: Открытие новой выставки</h3>
+                                            <p class="post-date">15 ноября 2025</p>
+                                        </div>
+                                    </div>
                                 </a>
                             </div>
-                            <div class="cover-top-right">
-                                <div class="social-share">
-                                    <a href="#" class="share-icon"><i class='bxl bx-vk'></i></a>
-                                    <a href="#" class="share-icon"><i class='bxl bx-telegram'></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="cover-bottom-left">
-                            <h1 class="display-4">Истории за кадром: Документальная сага о городском наследии</h1>
-                        </div>
-
-                    </div>
-                </figure>
-            </div>
-        </section>
-
-        <section class="section--post-content">
-            <div class="container">
-                
-                <div class="event-header-bar mt-4"> 
-                    <div class="row align-items-center">
-                        <div class="col-xl-8 col-lg-7 col-sm-12 event-meta-info">
-                            <p class="mb-0 me-5"><i class='bx bx-calendar-event'></i> 25 октября</p>
-                            <p class="mb-0 me-5"><i class='bx bx-clock-4'></i> 18:00</p>
-                            <p class="mb-0 me-5"><i class='bx bx-location'></i> Главный зал</p>
-                            <p class="mb-0"><i class='bx  bx-user-id-card'></i>  16+</p>
-                        </div>
-                        <div class="col-xl-4 col-lg-5 col-sm-12 text-lg-end pt-4 pt-lg-0">
-                             <button type="button" class="post-register-btn" data-bs-toggle="modal" data-bs-target="#registrationModal">
-                                Записаться на мероприятие
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row mt-4"> 
-                    
-                    <div class="col-12">
-                        <div class="post-text-wrapper">
-                            
-                            <div class="row align-items-start">
-                                
-                                <div class="col-lg-2 d-none d-lg-flex text-decor-dots text-decor-dots--left px-0"> 
-                                    <i class='bx bxs-circle'></i>
-                                    <i class='bx bxs-circle'></i>
-                                    <i class='bx bxs-circle'></i>
-                                </div>
-                                
-                                <div class="col-lg-8">
-                                    <div class="post-text">
-                                        <p>29 августа в Историко-краеведческой библиотеке им. И. И. Василева состоялся премьерный показ фильма «Аркадий Филинов», созданного рамках проекта «Мастера» в 2025 году.</p>
-                                        <p>Этот фильм знакомит нас с человеком давно и прочно связавшим свою жизнь и творчество с Псковским краем. Аркадий Филинов — живописец, член Союза художников России, преподаватель, человек, который внёс огромный вклад в сохранение таких бесценных памятников Псковской области, как уникальные фрески в церкви Успения Богородицы в Мелётово (1462 г).</p>
-                                        <p>С 2015 года Аркадий живет в Выбутах, там же родились удивительные картины, демонстрирующие нам еще один шедевр: Церковь Ильи Пророка (первое упоминание в 1585-1587 гг.), сравнимую с всемирно известной церковью Покрова на Нерли, здесь же им создан удивительный музей.</p>
-                                        <p>Последние несколько лет художник работает над панорамными картинами с видами Пскова XVII века — это не только творческий процесс, но и серьёзное научное исследование. Фрагменты этих картин вызвали множество вопросов и восторженных откликов у гостей нашей встречи.</p>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                                <a href="#" class="post-item type-local-history">
+                                    <div class="post-photo-content" style="background-image: url('assets/img/gallery-6.jpg');">
+                                        <span class="post-category-tag">
+                                            Краеведение
+                                        </span>
+                                        <div class="post-content">
+                                            <h3 class="post-title">Интервью с краеведом Иваном Василёвым</h3>
+                                            <p class="post-date">08 Ноября 2025</p>
+                                        </div>
                                     </div>
-                                </div>
-                                
-                                <div class="col-lg-2 d-none d-lg-flex text-decor-dots text-decor-dots--right px-0">
-                                    <i class='bx bxs-circle'></i>
-                                    <i class='bx bxs-circle'></i>
-                                    <i class='bx bxs-circle'></i>
-                                </div>
-                                
+                                </a>
+                            </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                                <a href="#" class="post-item type-book-review">
+                                    <div class="post-photo-content" style="background-image: url('assets/img/books.jpg');">
+                                        <span class="post-category-tag">
+                                            Обзоры книг
+                                        </span>
+                                        <div class="post-content">
+                                            <h3 class="post-title">Книга месяца: "Сага о Пскове" и её значение</h3>
+                                            <p class="post-date">30 Октября 2025</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row gy-4 mt-2">
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                                <a href="#" class="post-item type-local-history">
+                                    <div class="post-photo-content" style="background-image: url('assets/img/gallery-8.jpg');">
+                                        <span class="post-category-tag">
+                                            Краеведение
+                                        </span>
+                                        <div class="post-content">
+                                            <h3 class="post-title">Знакомство с историческими личностями</h3>
+                                            <p class="post-date">18 октября 2025</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                                <a href="#" class="post-item type-rare-book">
+                                    <div class="post-photo-content" style="background-image: url('assets/img/redkniga-2-alt.jpg');">
+                                        <span class="post-category-tag">
+                                            Редкая книга
+                                        </span>
+                                        <div class="post-content">
+                                            <h3 class="post-title">Редкая книга: Записки Гетмана Жолкевскаго</h3>
+                                            <p class="post-date">10 октября 2025</p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="col-lg-3">
+                        <div class="sidebar ps-0 ps-lg-4">
+                            <div class="sidebar-block categories-block">
+                                <h4>Рубрики блога</h4>
+                                
+                                <div class="category-list">
+                                    
+                                    <a href="#" class="category-item d-flex justify-content-between align-items-center position-relative type-news">
+                                        <h6 class="m-0 category-title">Новостной дайджест</h6>
+                                        <span class="category-count badge">14</span>
+                                    </a>
+                                    
+                                    <a href="#" class="category-item d-flex justify-content-between align-items-center position-relative type-book-review">
+                                        <h6 class="m-0 category-title">Обзоры книг</h6>
+                                        <span class="category-count badge">08</span>
+                                    </a>
+                                    
+                                    <a href="#" class="category-item d-flex justify-content-between align-items-center position-relative type-local-history">
+                                        <h6 class="m-0 category-title">Краеведение</h6>
+                                        <span class="category-count badge">05</span>
+                                    </a>
+                                    
+                                    <a href="#" class="category-item d-flex justify-content-between align-items-center position-relative type-rare-book">
+                                        <h6 class="m-0 category-title">Редкая книга</h6>
+                                        <span class="category-count badge">03</span>
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </section>
-
-
-
-
     </main>
 
     <footer id="footer" class="py-5">
@@ -280,13 +353,6 @@
     <script src="vendor/swiper/swiper-bundle.min.js"></script>
     <script src="vendor/glightbox/js/glightbox.min.js"></script>
 
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="vasilevka.ru" />
-    <link rel="manifest" href="/site.webmanifest" />
-
     <script src="assets/js/main.js"></script>
 
 
@@ -358,57 +424,6 @@
         </div>
     </div>
 
-    <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content p-3">
-        
-                <div class="modal-header">
-                    <h5 class="modal-title" id="registrationModalLabel">Запись на мероприятие</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-                </div>
-                
-                <form id="registrationForm" action="#" method="POST">
-                    <div class="modal-body">
-                        <div class="alert alert-warning small py-2 mb-4" role="alert">
-                        Заполните поля, и мы свяжемся с вами для подтверждения регистрации.
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="fullName" class="form-label">Ваше ФИО (полностью)*</label>
-                            <input type="text" class="form-control" id="fullName" name="fullName" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Ваш Email (для обратной связи)*</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-
-                        <div class="form-check mt-3">
-                            <input class="form-check-input" type="checkbox" value="" id="privacyCheck" required>
-                            <label class="form-check-label small" for="privacyCheck">
-                                Я согласен(а) на обработку моих персональных данных.
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="modal-footer d-block p-0">
-                        <!-- Юридический дисклеймер (Стилизован под приписку) -->
-                        <div class="legal-disclaimer p-3 rounded-bottom bg-light">
-                            <p class="mb-1 small text-muted">
-                                Внимание! Информация о персональных данных удаленных пользователей, воспользовавшихся онлайн-сервисами Централизованной библиотечной системы г. Пскова, обрабатывается с соблюдением требований Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных».
-                            </p>
-                            <p class="mb-0 small"><a href="#" class="text-secondary">Положение об использовании персональных данных пользователей.</a></p>
-                        </div>
-
-                        <div class="p-3 d-flex justify-content-end">
-                            <button type="button" class="btn btn-danger me-2" data-bs-dismiss="modal">Отмена</button>
-                            <button type="submit" class="btn btn-success">Отправить заявку</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
 </body>
 </html>

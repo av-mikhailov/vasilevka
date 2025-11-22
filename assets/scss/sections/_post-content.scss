@@ -84,6 +84,7 @@
 .post-text {
     padding-right: 0; 
     color: vars.$color-text;
+    text-align: justify;
     
     h2, h3, h4 {
         color: vars.$color-text;
@@ -118,9 +119,9 @@
         border: 1px solid vars.$color-accent-alt;
     }
 
-    @media (max-width: 991px) {
-        margin-top: 446px;
-    }
+    // @media (max-width: 991px) {
+    //     margin-top: 446px;
+    // }
     
     @media (max-width: 767px) {
         width: 100%;

@@ -131,11 +131,18 @@
     .cover-bottom-left {
         grid-area: bottom-left;
 
+        grid-column: 1 / span 2;
+        max-width: 66.66%; 
+        margin: 0 auto;
+        text-align: center;
+
         @media (max-width: 767.98px) {
             /* Сбрасываем Grid-позиционирование и делаем отступ */
             grid-area: unset; 
             margin-top: 15px; 
             margin-top: auto;
+            text-align: center;
+            max-width: 100%; 
         }
 
         h1 {
