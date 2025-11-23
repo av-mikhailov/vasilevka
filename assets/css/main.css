@@ -1634,7 +1634,7 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 }
 .blog .post-item.type-local-history .post-category-tag {
   background-color: #F2E8DE;
-  color: #9A7751;
+  color: #cf9c67;
 }
 .blog .post-item.type-rare-book .post-category-tag {
   background-color: #EBDFDF;
