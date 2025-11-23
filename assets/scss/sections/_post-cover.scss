@@ -136,6 +136,10 @@
         margin: 0 auto;
         text-align: center;
 
+        @media (max-width: 991px) {
+            max-width: 85%; 
+        }
+
         @media (max-width: 767.98px) {
             /* Сбрасываем Grid-позиционирование и делаем отступ */
             grid-area: unset; 
@@ -151,11 +155,11 @@
             line-height: 1.2;
 
             @media (max-width: 991.98px) {
-                font-size: 2.2rem; /* Уменьшаем на tablet */
+                font-size: 1.8rem; /* Уменьшаем на tablet */
             }
 
             @media (max-width: 767.98px) {
-                font-size: 1.8rem; /* Уменьшаем на mobile */
+                font-size: 1.5rem; /* Уменьшаем на mobile */
                 
             }
         }

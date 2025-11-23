@@ -244,6 +244,11 @@
     &--archive {
         height: 60vh; // Уменьшенная высота
         min-height: 400px; 
+
+         @media (max-width: 1550px) {
+            height: 65vh;
+            min-height: 440px; 
+        } 
         
         .hero-content {
             position: absolute; /* Делаем его абсолютно позиционированным */
@@ -259,6 +264,16 @@
                 font-size: 2.5rem;
                 margin-bottom: 16px;
             }
+
+            @media (max-width: 1550px) {
+                top: 55%;
+                width: 100%;
+
+                h1 {
+                    font-size: 1.8rem;
+                    margin-bottom: 16px;
+                }
+            } 
 
             @media (max-width: 991.98px) {
                 top: 55%;

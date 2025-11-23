@@ -848,6 +848,12 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   height: 60vh;
   min-height: 400px;
 }
+@media (max-width: 1550px) {
+  .hero--archive {
+    height: 65vh;
+    min-height: 440px;
+  }
+}
 .hero--archive .hero-content {
   position: absolute; /* Делаем его абсолютно позиционированным */
   top: 50%; /* Сдвигаем на 50% сверху */
@@ -860,6 +866,16 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 .hero--archive .hero-content h1 {
   font-size: 2.5rem;
   margin-bottom: 16px;
+}
+@media (max-width: 1550px) {
+  .hero--archive .hero-content {
+    top: 55%;
+    width: 100%;
+  }
+  .hero--archive .hero-content h1 {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
 }
 @media (max-width: 991.98px) {
   .hero--archive .hero-content {
@@ -1079,7 +1095,8 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 }
 
 .services {
-  padding: 60px 0;
+  padding-top: 80px;
+  padding-bottom: 60px;
   /* Стили для общего заголовка секции */
   /* ---------------------------------------------------- */
   /* Блок 1: Основные Услуги (Service Items) */
@@ -1233,7 +1250,7 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 }
 
 .events {
-  padding: 60px 0;
+  padding: 80px 0;
   /* ЦВЕТОВОЕ КОДИРОВАНИЕ ТИПОВ МЕРОПРИЯТИЙ */
 }
 .events .section-header {
@@ -1477,7 +1494,7 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 }
 
 .blog {
-  padding: 60px 0;
+  padding: 80px 0;
   padding-bottom: 120px;
   /* ========================================================== */
   /* ЦВЕТОВОЕ КОДИРОВАНИЕ РУБРИК БЛОГА (Карточки) */
@@ -2156,7 +2173,8 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 }
 
 .contacts {
-  padding: 60px 0;
+  padding-top: 80px;
+  padding-bottom: 60px;
 }
 .contacts .staff {
   padding: 40px;
@@ -2472,6 +2490,11 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   margin: 0 auto;
   text-align: center;
 }
+@media (max-width: 991px) {
+  .post-cover-box .cover-bottom-left {
+    max-width: 85%;
+  }
+}
 @media (max-width: 767.98px) {
   .post-cover-box .cover-bottom-left {
     /* Сбрасываем Grid-позиционирование и делаем отступ */
@@ -2489,12 +2512,12 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 }
 @media (max-width: 991.98px) {
   .post-cover-box .cover-bottom-left h1 {
-    font-size: 2.2rem; /* Уменьшаем на tablet */
+    font-size: 1.8rem; /* Уменьшаем на tablet */
   }
 }
 @media (max-width: 767.98px) {
   .post-cover-box .cover-bottom-left h1 {
-    font-size: 1.8rem; /* Уменьшаем на mobile */
+    font-size: 1.5rem; /* Уменьшаем на mobile */
   }
 }
 
@@ -2631,7 +2654,8 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 }
 
 .section--history-timeline {
-  padding: 80px 0;
+  padding-top: 80px;
+  padding-bottom: 60px;
   /* ==================================================== */
   /* 0.5. ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ (Точки) */
   /* ==================================================== */
@@ -2704,7 +2728,7 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 }
 .section--history-timeline .history-content-wrapper {
   background-color: #ffffff;
-  padding: 40px;
+  padding: 24px;
   border-radius: 24px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 }
@@ -3718,7 +3742,7 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 }
 
 .catalog {
-  padding-top: 60px;
+  padding-top: 80px;
   padding-bottom: 120px;
 }
 .catalog .card--extended {
