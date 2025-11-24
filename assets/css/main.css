@@ -2282,8 +2282,7 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   background-image: url("../../assets/img/golubeva.png");
 }
 .contacts .staff .staff-card:hover .golubeva-photo {
-  background-image: url("../../assets/img/girl-2.png");
-  transform: scaleX(-1);
+  background-image: url("../../assets/img/golubeva-2.png");
 }
 .contacts .staff .staff-card:hover .dergacheva-photo {
   filter: none;
