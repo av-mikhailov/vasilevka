@@ -699,7 +699,7 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 }
 @media (max-width: 768px) {
   .hero .hero-content h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 40px;
   }
 }
