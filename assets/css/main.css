@@ -2012,8 +2012,6 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   object-fit: contain;
   position: absolute;
   bottom: -48px;
-  left: 50%;
-  transform: translateX(-50%) scaleX(-1) !important;
   display: block;
   margin: 0;
 }
@@ -2027,14 +2025,12 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
     height: 400px;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1400px) {
   .cta .cta-image {
     position: absolute;
-    left: 50%;
     bottom: -90px;
-    transform: translateX(-50%) scaleX(-1) !important;
     right: auto;
-    height: 470px;
+    height: 450px;
   }
 }
 

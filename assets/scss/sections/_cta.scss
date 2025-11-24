@@ -108,9 +108,9 @@
         // Стили для мобильных и планшетов (по умолчанию, <= 991px):
         position: absolute;
         bottom: -48px; 
-        left: 50%;
+        // left: 50%;
         
-        transform: translateX(-50%) scaleX(-1) !important; 
+        // transform: translateX(-50%) scaleX(-1) !important; 
         
         display: block; 
         margin: 0; 
@@ -126,13 +126,13 @@
         }
         
         // Стили для десктопа (lg и выше)
-        @media (min-width: 992px) {
+        @media (min-width: 1400px) {
             position: absolute; 
-            left: 50%; 
+            // left: 50%; 
             bottom: -90px; 
-            transform: translateX(-50%) scaleX(-1) !important; 
+            // transform: translateX(-50%) scaleX(-1) !important; 
             right: auto;
-            height: 470px; 
+            height: 450px; 
         }
     }
 }
