@@ -11,6 +11,7 @@
     /* Видео и Оверлей */
     /* ---------------------------------------------------- */
     
+    // ВАЖНО: Мы сохраняем старые стили для #hero-video
     #hero-video {
         position: absolute;
         top: 50%;
@@ -21,17 +22,51 @@
         height: auto;
         transform: translate(-50%, -50%);
         z-index: 1;
+        
+        // НОВЫЙ КОД: Начальное состояние для плавного перехода
+        opacity: 0;
+        visibility: hidden;
+        @include transition(opacity, 0.8s); 
     }
-
+    
+    // НОВЫЙ КОД: Контейнер для постера (Нужен в HTML: <img class="video-overlay-poster" ... />)
+    .video-overlay-poster {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, -50%); /* Позиционирование как у видео */
+        
+        z-index: 2; /* Поверх видео до загрузки */
+        opacity: 1;
+        visibility: visible;
+        @include transition(opacity, 0.8s); 
+    }
+    
     /* Темный оверлей для лучшей читаемости текста */
     &::before {
         content: "";
         position: absolute;
         inset: 0;
-        // background: rgba(40, 37, 32, 0.85);
-        // background: rgba(23, 23, 23, 0.85);
         background: rgba(29, 28, 27, 0.8);
-        z-index: 2;
+        z-index: 3; /* Теперь оверлей над постером и видео */
+    }
+
+    // НОВЫЙ КОД: Класс, добавляемый JavaScript к .hero (или .hero-video-bg)
+    &.is-ready {
+        #hero-video {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .video-overlay-poster {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none; 
+        }
     }
     
     /* ---------------------------------------------------- */
@@ -40,7 +75,7 @@
     
     .hero-content {
         position: relative;
-        z-index: 3;
+        z-index: 4; /* Контент должен быть выше оверлея (z-index: 3) */
         text-align: center;
         padding: 16px;
         
@@ -99,7 +134,7 @@
         left: 0;
         width: 100%;
         height: 150px; 
-        z-index: 4; /* Под контактами */
+        z-index: 5; /* Теперь Z-index 5, чтобы быть над контентом */
     }
 
     /* ---------------------------------------------------- */
@@ -110,7 +145,7 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        z-index: 5; /* Поверх всего */
+        z-index: 6; /* Поверх всего */
         padding-top: 20px;
         
 
@@ -188,10 +223,6 @@
             .dotted-underline {
                 display: none; 
             }
-
-            // .schedule-item-value {
-            //     color: vars.$color-primary; 
-            // }
         }
 
         /* ---------------------------------------------------- */
@@ -216,8 +247,6 @@
 
                 a {
                     text-decoration: none;
-                    // text-decoration-thickness: 1px; 
-                    // text-decoration-color: rgba(vars.$color-white, 0.3); 
                     transition: color 0.3s, text-decoration-color 0.3s;
                     
                     &:hover {
@@ -256,7 +285,7 @@
             left: 50%;          /* Сдвигаем на 50% слева */
             transform: translate(-50%, -50%); /* Возвращаем на 50% (Финальное центрирование) */
             
-            z-index: 3; 
+            z-index: 4; 
             text-align: center;
             margin-bottom: 0;
 
@@ -303,7 +332,7 @@
         }
 
         .hero-transition-wave {
-            z-index: 4; 
+            z-index: 5; 
         }
         
         .hero-contact-bar {
@@ -353,7 +382,6 @@
             }
         }
     }
-
 
 
     // ==========================================================

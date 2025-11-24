@@ -129,6 +129,31 @@
             }
         }, { once: true });
     }
+    
+    // --- НОВАЯ ФУНКЦИЯ: ПЛАВНЫЙ ПЕРЕХОД ВИДЕО/ПОСТЕРА ---
+    function setupHeroVideoTransition() {
+        const video = select('#hero-video');
+        const heroContainer = select('.hero'); // Ваш контейнер, куда добавляем класс is-ready
+
+        if (!video || !heroContainer) return;
+
+        // Событие срабатывает, когда видео загружено достаточно,
+        // чтобы воспроизвести его до конца без прерываний
+        video.addEventListener('canplaythrough', function() {
+            // Добавляем класс, который запускает CSS-переход
+            heroContainer.classList.add('is-ready');
+        }, { once: true });
+        
+        // Если видео уже воспроизводится, но событие не сработало (иногда бывает в Safari),
+        // можно добавить проверку:
+        if (video.readyState >= 4) { // 4 = HAVE_ENOUGH_DATA
+             heroContainer.classList.add('is-ready');
+        } else {
+             // Принудительно запускаем загрузку/буферизацию, чтобы canplaythrough сработало
+             video.load(); 
+        }
+    }
+
 
     // --- ФУНКЦИИ ФОРМЫ ---
     function setupMultiStepForm() {
@@ -417,6 +442,9 @@
                  }
             }
         }
+        
+        // 9. ИНИЦИАЛИЗАЦИЯ ПЛАВНОГО ПЕРЕХОДА ВИДЕО
+        setupHeroVideoTransition();
         
     });
 

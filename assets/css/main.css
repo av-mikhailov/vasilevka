@@ -676,17 +676,51 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   height: auto;
   transform: translate(-50%, -50%);
   z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.8s ease;
+  -moz-transition: opacity 0.8s ease;
+  -ms-transition: opacity 0.8s ease;
+  -o-transition: opacity 0.8s ease;
+  transition: opacity 0.8s ease;
+}
+.hero .video-overlay-poster {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%); /* Позиционирование как у видео */
+  z-index: 2; /* Поверх видео до загрузки */
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.8s ease;
+  -moz-transition: opacity 0.8s ease;
+  -ms-transition: opacity 0.8s ease;
+  -o-transition: opacity 0.8s ease;
+  transition: opacity 0.8s ease;
 }
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(29, 28, 27, 0.8);
-  z-index: 2;
+  z-index: 3; /* Теперь оверлей над постером и видео */
+}
+.hero.is-ready #hero-video {
+  opacity: 1;
+  visibility: visible;
+}
+.hero.is-ready .video-overlay-poster {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 .hero .hero-content {
   position: relative;
-  z-index: 3;
+  z-index: 4; /* Контент должен быть выше оверлея (z-index: 3) */
   text-align: center;
   padding: 16px;
 }
@@ -736,14 +770,14 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   left: 0;
   width: 100%;
   height: 150px;
-  z-index: 4; /* Под контактами */
+  z-index: 5; /* Теперь Z-index 5, чтобы быть над контентом */
 }
 .hero .hero-contact-bar {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 5; /* Поверх всего */
+  z-index: 6; /* Поверх всего */
   padding-top: 20px;
   /* ---------------------------------------------------- */
   /* Стили для Графика работы (Flexbox для выравнивания и точки) */
@@ -859,7 +893,7 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   top: 50%; /* Сдвигаем на 50% сверху */
   left: 50%; /* Сдвигаем на 50% слева */
   transform: translate(-50%, -50%); /* Возвращаем на 50% (Финальное центрирование) */
-  z-index: 3;
+  z-index: 4;
   text-align: center;
   margin-bottom: 0;
 }
@@ -902,7 +936,7 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   font-size: 16px;
 }
 .hero--archive .hero-transition-wave {
-  z-index: 4;
+  z-index: 5;
 }
 .hero--archive .hero-contact-bar .container {
   padding-top: 16px;
