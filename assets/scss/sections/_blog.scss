@@ -20,11 +20,6 @@
         transition: all 0.3s ease-in-out;
         height: 350px; 
 
-        &:hover {
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); 
-            transform: translateY(-5px) translateZ(0); 
-        }
-
         .post-photo-content {
             position: absolute;
             top: 0;
@@ -63,8 +58,8 @@
             font-weight: 500;
             color: vars.$color-text;
             background-color: vars.$color-primary; 
-            padding: 6px 15px;
-            border-radius: 15px;
+            padding: 4px 10px;
+            border-radius: 24px;
             width: fit-content; 
             margin-bottom: auto; 
         }
@@ -89,6 +84,11 @@
                 color: rgba(255, 255, 255, 0.7);
                 margin-bottom: 0;
             }
+        }
+
+         &:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); 
+            transform: translateY(-5px) translateZ(0);
         }
     }
     
@@ -139,15 +139,23 @@
                 .category-count {
                     font-size: 13px;
                     font-weight: 400;
-                    min-width: 25px;
-                    padding: 8px 12px;
+                    width: 40px;
+                    padding: 6px 12px;
                     border-radius: 16px;
-                    color: vars.$color-white;
+                    border: 0.5px solid vars.$color-text;
+                    color: vars.$color-text;
                 }
                 
                 &:hover {
-                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    // box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    box-shadow: inset 2px 2px 25px rgba(145, 122, 90, 0.1);
                     transform: translateY(-2px);
+                    background-color: vars.$color-light-alt;
+
+                    .category-count {
+                        color: vars.$color-white;
+                        background-color: vars.$color-text;
+                    }
                 }
             }
             
@@ -164,15 +172,21 @@
     // 1. Новостной дайджест (Цвета Film)
     .post-item.type-news {
         .post-category-tag {
-            background-color: #DBDBDB; /* Цвет фона Film */
-            color: #5A6D91;            /* Цвет текста Film */
+            // background-color: #DBDBDB;
+            // color: #5A6D91;
+            background-color: vars.$color-white;
+            border: 0.5px solid #5A6D91;
+            color: #5A6D91;
         }
     }
 
     // 2. Обзоры книг (Цвета Exhibition)
     .post-item.type-book-review {
         .post-category-tag {
-            background-color: #D6E2DD;
+            // background-color: #D6E2DD;
+            // color: #4C7063;
+            background-color: vars.$color-white;
+            border: 0.5px solid #4C7063;
             color: #4C7063;
         }
     }
@@ -180,7 +194,10 @@
     // 3. Краеведение (Цвета Lecture)
     .post-item.type-local-history {
         .post-category-tag {
-            background-color: #F2E8DE;
+            // background-color: #F2E8DE;
+            // color: #cf9c67;
+            background-color: vars.$color-white;
+            border: 0.5px solid #cf9c67;
             color: #cf9c67;
         }
     }
@@ -188,7 +205,10 @@
     // 4. Редкая книга (Цвета Meeting)
     .post-item.type-rare-book {
         .post-category-tag {
-            background-color: #EBDFDF;
+            // background-color: #EBDFDF;
+            // color: #8D5A5A;
+            background-color: vars.$color-white;
+            border: 0.5px solid #8D5A5A;
             color: #8D5A5A;
         }
     }
@@ -200,44 +220,52 @@
     .sidebar {
         // 1. Новостной дайджест (Film: DBDBDB / 5A6D91)
         .type-news {
-            background-color: #DBDBDB;
-            color: #5A6D91; 
+            // background-color: #DBDBDB;
+            // color: #5A6D91; 
+            background-color: vars.$color-white;
+            color: vars.$color-text;
             
             .category-count {
-                background-color: #5A6D91;
+                // background-color: #5A6D91;
                 color: vars.$color-white;
             }
         }
 
         // 2. Обзоры книг (Exhibition: D6E2DD / 4C7063)
         .type-book-review {
-            background-color: #D6E2DD;
-            color: #4C7063;
+            // background-color: #D6E2DD;
+            // color: #4C7063;
+            background-color: vars.$color-white;
+            color: vars.$color-text;
             
             .category-count {
-                background-color: #4C7063;
+                // background-color: #4C7063;
                 color: vars.$color-white;
             }
         }
 
         // 3. Краеведение (Lecture: F2E8DE / 9A7751)
         .type-local-history {
-            background-color: #F2E8DE;
-            color: #cf9c67;
+            // background-color: #F2E8DE;
+            // color: #cf9c67;
+            background-color: vars.$color-white;
+            color: vars.$color-text;
             
             .category-count {
-                background-color: #cf9c67;
+                // background-color: #cf9c67;
                 color: vars.$color-white;
             }
         }
         
         // 4. Редкая книга (Meeting: EBDFDF / 8D5A5A)
         .type-rare-book {
-            background-color: #EBDFDF;
-            color: #8D5A5A;
+            // background-color: #EBDFDF;
+            // color: #8D5A5A;
+            background-color: vars.$color-white;
+            color: vars.$color-text;
             
             .category-count {
-                background-color: #8D5A5A;
+                // background-color: #8D5A5A;
                 color: vars.$color-white;
             }
         }

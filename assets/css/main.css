@@ -1548,10 +1548,6 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   transition: all 0.3s ease-in-out;
   height: 350px;
 }
-.blog .post-item:hover {
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px) translateZ(0);
-}
 .blog .post-item .post-photo-content {
   position: absolute;
   top: 0;
@@ -1582,8 +1578,8 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   font-weight: 500;
   color: #282520;
   background-color: #917A5A;
-  padding: 6px 15px;
-  border-radius: 15px;
+  padding: 4px 10px;
+  border-radius: 24px;
   width: fit-content;
   margin-bottom: auto;
 }
@@ -1603,6 +1599,10 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   font-size: 13px;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0;
+}
+.blog .post-item:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px) translateZ(0);
 }
 .blog .sidebar {
   padding: 0 0 60px 0;
@@ -1646,64 +1646,70 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 .blog .sidebar .sidebar-block .category-item .category-count {
   font-size: 13px;
   font-weight: 400;
-  min-width: 25px;
-  padding: 8px 12px;
+  width: 40px;
+  padding: 6px 12px;
   border-radius: 16px;
-  color: #FFFFFF;
+  border: 0.5px solid #282520;
+  color: #282520;
 }
 .blog .sidebar .sidebar-block .category-item:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 2px 2px 25px rgba(145, 122, 90, 0.1);
   transform: translateY(-2px);
+  background-color: #F0EDE8;
+}
+.blog .sidebar .sidebar-block .category-item:hover .category-count {
+  color: #FFFFFF;
+  background-color: #282520;
 }
 .blog .sidebar .sidebar-block ul {
   display: none;
 }
 .blog .post-item.type-news .post-category-tag {
-  background-color: #DBDBDB; /* Цвет фона Film */
-  color: #5A6D91; /* Цвет текста Film */
+  background-color: #FFFFFF;
+  border: 0.5px solid #5A6D91;
+  color: #5A6D91;
 }
 .blog .post-item.type-book-review .post-category-tag {
-  background-color: #D6E2DD;
+  background-color: #FFFFFF;
+  border: 0.5px solid #4C7063;
   color: #4C7063;
 }
 .blog .post-item.type-local-history .post-category-tag {
-  background-color: #F2E8DE;
+  background-color: #FFFFFF;
+  border: 0.5px solid #cf9c67;
   color: #cf9c67;
 }
 .blog .post-item.type-rare-book .post-category-tag {
-  background-color: #EBDFDF;
+  background-color: #FFFFFF;
+  border: 0.5px solid #8D5A5A;
   color: #8D5A5A;
 }
 .blog .sidebar .type-news {
-  background-color: #DBDBDB;
-  color: #5A6D91;
+  background-color: #FFFFFF;
+  color: #282520;
 }
 .blog .sidebar .type-news .category-count {
-  background-color: #5A6D91;
   color: #FFFFFF;
 }
 .blog .sidebar .type-book-review {
-  background-color: #D6E2DD;
-  color: #4C7063;
+  background-color: #FFFFFF;
+  color: #282520;
 }
 .blog .sidebar .type-book-review .category-count {
-  background-color: #4C7063;
   color: #FFFFFF;
 }
 .blog .sidebar .type-local-history {
-  background-color: #F2E8DE;
-  color: #cf9c67;
+  background-color: #FFFFFF;
+  color: #282520;
 }
 .blog .sidebar .type-local-history .category-count {
-  background-color: #cf9c67;
   color: #FFFFFF;
 }
 .blog .sidebar .type-rare-book {
-  background-color: #EBDFDF;
-  color: #8D5A5A;
+  background-color: #FFFFFF;
+  color: #282520;
 }
 .blog .sidebar .type-rare-book .category-count {
-  background-color: #8D5A5A;
   color: #FFFFFF;
 }
 
@@ -2757,7 +2763,8 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
 }
 .section--history-timeline .history-content-wrapper {
   background-color: #ffffff;
-  padding: 24px;
+  padding: 40px;
+  padding-top: 24px;
   border-radius: 24px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 }
