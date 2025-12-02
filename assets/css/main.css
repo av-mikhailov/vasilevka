@@ -706,7 +706,7 @@ body.scrolled .navmenu a:hover.active::after, body.scrolled .navmenu a.active.ac
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(29, 28, 27, 0.6);
+  background: rgba(29, 28, 27, 0.8);
   z-index: 3; /* Теперь оверлей над постером и видео */
 }
 .hero.is-ready #hero-video {
